@@ -1,0 +1,8 @@
+{
+"rewrites": [
+{
+"source": "/api/jadibot/:path*",
+"destination": "http://amaneshop.serverpublick.web.id:2470/api/jadibot/:path*"
+}
+]
+}
