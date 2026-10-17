@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XenaMorph — Portal Jadibot & Layanan Bot WhatsApp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-cream: #F4ECE1;
+      --bg-card: #EFE4D4;
+      --bg-paper: #FAF5EE;
+      --ink-dark: #1E1815;
+      --ink-muted: #5C4E43;
+      --retro-red: #D94E34;
+      --retro-red-dark: #B83B24;
+      --retro-mustard: #E59838;
+      --retro-border: #1E1815;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--ink-dark);
+      -webkit-font-smoothing: antialiased;
+      background-image: radial-gradient(rgba(30, 24, 21, 0.08) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+
+    .retro-display {
+      font-family: 'Fraunces', Georgia, serif;
+      letter-spacing: -0.02em;
+    }
+
+    .mono {
+      font-family: 'Space Mono', monospace;
+    }
+
+    /* Gaya Kartu & Bayangan khas Retro Poster 70s-80s */
+    .retro-box {
+      background-color: var(--bg-paper);
+      border: 2px solid var(--ink-dark);
+      box-shadow: 4px 4px 0px var(--ink-dark);
+    }
+
+    .retro-box-sm {
+      background-color: var(--bg-paper);
+      border: 1.5px solid var(--ink-dark);
+      box-shadow: 3px 3px 0px var(--ink-dark);
+    }
+
+    .retro-btn-primary {
+      background-color: var(--retro-red);
+      color: #FAF5EE;
+      border: 2px solid var(--ink-dark);
+      box-shadow: 3px 3px 0px var(--ink-dark);
+      transition: transform 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+    }
+    .retro-btn-primary:hover {
+      background-color: var(--retro-red-dark);
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px var(--ink-dark);
+    }
+    .retro-btn-primary:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px var(--ink-dark);
+    }
+
+    .retro-btn-secondary {
+      background-color: var(--bg-card);
+      color: var(--ink-dark);
+      border: 2px solid var(--ink-dark);
+      box-shadow: 3px 3px 0px var(--ink-dark);
+      transition: transform 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+    }
+    .retro-btn-secondary:hover {
+      background-color: #E5D6C0;
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px var(--ink-dark);
+    }
+    .retro-btn-secondary:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px var(--ink-dark);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-cream);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--ink-dark);
+      border-radius: 3px;
+    }
+
+    /* Animasi scroll tipis: fade-in + naik sedikit */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 520ms ease, transform 520ms cubic-bezier(.2, .65, .3, 1);
+      will-change: opacity, transform;
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      will-change: auto;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .scroll-reveal,
+      .scroll-reveal.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        will-change: auto;
+      }
+    }
+
+    /* FAQ accordion bergaya Retro */
+    .faq-item {
+      border: 2px solid var(--ink-dark);
+      border-radius: 1rem;
+      background: var(--bg-paper);
+      box-shadow: 3px 3px 0px var(--ink-dark);
+      overflow: hidden;
+      transition: background-color 220ms ease, transform 220ms ease;
+    }
+    .faq-item.is-open {
+      background: #FFFDF9;
+    }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 1.2rem;
+      text-align: left;
+      color: var(--ink-dark);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+    .faq-chevron {
+      width: 1.1rem;
+      height: 1.1rem;
+      flex: 0 0 auto;
+      transition: transform 260ms cubic-bezier(.2, .65, .3, 1), color 220ms ease;
+      color: var(--ink-dark);
+    }
+    .faq-item.is-open .faq-chevron {
+      transform: rotate(180deg);
+      color: var(--retro-red);
+    }
+    .faq-answer-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      transition: grid-template-rows 300ms cubic-bezier(.2, .65, .3, 1), opacity 220ms ease;
+    }
+    .faq-item.is-open .faq-answer-wrap {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+    .faq-answer-inner { overflow: hidden; }
+    .faq-answer {
+      padding: 0 1.2rem 1.15rem;
+      color: var(--ink-muted);
+      font-size: .825rem;
+      line-height: 1.75;
+      border-top: 1px dashed rgba(30, 24, 21, 0.2);
+      padding-top: 0.75rem;
+    }
+  
+
+    /* XenaMorph Neo-Vintage Tech Premium — mobile-first refinement */
+    :root {
+      --bg-cream: #F3E8D7;
+      --bg-card: #EDE0CE;
+      --bg-paper: #FFF9F1;
+      --ink-dark: #211A16;
+      --ink-muted: #74665B;
+      --retro-red: #D94B36;
+      --retro-red-dark: #B63A28;
+      --retro-mustard: #E8A23A;
+      --retro-border: #211A16;
+      --content-gutter: clamp(18px, 4.5vw, 28px);
+      --shadow-hard: 3px 3px 0 var(--ink-dark);
+      --shadow-hard-lg: 4px 4px 0 var(--ink-dark);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--ink-dark);
+      background-image: radial-gradient(rgba(33, 26, 22, .045) .7px, transparent .7px);
+      background-size: 24px 24px;
+      overflow-x: clip;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* Softer paper surfaces, same strong vintage outline */
+    .retro-box {
+      border: 2px solid var(--ink-dark);
+      box-shadow: var(--shadow-hard-lg);
+      border-radius: 18px;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+    .retro-box-sm {
+      border: 1.5px solid var(--ink-dark);
+      box-shadow: var(--shadow-hard);
+      border-radius: 15px;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .retro-btn-primary,
+    .retro-btn-secondary {
+      min-height: 54px;
+      border-radius: 16px;
+      font-weight: 750;
+      letter-spacing: -.01em;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .retro-btn-primary { box-shadow: 3px 3px 0 var(--ink-dark); }
+    .retro-btn-secondary { box-shadow: 3px 3px 0 var(--ink-dark); }
+    .retro-btn-primary:hover,
+    .retro-btn-secondary:hover {
+      transform: translateY(-1px);
+      box-shadow: 4px 4px 0 var(--ink-dark);
+    }
+    .retro-btn-primary:active,
+    .retro-btn-secondary:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--ink-dark);
+    }
+    :where(a, button, input, select, textarea):focus-visible {
+      outline: 3px solid var(--retro-mustard);
+      outline-offset: 3px;
+    }
+
+    /* Header: compact on phones without losing the brand */
+    header {
+      background-color: rgba(243, 232, 215, .96) !important;
+      border-bottom-width: 2px !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    header > div {
+      min-height: 74px;
+      padding-top: 12px !important;
+      padding-bottom: 12px !important;
+    }
+    header a, footer a { text-underline-offset: 3px; }
+
+    /* Hero: deliberate spacing and readable type scale */
+    #hero > div {
+      padding-top: clamp(42px, 8vw, 68px) !important;
+      padding-bottom: clamp(42px, 8vw, 68px) !important;
+      padding-left: var(--content-gutter) !important;
+      padding-right: var(--content-gutter) !important;
+    }
+    #hero h1 {
+      font-size: clamp(2.05rem, 7.3vw, 3.5rem) !important;
+      line-height: 1.08 !important;
+      letter-spacing: -.035em !important;
+      text-wrap: balance;
+      max-width: 850px;
+    }
+    #hero p {
+      max-width: 660px;
+      font-size: clamp(.94rem, 2.5vw, 1.05rem) !important;
+      line-height: 1.8 !important;
+      font-weight: 450;
+    }
+    #hero .inline-flex {
+      max-width: 100%;
+      line-height: 1.45;
+    }
+    #hero a, #hero button { -webkit-tap-highlight-color: transparent; }
+
+    /* Consistent section rhythm */
+    #view-dashboard > section:not(#hero),
+    #faq {
+      scroll-margin-top: 92px;
+    }
+    #fitur-bot,
+    #paket-harga {
+      padding-left: var(--content-gutter);
+      padding-right: var(--content-gutter);
+    }
+    #faq {
+      padding-left: var(--content-gutter) !important;
+      padding-right: var(--content-gutter) !important;
+      padding-bottom: 48px !important;
+    }
+    #fitur-bot h2,
+    #paket-harga h2,
+    #faq h2 {
+      line-height: 1.14;
+      letter-spacing: -.025em;
+      text-wrap: balance;
+    }
+
+    /* Card details stay restrained; avoid excessive movement */
+    .faq-item {
+      border-radius: 15px;
+      box-shadow: 3px 3px 0 var(--ink-dark);
+    }
+    .faq-question {
+      min-height: 54px;
+      padding: .95rem 1rem;
+      font-size: .92rem;
+      line-height: 1.5;
+    }
+    .faq-answer { font-size: .875rem; line-height: 1.75; }
+
+    footer {
+      background-color: var(--bg-card) !important;
+      margin-top: 40px !important;
+      padding-top: 24px !important;
+      padding-bottom: 24px !important;
+    }
+
+    /* Keep scroll reveals subtle and avoid invisible content before JS runs */
+    .scroll-reveal {
+      transform: translateY(10px);
+      transition: opacity 380ms ease, transform 380ms cubic-bezier(.2, .65, .3, 1);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .retro-box:hover,
+      .retro-box-sm:hover {
+        transform: translateY(-2px);
+        box-shadow: 5px 5px 0 var(--ink-dark);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body { font-size: 14px; }
+      header > div { gap: 10px !important; min-height: 68px; }
+      header .retro-display { font-size: 1.18rem !important; }
+      #hero > div { gap: 20px !important; }
+      #hero h1 { font-size: clamp(1.95rem, 8.2vw, 2.35rem) !important; }
+      #hero p { font-size: .93rem !important; line-height: 1.75 !important; }
+      #hero .inline-flex { font-size: .75rem; padding-left: 12px; padding-right: 12px; }
+      .retro-box { box-shadow: 3px 3px 0 var(--ink-dark); }
+      .retro-btn-primary, .retro-btn-secondary { min-height: 52px; border-radius: 14px; }
+      .faq-question { padding: .9rem .85rem; }
+    }
+
+    @media (min-width: 768px) {
+      :root { --content-gutter: 28px; }
+      body { font-size: 16px; }
+      #hero h1 { font-size: clamp(3rem, 5vw, 4rem) !important; }
+      #fitur-bot,
+      #paket-harga { padding-left: 0; padding-right: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .scroll-reveal,
+      .scroll-reveal.is-visible {
+        opacity: 1 !important;
+        transform: none !important;
+        will-change: auto !important;
+      }
+    }
+
+
+
+    /* Dark mode: opt-in only. Light mode keeps the original Neo-Vintage palette. */
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg-cream: #171513;
+      --bg-card: #211D19;
+      --bg-paper: #25211D;
+      --ink-dark: #F4EBDD;
+      --ink-muted: #C2B4A4;
+      --retro-red: #E15A43;
+      --retro-red-dark: #C84934;
+      --retro-mustard: #E7AD58;
+      --retro-border: #E5D8C8;
+      --shadow-hard: 3px 3px 0 #080706;
+      --shadow-hard-lg: 4px 4px 0 #080706;
+    }
+
+    html[data-theme="dark"] body {
+      background-color: #171513;
+      color: #F4EBDD;
+      background-image: radial-gradient(rgba(244, 235, 221, .045) .7px, transparent .7px);
+    }
+
+    html[data-theme="dark"] header {
+      background-color: rgba(29, 25, 21, .96) !important;
+      border-color: #493D32 !important;
+    }
+
+    html[data-theme="dark"] #hero {
+      background-color: rgba(43, 36, 29, .72) !important;
+      border-color: #493D32 !important;
+    }
+
+    html[data-theme="dark"] footer,
+    html[data-theme="dark"] .retro-box,
+    html[data-theme="dark"] .retro-box-sm,
+    html[data-theme="dark"] .faq-item {
+      background-color: var(--bg-paper) !important;
+      color: var(--ink-dark);
+      border-color: #796858 !important;
+    }
+
+    html[data-theme="dark"] .retro-btn-secondary {
+      background-color: #2B2621 !important;
+      color: #F4EBDD !important;
+      border-color: #B7A590 !important;
+    }
+    html[data-theme="dark"] .retro-btn-secondary:hover {
+      background-color: #393027 !important;
+    }
+    html[data-theme="dark"] .retro-btn-primary {
+      color: #FFF8EF !important;
+      border-color: #B7A590 !important;
+    }
+
+    /* Tailwind utility colors are overridden only in dark mode. */
+    html[data-theme="dark"] [class*="bg-[#F4ECE1]"],
+    html[data-theme="dark"] [class*="bg-[#EFE4D4]"],
+    html[data-theme="dark"] [class*="bg-[#FAF5EE]"],
+    html[data-theme="dark"] [class*="bg-[#FFF9F1]"],
+    html[data-theme="dark"] [class*="bg-[#EDE0CE]"],
+    html[data-theme="dark"] [class*="bg-[#F3E8D7]"] {
+      background-color: #25211D !important;
+    }
+    html[data-theme="dark"] [class*="text-[#1E1815]"],
+    html[data-theme="dark"] [class*="text-[#211A16]"],
+    html[data-theme="dark"] [class*="text-[#5C4E43]"],
+    html[data-theme="dark"] [class*="text-[#74665B]"] {
+      color: #E9DDCE !important;
+    }
+    html[data-theme="dark"] [class*="border-[#1E1815]"],
+    html[data-theme="dark"] [class*="border-[#211A16]"] {
+      border-color: #796858 !important;
+    }
+    html[data-theme="dark"] [class*="shadow-[2px_2px_0px_#1E1815]"],
+    html[data-theme="dark"] [class*="shadow-[3px_3px_0px_#1E1815]"],
+    html[data-theme="dark"] [class*="shadow-[4px_4px_0px_#1E1815]"] {
+      box-shadow: 3px 3px 0 #080706 !important;
+    }
+    html[data-theme="dark"] input,
+    html[data-theme="dark"] textarea,
+    html[data-theme="dark"] select {
+      background-color: #211D19 !important;
+      color: #F4EBDD !important;
+      border-color: #796858 !important;
+    }
+    html[data-theme="dark"] input::placeholder,
+    html[data-theme="dark"] textarea::placeholder {
+      color: #A99A89 !important;
+      opacity: 1;
+    }
+    html[data-theme="dark"] .bg-white,
+    html[data-theme="dark"] [class~="bg-white"] {
+      background-color: #25211D !important;
+    }
+    html[data-theme="dark"] .text-gray-500,
+    html[data-theme="dark"] .text-gray-600,
+    html[data-theme="dark"] .text-slate-500,
+    html[data-theme="dark"] .text-slate-600 {
+      color: #B9AA99 !important;
+    }
+    html[data-theme="dark"] .border-gray-200,
+    html[data-theme="dark"] .border-gray-300,
+    html[data-theme="dark"] .border-slate-200 {
+      border-color: #51463B !important;
+    }
+    html[data-theme="dark"] ::-webkit-scrollbar-track { background: #171513; }
+    html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #796858; }
+
+    #theme-toggle {
+      min-width: 42px;
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 0 11px;
+      flex-shrink: 0;
+      border: 2px solid var(--ink-dark);
+      border-radius: 12px;
+      background: var(--bg-paper);
+      color: var(--ink-dark);
+      box-shadow: 2px 2px 0 var(--ink-dark);
+      font: 700 12px 'Space Mono', monospace;
+      transition: transform 140ms ease, box-shadow 140ms ease, background-color 180ms ease, color 180ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    #theme-toggle:active { transform: translate(2px, 2px); box-shadow: 0 0 0 var(--ink-dark); }
+    #theme-toggle svg { width: 17px; height: 17px; flex: 0 0 auto; }
+    @media (max-width: 480px) {
+      #theme-toggle { width: 42px; padding: 0; }
+      #theme-toggle .theme-label { display: none; }
+      header > div { gap: 8px !important; }
+      header > div > a { min-width: 0; }
+      header > div > a p { max-width: 145px; line-height: 1.3; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #theme-toggle { transition: none; }
+    }
+
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-[#D94E34] selection:text-[#FAF5EE]">
+
+  <!-- Vintage Top Marquee Strip -->
+  <div class="bg-[#1E1815] text-[#F4ECE1] text-[11px] mono py-1.5 px-4 border-b-2 border-[#1E1815] text-center tracking-wider uppercase">
+    EST. 2026 • XENAMORPH MULTI-DEVICE AUTOMATION • VINTAGE EDITION • ONLINE 24/7
+  </div>
+
+  <!-- Top Navigation -->
+  <header class="border-b-2 border-[#1E1815] bg-[#F4ECE1]/95 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between gap-4">
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-[#D94E34] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center justify-center text-[#FAF5EE] group-hover:bg-[#B83B24] transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="retro-display font-black text-base tracking-tight text-[#1E1815]">XenaMorph</span>
+            <span class="text-[10px] mono font-bold px-1.5 py-0.5 rounded bg-[#E59838] text-[#1E1815] border border-[#1E1815]">v2.5</span>
+          </div>
+          <p class="text-[11px] text-[#5C4E43] font-medium">WhatsApp Multi-Device Infrastructure</p>
+        </div>
+      </a>
+
+      <!-- Quick Menu Links -->
+      <nav class="hidden md:flex items-center gap-6 text-xs font-bold text-[#1E1815]">
+        <a href="#fitur-bot" class="hover:text-[#D94E34] transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg>
+          <span>Fitur Bot</span>
+        </a>
+        <a href="#panel-jadibot" class="hover:text-[#D94E34] transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>Panel Jadibot</span>
+        </a>
+        <a href="#paket-harga" class="hover:text-[#D94E34] transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Paket &amp; SewaBot</span>
+        </a>
+      </nav>
+
+      <!-- Theme Switch + Auth Area -->
+      <div class="flex items-center gap-2.5">
+        <button id="theme-toggle" type="button" aria-label="Aktifkan mode gelap" aria-pressed="false" title="Ganti tema">
+          <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg>
+          <span class="theme-label">Dark</span>
+        </button>
+        <button id="nav-btn-login" type="button" class="retro-btn-primary px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          <span>Masuk / Daftar</span>
+        </button>
+
+        <div id="nav-user-box" class="hidden items-center gap-2">
+          <div class="px-2.5 py-1 rounded-lg bg-[#FAF5EE] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#D94E34]"></span>
+            <span id="nav-username" class="text-xs font-bold text-[#1E1815] mono">user</span>
+            <span id="nav-user-role" class="text-[10px] mono uppercase px-1.5 py-0.5 rounded bg-[#EFE4D4] text-[#1E1815] border border-[#1E1815] font-bold">FREE</span>
+          </div>
+          <button id="btn-logout" type="button" title="Keluar Akun" class="p-1.5 rounded-lg bg-[#FAF5EE] hover:bg-[#D94E34] text-[#1E1815] hover:text-[#FAF5EE] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="view-dashboard" class="flex-1 w-full">
+
+    <!-- HERO SECTION (GAYA POSTER RETRO) -->
+    <section id="hero" class="relative border-b-2 border-[#1E1815] bg-[#EFE4D4]/60">
+      <div class="max-w-4xl mx-auto px-4 pt-12 pb-14 text-center space-y-6">
+        
+        <!-- Top Status Pill -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FAF5EE] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] text-[#1E1815] text-xs font-bold">
+          <span class="w-2 h-2 rounded-full bg-[#D94E34]"></span>
+          <span>Sistem Aktif 24 Jam • Terintegrasi Cloud Database</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="retro-display text-3xl sm:text-5xl font-black tracking-tight text-[#1E1815] leading-[1.12] max-w-2xl mx-auto">
+          Jadikan Nomor WhatsApp Kamu <span class="text-[#D94E34] underline decoration-2 underline-offset-4">Bot Otomatis</span> Serba Bisa
+        </h1>
+
+        <!-- Description -->
+        <p class="text-xs sm:text-sm text-[#5C4E43] max-w-2xl mx-auto leading-relaxed font-medium">
+          Selamat datang di portal resmi <strong class="text-[#1E1815] font-bold">XenaMorph Jadibot</strong>. Tautkan nomor WhatsApp pribadi kamu menjadi sub-bot mandiri tanpa perlu sewa VPS atau koding. Dilengkapi puluhan fitur siap pakai mulai dari putar musik Spotify &amp; YouTube, unduh video TikTok &amp; Instagram tanpa watermark, pembuatan stiker instan, hingga asisten AI dan penjaga grup otomatis.
+        </p>
+
+        <!-- Stacked Action Buttons -->
+        <div class="pt-2 flex flex-col items-center justify-center gap-3 max-w-xs mx-auto">
+          <a href="#panel-jadibot" class="retro-btn-primary w-full py-3 px-5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+            <span>Mulai Sekarang (Buat Jadibot)</span>
+          </a>
+
+          <a href="#paket-harga" class="retro-btn-secondary w-full py-2.5 px-5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg>
+            <span>Lihat Paket Premium &amp; SewaBot</span>
+          </a>
+        </div>
+
+        <!-- Quick Metrics -->
+        <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3.5 max-w-3xl mx-auto text-left">
+          <div class="p-3.5 rounded-xl retro-box-sm flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[#E59838] border border-[#1E1815] flex items-center justify-center text-[#1E1815]">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-[#1E1815] mono">~0.2 Detik</div>
+              <div class="text-[11px] text-[#5C4E43] font-medium">Respon Perintah</div>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl retro-box-sm flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[#D94E34] border border-[#1E1815] flex items-center justify-center text-[#FAF5EE]">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-[#1E1815] mono">35+ Command</div>
+              <div class="text-[11px] text-[#5C4E43] font-medium">Fitur Aktif</div>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl retro-box-sm flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[#E59838] border border-[#1E1815] flex items-center justify-center text-[#1E1815]">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-[#1E1815] mono">Rp 5.000</div>
+              <div class="text-[11px] text-[#5C4E43] font-medium">VIP Tanpa Limit</div>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl retro-box-sm flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[#D94E34] border border-[#1E1815] flex items-center justify-center text-[#FAF5EE]">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-[#1E1815] mono">Trial 2 Hari</div>
+              <div class="text-[11px] text-[#5C4E43] font-medium">SewaBot Grup Baru</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="max-w-6xl mx-auto px-4 py-12 space-y-16">
+
+      <!-- SECTION 1: FITUR BOT (MINIMALIS GAYA REFERENSI + SENTUHAN RETRO) -->
+      <section id="fitur-bot" class="max-w-3xl mx-auto space-y-6">
+        <div class="space-y-3">
+          <div class="inline-block px-2.5 py-0.5 rounded bg-[#D94E34] text-[#FAF5EE] border border-[#1E1815] text-[11px] font-bold uppercase tracking-widest mono">FITUR BOT</div>
+          <h2 class="retro-display text-2xl sm:text-4xl font-black text-[#1E1815] tracking-tight leading-tight">
+            Satu bot untuk<br class="sm:hidden" /> semua kebutuhan
+          </h2>
+          <p class="text-xs sm:text-sm text-[#5C4E43] font-medium leading-relaxed">
+            Semua modul aktif otomatis begitu bot terhubung di WhatsApp.
+          </p>
+
+          <!-- Category Pills -->
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FAF5EE] text-[#1E1815] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815]">Chat</span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FAF5EE] text-[#1E1815] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815]">Grup</span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FAF5EE] text-[#1E1815] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815]">Sticker</span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FAF5EE] text-[#1E1815] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815]">Musik</span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FAF5EE] text-[#1E1815] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815]">Game</span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FAF5EE] text-[#1E1815] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815]">Downloader</span>
+          </div>
+        </div>
+
+        <!-- Clean Vertical Feature List with Retro Borders -->
+        <div class="retro-box rounded-2xl px-5 divide-y-2 divide-[#1E1815]/15">
+
+          <!-- Item 1: Multi downloader -->
+          <div class="py-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-[#D94E34] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center justify-center text-[#FAF5EE] shrink-0 mt-0.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+              </svg>
+            </div>
+            <div class="space-y-1">
+              <h3 class="retro-display text-base sm:text-lg font-bold text-[#1E1815]">Multi downloader</h3>
+              <p class="text-xs sm:text-sm text-[#5C4E43] leading-relaxed">
+                TikTok, Instagram, YouTube, dan Spotify dengan kualitas asli, tanpa watermark.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2: Minigames & hiburan -->
+          <div class="py-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-[#E59838] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center justify-center text-[#1E1815] shrink-0 mt-0.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="space-y-1">
+              <h3 class="retro-display text-base sm:text-lg font-bold text-[#1E1815]">Minigames &amp; hiburan interaktif</h3>
+              <p class="text-xs sm:text-sm text-[#5C4E43] leading-relaxed">
+                Tebak karakter Akinator, kuis asah otak Cak Lontong, dan asisten AI pintar di ruang chat.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3: Pembuat Stiker & Canvas -->
+          <div class="py-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-[#D94E34] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center justify-center text-[#FAF5EE] shrink-0 mt-0.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div class="space-y-1">
+              <h3 class="retro-display text-base sm:text-lg font-bold text-[#1E1815]">Stiker instan &amp; generator canvas</h3>
+              <p class="text-xs sm:text-sm text-[#5C4E43] leading-relaxed">
+                Konversi foto, video/GIF (.sgif), teks Brat, serta bubble chat iPhone (.iqc) dan TikTok (.ttqc) secara otomatis.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4: Manajemen grup -->
+          <div class="py-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-[#E59838] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center justify-center text-[#1E1815] shrink-0 mt-0.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div class="space-y-1">
+              <h3 class="retro-display text-base sm:text-lg font-bold text-[#1E1815]">Manajemen grup</h3>
+              <p class="text-xs sm:text-sm text-[#5C4E43] leading-relaxed">
+                Hidetag seluruh anggota, proteksi antilink otomatis, dan pembuka media sekali lihat secara instan.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 2: PAKET MEMBER (FREE vs VIP) & SEWABOT GRUP -->
+      <section id="paket-harga" class="space-y-6">
+        <div class="max-w-xl space-y-1">
+          <div class="inline-block px-2.5 py-0.5 rounded bg-[#E59838] text-[#1E1815] border border-[#1E1815] text-[11px] font-bold uppercase tracking-wider mono">Paket &amp; Langganan</div>
+          <h2 class="retro-display text-2xl sm:text-3xl font-black text-[#1E1815]">Pilih Paket Sesuai Kebutuhan</h2>
+          <p class="text-xs sm:text-sm text-[#5C4E43] font-medium">
+            Mulai dari akses gratis harian, upgrade ke VIP tanpa batas kuota, atau undang bot ke grup WhatsApp kamu.
+          </p>
+        </div>
+
+        <!-- Pricing Cards Grid (3 Columns) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+
+          <!-- CARD 1: PAKET FREE -->
+          <div class="retro-box rounded-2xl p-5 flex flex-col justify-between space-y-5">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-[#EFE4D4] text-[#1E1815] border border-[#1E1815]">Member Free</span>
+                <span class="text-[11px] mono font-bold text-[#5C4E43]">Starter</span>
+              </div>
+              <div>
+                <h3 class="retro-display text-lg font-bold text-[#1E1815]">Paket Free</h3>
+                <p class="text-xs text-[#5C4E43] mt-1">Untuk penggunaan dasar sehari-hari dan mencoba fitur Jadibot.</p>
+              </div>
+              <div class="pt-3 border-t-2 border-dashed border-[#1E1815]/20 flex items-baseline gap-1.5">
+                <span class="retro-display text-3xl font-black text-[#1E1815]">Rp 0</span>
+                <span class="text-xs text-[#5C4E43] font-semibold">/ Selamanya</span>
+              </div>
+
+              <div class="p-3 rounded-xl bg-[#EFE4D4] border border-[#1E1815] space-y-1.5">
+                <div class="flex items-center justify-between text-xs font-bold">
+                  <span class="text-[#5C4E43]">Kuota Musik &amp; Downloader</span>
+                  <span class="mono text-[#1E1815]">10x / Hari</span>
+                </div>
+                <div class="w-full h-1.5 bg-[#FAF5EE] border border-[#1E1815] rounded-full overflow-hidden">
+                  <div class="w-1/3 h-full bg-[#1E1815]"></div>
+                </div>
+                <p class="text-[11px] text-[#5C4E43]">Reset otomatis setiap pukul 00:00 WIB.</p>
+              </div>
+
+              <ul class="space-y-2.5 text-xs text-[#5C4E43] pt-1 font-medium">
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-[#D94E34] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Akses penuh koneksi <strong class="text-[#1E1815] font-bold">Jadibot Web</strong> (Pairing &amp; QR)</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-[#D94E34] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Bebas pakai pembuat stiker (<code class="mono font-bold text-[#1E1815]">.s</code>, <code class="mono font-bold text-[#1E1815]">.sgif</code>, <code class="mono font-bold text-[#1E1815]">.brat</code>, <code class="mono font-bold text-[#1E1815]">.iqc</code>)</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-[#5C4E43] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                  <span>Fitur <strong class="text-[#1E1815] font-bold">Play Spotify &amp; YouTube</strong> dibatasi <strong class="text-[#1E1815] font-bold">10x sehari</strong></span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-[#5C4E43] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                  <span>Fitur <strong class="text-[#1E1815] font-bold">Downloader TikTok, IG, dll</strong> dibatasi <strong class="text-[#1E1815] font-bold">10x sehari</strong></span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#panel-jadibot" class="retro-btn-secondary w-full py-2.5 px-4 rounded-xl font-bold text-xs text-center">
+              Gunakan Paket Free
+            </a>
+          </div>
+
+          <!-- CARD 2: PAKET VIP (RP 5.000 / BULAN - RETRO RED POSTER) -->
+          <div class="bg-[#D94E34] text-[#FAF5EE] border-2 border-[#1E1815] shadow-[5px_5px_0px_#1E1815] rounded-2xl p-5 flex flex-col justify-between space-y-5">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-[#FAF5EE] text-[#1E1815] border border-[#1E1815]">VIP Member</span>
+                <span class="text-[11px] mono font-bold text-[#FAF5EE]">30 Hari Aktif</span>
+              </div>
+              <div>
+                <h3 class="retro-display text-lg font-black text-[#FAF5EE]">Paket VIP Unlimited</h3>
+                <p class="text-xs text-[#FAF5EE]/90 mt-1">Akses penuh ke seluruh fitur musik dan pengunduh media tanpa batas harian.</p>
+              </div>
+              <div class="pt-3 border-t-2 border-dashed border-[#FAF5EE]/30 flex items-baseline gap-1.5">
+                <span class="retro-display text-3xl font-black text-[#FAF5EE]">Rp 5.000</span>
+                <span class="text-xs text-[#FAF5EE]/90 font-semibold">/ Bulan</span>
+              </div>
+
+              <div class="p-3 rounded-xl bg-[#1E1815] text-[#FAF5EE] border border-[#1E1815] space-y-1">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="text-[#FAF5EE]/80 font-medium">Kuota Musik &amp; Downloader</span>
+                  <span class="mono font-bold text-[#E59838]">UNLIMITED</span>
+                </div>
+                <p class="text-[11px] text-[#FAF5EE]/70">Tanpa pemotongan kuota harian selama 24 jam penuh.</p>
+              </div>
+
+              <ul class="space-y-2.5 text-xs text-[#FAF5EE] pt-1 font-medium">
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-[#FAF5EE] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong class="font-bold">Tanpa Limit</strong> putar &amp; unduh lagu <strong class="font-bold">Spotify &amp; YouTube</strong></span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-[#FAF5EE] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong class="font-bold">Tanpa Limit</strong> downloader <strong class="font-bold">TikTok HD, Instagram, dll</strong></span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-[#FAF5EE] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Koneksi <strong class="font-bold">Jadibot Prioritas</strong> (Auto-Reconnect stabil)</span>
+                </li>
+              </ul>
+            </div>
+
+            <button data-plan="VIP Unlimited (Rp 5.000 / Bulan)" data-price="Rp 5.000" class="btn-order-plan w-full py-2.5 px-4 rounded-xl bg-[#FAF5EE] hover:bg-[#EFE4D4] text-[#1E1815] border-2 border-[#1E1815] shadow-[3px_3px_0px_#1E1815] font-bold text-xs transition flex items-center justify-center gap-2">
+              <span>Upgrade ke VIP (Rp 5.000)</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </button>
+          </div>
+
+          <!-- CARD 3: PAKET SEWABOT GRUP -->
+          <div class="retro-box rounded-2xl p-5 flex flex-col justify-between space-y-5">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-[#E59838] text-[#1E1815] border border-[#1E1815]">Khusus Grup WA</span>
+                <span class="text-[11px] mono font-bold text-[#D94E34]">Free Trial 2 Hari</span>
+              </div>
+              <div>
+                <h3 class="retro-display text-lg font-bold text-[#1E1815]">Paket SewaBot Grup</h3>
+                <p class="text-xs text-[#5C4E43] mt-1 leading-relaxed">
+                  Bikin grup tongkrongan, komunitas, atau mabar kamu selalu hidup, rapi dari spam link, dan punya asisten hiburan 24 jam.
+                </p>
+              </div>
+
+              <div class="pt-3 border-t-2 border-dashed border-[#1E1815]/20 space-y-2">
+                <div class="flex items-center justify-between p-2.5 rounded-xl bg-[#EFE4D4] border border-[#1E1815]">
+                  <div>
+                    <div class="text-xs font-bold text-[#1E1815]">Pengguna Baru Pertama Kali</div>
+                    <div class="text-[11px] text-[#5C4E43]">Uji coba langsung di grup kamu</div>
+                  </div>
+                  <span class="px-2 py-0.5 rounded bg-[#D94E34] text-[#FAF5EE] border border-[#1E1815] font-bold text-[10px] mono">GRATIS 2 HARI</span>
+                </div>
+                <div class="flex items-baseline justify-between px-1 pt-1">
+                  <span class="text-xs text-[#5C4E43] font-semibold">Biaya Langganan:</span>
+                  <div>
+                    <span class="retro-display text-2xl font-black text-[#1E1815]">Rp 2.000</span>
+                    <span class="text-xs text-[#5C4E43] font-semibold">/ Minggu (2 Hari 2rb)</span>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="space-y-2.5 text-xs text-[#5C4E43] pt-1 font-medium">
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-[#D94E34] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong class="text-[#1E1815] font-bold">Gratis Trial 2 Hari:</strong> Buktikan langsung manfaat dan keseruannya bersama anggota grup tanpa biaya awal.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-[#D94E34] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong class="text-[#1E1815] font-bold">Keamanan Grup Otomatis:</strong> Fitur <code class="mono font-bold text-[#1E1815]">.antilink</code> langsung menghapus tautan promosi/spam yang mengganggu kenyamanan grup.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-[#D94E34] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong class="text-[#1E1815] font-bold">Panggilan Massal Admin:</strong> Mention seluruh member grup dengan satu perintah <code class="mono font-bold text-[#1E1815]">.hidetag</code> untuk info penting.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-[#D94E34] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong class="text-[#1E1815] font-bold">Hiburan Satu Grup:</strong> Semua anggota grup bisa memutar musik, membuat stiker meme, dan bermain Akinator &amp; Cak Lontong bersama.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="space-y-2.5">
+              <button data-plan="Klaim Trial Gratis SewaBot Grup (2 Hari)" data-price="GRATIS (Trial 2 Hari)" class="btn-order-plan retro-btn-primary w-full py-2.5 px-4 rounded-xl font-bold text-xs">
+                Klaim Trial Gratis 2 Hari
+              </button>
+              <button data-plan="Langganan SewaBot Grup (Rp 2.000 / Minggu)" data-price="Rp 2.000" class="btn-order-plan retro-btn-secondary w-full py-2 px-4 rounded-xl font-bold text-xs">
+                Sewa Bot Grup (Rp 2.000 / Minggu)
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 3: PANEL JADIBOT UTAMA -->
+      <section id="panel-jadibot" class="space-y-5 pt-2">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 retro-box rounded-2xl p-4">
+          <div class="flex items-center gap-3">
+            <span id="conn-dot" class="w-3 h-3 rounded-full bg-[#D94E34] border border-[#1E1815]"></span>
+            <div>
+              <div class="retro-display text-sm font-bold text-[#1E1815]">Panel Koneksi Jadibot</div>
+              <div id="conn-status-label" class="text-[11px] text-[#5C4E43] font-medium mt-0.5">Memeriksa status layanan backend...</div>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+            <input id="input-api-url" type="text" value="" placeholder="URL Server Opsional" class="px-3 py-1.5 rounded-lg bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono text-[#1E1815] placeholder-[#5C4E43]/60 w-full sm:w-52 focus:outline-none" />
+            <label class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#EFE4D4] border-2 border-[#1E1815] text-xs font-bold cursor-pointer select-none">
+              <input id="toggle-demo" type="checkbox" class="accent-[#D94E34] rounded" />
+              <span class="text-[#1E1815]">Mode Simulasi</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Main Jadibot Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+          <!-- Left Column: Form Buat Sesi Jadibot (7 cols) -->
+          <div class="lg:col-span-7 space-y-5 relative">
+            <div class="retro-box rounded-2xl p-5 space-y-5 relative overflow-hidden">
+
+              <!-- LOCK OVERLAY IF NOT LOGGED IN -->
+              <div id="jadibot-auth-lock" class="absolute inset-0 z-20 bg-[#F4ECE1]/95 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center space-y-3">
+                <div class="w-12 h-12 rounded-xl bg-[#D94E34] border-2 border-[#1E1815] shadow-[3px_3px_0px_#1E1815] flex items-center justify-center text-[#FAF5EE]">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                  </svg>
+                </div>
+                <div class="max-w-xs space-y-1">
+                  <h4 class="retro-display text-base font-black text-[#1E1815]">Login Diperlukan</h4>
+                  <p class="text-xs text-[#5C4E43] font-medium leading-relaxed">
+                    Silakan masuk atau daftar akun terlebih dahulu untuk menautkan nomor WhatsApp kamu menjadi Jadibot.
+                  </p>
+                </div>
+                <button id="btn-open-auth-from-lock" type="button" class="retro-btn-primary px-4 py-2 rounded-xl font-bold text-xs flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+                  <span>Login / Daftar Akun</span>
+                </button>
+              </div>
+
+              <div class="flex items-center justify-between border-b-2 border-[#1E1815]/15 pb-3.5">
+                <div>
+                  <h3 class="retro-display text-base font-bold text-[#1E1815]">Tautkan Nomor WhatsApp (.jadibot)</h3>
+                  <p class="text-xs text-[#5C4E43] mt-0.5">Masukkan nomor WhatsApp aktif untuk mendapatkan kode tautan perangkat.</p>
+                </div>
+                <span class="text-[11px] mono font-bold px-2 py-0.5 rounded bg-[#E59838] border border-[#1E1815] text-[#1E1815]">Baileys MD</span>
+              </div>
+
+              <!-- Form Input -->
+              <form id="form-jadibot" class="space-y-4">
+                <div>
+                  <label class="block text-xs font-bold text-[#1E1815] mb-1.5">Nomor WhatsApp (Awali 628xxx)</label>
+                  <div class="relative">
+                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-[#5C4E43] mono font-bold text-xs">+</span>
+                    <input id="input-phone" type="tel" required placeholder="6281234567890" value="628" class="w-full pl-7 pr-4 py-2.5 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-sm mono font-bold text-[#1E1815] placeholder-[#5C4E43]/50 focus:outline-none transition" />
+                  </div>
+                </div>
+
+                <!-- Metode Tautan -->
+                <div>
+                  <label class="block text-xs font-bold text-[#1E1815] mb-1.5">Metode Penautan</label>
+                  <div class="grid grid-cols-2 gap-3">
+                    <label id="card-method-pairing" class="cursor-pointer p-3 rounded-xl border-2 border-[#1E1815] bg-[#EFE4D4] shadow-[2px_2px_0px_#1E1815] flex items-start gap-2.5 transition">
+                      <input type="radio" name="auth_method" value="pairing" checked class="mt-0.5 accent-[#D94E34]" />
+                      <div>
+                        <div class="text-xs font-bold text-[#1E1815]">Pairing Code (8 Digit)</div>
+                        <div class="text-[11px] text-[#5C4E43] mt-0.5">Masukkan kode 8 karakter langsung di notifikasi WA</div>
+                      </div>
+                    </label>
+                    <label id="card-method-qr" class="cursor-pointer p-3 rounded-xl border-2 border-[#1E1815]/40 bg-[#F4ECE1] flex items-start gap-2.5 transition">
+                      <input type="radio" name="auth_method" value="qr" class="mt-0.5 accent-[#D94E34]" />
+                      <div>
+                        <div class="text-xs font-bold text-[#1E1815]">Scan QR Code</div>
+                        <div class="text-[11px] text-[#5C4E43] mt-0.5">Pindai kode QR menggunakan kamera perangkat kedua</div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <button type="submit" id="btn-submit-jadibot" class="retro-btn-primary w-full py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                  <span>Buat Sesi Jadibot</span>
+                </button>
+              </form>
+
+              <!-- Output Box: Pairing Code / QR Display -->
+              <div id="result-box" class="hidden border-2 border-[#1E1815] bg-[#EFE4D4] rounded-xl p-4 space-y-4">
+                <div class="flex items-center justify-between">
+                  <span id="result-badge" class="text-[10px] mono font-bold uppercase px-2 py-0.5 rounded bg-[#E59838] text-[#1E1815] border border-[#1E1815]">Menunggu Tautan</span>
+                  <span id="result-timer" class="text-xs mono font-bold text-[#1E1815]">60d</span>
+                </div>
+
+                <div id="pairing-display" class="text-center py-2 space-y-2">
+                  <div class="text-xs text-[#5C4E43] font-medium">Masukkan kode berikut pada nomor <strong id="target-phone-label" class="text-[#1E1815] mono font-bold">...</strong>:</div>
+                  <div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-[#FAF5EE] border-2 border-[#1E1815] shadow-[3px_3px_0px_#1E1815]">
+                    <span id="pairing-code-text" class="text-xl sm:text-2xl font-bold mono tracking-[0.18em] text-[#D94E34]">ABCD-1234</span>
+                    <button id="btn-copy-code" type="button" class="px-2.5 py-1 rounded-lg bg-[#EFE4D4] hover:bg-[#E59838] text-xs font-bold text-[#1E1815] border border-[#1E1815] transition">
+                      Salin
+                    </button>
+                  </div>
+                </div>
+
+                <div id="qr-display" class="hidden text-center py-2 space-y-2">
+                  <div class="text-xs text-[#5C4E43] font-medium">Pindai kode QR melalui menu <strong>Perangkat Tertaut</strong>:</div>
+                  <div class="inline-block p-2.5 rounded-xl bg-white border-2 border-[#1E1815]">
+                    <canvas id="qr-canvas" width="180" height="180" class="w-40 h-40"></canvas>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-[#1E1815]/20 text-[11px] text-[#5C4E43] font-medium">
+                  <span>WhatsApp &rarr; Perangkat Tertaut &rarr; Tautkan dengan Nomor Telepon</span>
+                  <button id="btn-sim-approve" type="button" class="px-2.5 py-1 rounded-lg bg-[#FAF5EE] hover:bg-[#E59838] text-[#1E1815] border border-[#1E1815] font-bold text-xs transition">
+                    Perbarui Status
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Active Jadibot Sessions & Logs (5 cols) -->
+          <div class="lg:col-span-5 space-y-5">
+            <div class="retro-box rounded-2xl p-5 space-y-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="retro-display text-sm font-bold text-[#1E1815] flex items-center gap-2">
+                    <span>Sesi Jadibot Aktif</span>
+                    <span id="badge-count" class="px-2 py-0.5 text-[11px] mono font-bold rounded bg-[#D94E34] text-[#FAF5EE] border border-[#1E1815]">0</span>
+                  </h3>
+                  <p class="text-[11px] text-[#5C4E43] mt-0.5">Hanya pemilik sesi yang dapat memutuskan perangkatnya</p>
+                </div>
+                <button id="btn-refresh-list" class="px-2.5 py-1 rounded-lg bg-[#EFE4D4] hover:bg-[#E59838] border border-[#1E1815] text-xs font-bold text-[#1E1815] transition">
+                  Refresh
+                </button>
+              </div>
+
+              <div id="sessions-list" class="space-y-2.5 max-h-52 overflow-y-auto pr-1"></div>
+            </div>
+
+            <div class="bg-[#1E1815] text-[#F4ECE1] border-2 border-[#1E1815] shadow-[4px_4px_0px_#D94E34] rounded-2xl p-4 flex flex-col h-52">
+              <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-[#F4ECE1]/15">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-[#E59838] mono flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#D94E34]"></span> Log Aktivitas
+                </span>
+                <button id="btn-clear-log" class="text-[11px] text-[#F4ECE1]/60 hover:text-[#F4ECE1]">Bersihkan</button>
+              </div>
+              <div id="console-logs" class="flex-1 overflow-y-auto text-[11px] mono space-y-1.5 text-[#F4ECE1]/85 pr-1"></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- MODAL LOGIN & REGISTER SUPABASE -->
+  <div id="auth-modal" class="hidden fixed inset-0 z-50 bg-[#1E1815]/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="retro-box rounded-2xl max-w-sm w-full p-5 space-y-5">
+      <div class="flex items-center justify-between border-b-2 border-[#1E1815]/15 pb-3">
+        <div>
+          <span class="text-[10px] mono font-bold uppercase text-[#D94E34]">Cloud Database Auth</span>
+          <h3 id="auth-modal-title" class="retro-display text-base font-bold text-[#1E1815] mt-0.5">Masuk ke Akun XenaMorph</h3>
+        </div>
+        <button id="btn-close-auth" type="button" class="w-7 h-7 rounded-lg bg-[#EFE4D4] hover:bg-[#D94E34] hover:text-[#FAF5EE] border border-[#1E1815] flex items-center justify-center text-[#1E1815] transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-2 gap-1.5 p-1 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] text-xs">
+        <button id="tab-auth-login" type="button" class="py-1.5 rounded-lg font-bold bg-[#1E1815] text-[#FAF5EE] transition">
+          Login
+        </button>
+        <button id="tab-auth-register" type="button" class="py-1.5 rounded-lg font-bold text-[#5C4E43] hover:text-[#1E1815] transition">
+          Daftar Baru
+        </button>
+      </div>
+
+      <form id="form-auth" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-bold text-[#1E1815] mb-1">Username</label>
+          <input id="auth-username" type="text" required minlength="3" placeholder="contoh: ramzz" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono font-bold text-[#1E1815] focus:outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-[#1E1815] mb-1">Password</label>
+          <input id="auth-password" type="password" required minlength="4" placeholder="••••••••" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono font-bold text-[#1E1815] focus:outline-none" />
+        </div>
+
+        <div id="auth-phone-wrap" class="hidden">
+          <label class="block text-xs font-bold text-[#1E1815] mb-1">Nomor WhatsApp (628xxx)</label>
+          <input id="auth-whatsapp" type="tel" placeholder="6281234567890" value="628" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono font-bold text-[#1E1815] focus:outline-none" />
+        </div>
+
+        <div id="auth-error-msg" class="hidden p-2.5 rounded-xl bg-[#D94E34]/15 border border-[#D94E34] text-[11px] font-semibold text-[#B83B24]"></div>
+
+        <button id="btn-submit-auth" type="submit" class="retro-btn-primary w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
+          <span id="btn-submit-auth-label">Masuk Sekarang</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL CHECKOUT VIP / SEWABOT / TRIAL -->
+  <div id="order-modal" class="hidden fixed inset-0 z-50 bg-[#1E1815]/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="retro-box rounded-2xl max-w-md w-full p-5 space-y-4">
+      <div class="flex items-center justify-between border-b-2 border-[#1E1815]/15 pb-3">
+        <div>
+          <span class="text-[10px] mono font-bold uppercase text-[#D94E34]">Form Pemesanan</span>
+          <h3 id="modal-plan-title" class="retro-display text-base font-bold text-[#1E1815] mt-0.5">Paket VIP Unlimited</h3>
+        </div>
+        <button id="btn-close-modal" class="w-7 h-7 rounded-lg bg-[#EFE4D4] hover:bg-[#D94E34] hover:text-[#FAF5EE] border border-[#1E1815] flex items-center justify-center text-[#1E1815]">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form id="form-order-plan" class="space-y-3.5">
+        <div class="p-3 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] flex items-center justify-between">
+          <span class="text-xs font-bold text-[#5C4E43]">Biaya Paket</span>
+          <span id="modal-plan-price" class="text-sm font-bold text-[#D94E34] mono">Rp 5.000</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-[#1E1815] mb-1">Nomor WhatsApp Kamu</label>
+          <input id="order-phone" type="tel" required placeholder="6281234567890" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono font-bold text-[#1E1815] focus:outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-[#1E1815] mb-1">Tautan Grup WA (Khusus SewaBot / Trial)</label>
+          <input id="order-group-link" type="text" placeholder="https://chat.whatsapp.com/... (Opsional untuk VIP)" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono text-[#1E1815] focus:outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-[#1E1815] mb-1">Nomor WhatsApp Owner</label>
+          <input id="order-owner-phone" type="tel" value="6281234567890" class="w-full px-3 py-2 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] text-xs mono text-[#5C4E43] focus:outline-none" />
+        </div>
+
+        <button type="submit" class="retro-btn-primary w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
+          <span>Lanjutkan ke WhatsApp Owner</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FAQ: PERTANYAAN UMUM -->
+  <section id="faq" class="max-w-4xl mx-auto w-full px-4 pt-2 pb-14">
+    <div class="text-center max-w-2xl mx-auto mb-6">
+      <div class="inline-block px-2.5 py-0.5 rounded bg-[#E59838] text-[#1E1815] border border-[#1E1815] text-[11px] font-bold uppercase tracking-wider mono">Pusat Bantuan</div>
+      <h2 class="retro-display text-2xl sm:text-3xl font-black text-[#1E1815] mt-2">Pertanyaan yang Sering Ditanyakan</h2>
+      <p class="text-xs sm:text-sm text-[#5C4E43] font-medium mt-1.5">Masih bingung soal XenaMorph? Cek jawaban singkat di bawah ini.</p>
+    </div>
+
+    <div id="faq-list" class="space-y-3.5">
+      <article class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1">
+          <span>Apakah nomor WhatsApp saya aman?</span>
+          <svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer-wrap" id="faq-answer-1" role="region">
+          <div class="faq-answer-inner"><p class="faq-answer">Gunakan hanya nomor milik kamu sendiri dan tautkan melalui menu resmi Perangkat Tertaut WhatsApp. Jangan pernah membagikan kode OTP atau kode verifikasi kepada siapa pun. Seperti layanan bot berbasis koneksi WhatsApp lainnya, keamanan tidak bisa dijamin 100% dan penggunaan otomasi pihak ketiga dapat memiliki risiko terhadap akun. Putuskan perangkat tertaut dari WhatsApp jika sudah tidak ingin memakai bot.</p></div>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2">
+          <span>Apakah HP saya harus menyala terus?</span>
+          <svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer-wrap" id="faq-answer-2" role="region">
+          <div class="faq-answer-inner"><p class="faq-answer">Biasanya tidak perlu menyala terus setelah nomor berhasil ditautkan. Bot berjalan di server, jadi HP bisa offline. Namun, server dan proses bot harus tetap aktif, dan koneksi WhatsApp bisa meminta penautan ulang sewaktu-waktu.</p></div>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3">
+          <span>Bisa memakai lebih dari satu bot?</span>
+          <svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer-wrap" id="faq-answer-3" role="region">
+          <div class="faq-answer-inner"><p class="faq-answer">Bisa jika backend dan kapasitas server mendukung beberapa sesi sekaligus. Setiap bot membutuhkan nomor WhatsApp yang ditautkan sendiri. Jumlah sesi yang dapat berjalan bersamaan bergantung pada batas layanan dan sumber daya server yang tersedia.</p></div>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4">
+          <span>Bagaimana kalau bot tiba-tiba berhenti?</span>
+          <svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer-wrap" id="faq-answer-4" role="region">
+          <div class="faq-answer-inner"><p class="faq-answer">Coba periksa status server dan koneksi internet, lalu tekan tombol Refresh pada daftar sesi. Jika tetap offline, proses bot mungkin perlu dijalankan ulang atau nomor perlu ditautkan kembali. Kalau masalah berlanjut, hubungi pengelola layanan dengan menyertakan pesan error—jangan kirim kode verifikasi atau data rahasia.</p></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t-2 border-[#1E1815] bg-[#EFE4D4] py-6 px-4 mt-12">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#5C4E43] font-semibold">
+      <div>&copy; 2026 <span class="text-[#1E1815] font-bold">XenaMorph Bot</span>. All rights reserved.</div>
+      <div class="flex items-center gap-5">
+        <a href="#hero" class="hover:text-[#D94E34] transition">Beranda</a>
+        <a href="#fitur-bot" class="hover:text-[#D94E34] transition">Fitur</a>
+        <a href="#paket-harga" class="hover:text-[#D94E34] transition">Paket</a>
+        <a href="#panel-jadibot" class="hover:text-[#D94E34] transition">Panel Jadibot</a>
+        <a href="#faq" class="hover:text-[#D94E34] transition">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="hidden fixed bottom-5 right-5 z-50 px-4 py-2.5 rounded-xl bg-[#1E1815] border-2 border-[#FAF5EE] text-[#FAF5EE] text-xs font-bold shadow-[4px_4px_0px_#D94E34]">
+    Berhasil
+  </div>
+
+  <script>
+    // ============================================================================
+    // 1. KONFIGURASI SUPABASE DATABASE
+    // ============================================================================
+    const SUPABASE_URL = 'https://bwebtojjvdkrgsqzlgqo.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3ZWJ0b2pqdmRrcmdzcXpsZ3FvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIxMDAwNDEsImV4cCI6MjEwNzY3NjA0MX0.dHMvD78IYRtBgFeBtohYeS4ETBtrMIfWvVPqaPDcILM';
+
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    let currentUser = null;
+    let authMode = 'login';
+    let lastFetchedSessions = [];
+
+    function cleanDigits(val) {
+      return String(val || '').replace(/[^0-9]/g, '');
+    }
+
+    function getMyNumbers() {
+      const nums = new Set();
+      if (currentUser?.whatsapp_number) {
+        nums.add(cleanDigits(currentUser.whatsapp_number));
+      }
+      try {
+        const localOwned = JSON.parse(localStorage.getItem('xenamorph_owned_numbers') || '[]');
+        if (Array.isArray(localOwned)) {
+          localOwned.forEach(n => nums.add(cleanDigits(n)));
+        }
+      } catch {}
+      return nums;
+    }
+
+    function addMyOwnedNumber(num) {
+      const clean = cleanDigits(num);
+      if (!clean) return;
+      try {
+        const localOwned = JSON.parse(localStorage.getItem('xenamorph_owned_numbers') || '[]');
+        if (!localOwned.includes(clean)) {
+          localOwned.push(clean);
+          localStorage.setItem('xenamorph_owned_numbers', JSON.stringify(localOwned));
+        }
+      } catch {}
+    }
+
+    function isSessionOwnedByCurrentUser(sessionItem) {
+      if (!currentUser || !currentUser.username) return false;
+      const role = String(currentUser.role || '').toLowerCase();
+      if (role === 'owner' || role === 'admin') return true;
+
+      if (sessionItem.ownerUsername && sessionItem.ownerUsername.toLowerCase() === currentUser.username.toLowerCase()) {
+        return true;
+      }
+
+      const sessionNum = cleanDigits(sessionItem.number);
+      const myNums = getMyNumbers();
+      return myNums.has(sessionNum);
+    }
+
+    function maskPhoneNumber(num) {
+      const s = cleanDigits(num);
+      if (s.length <= 7) return s;
+      return `${s.slice(0, 5)}••••${s.slice(-3)}`;
+    }
+
+    async function loadSavedUser() {
+      try {
+        const raw = localStorage.getItem('xenamorph_user');
+        if (raw) {
+          currentUser = JSON.parse(raw);
+          if (currentUser?.id) {
+            const { data: freshUser } = await supabaseClient
+              .from('users')
+              .select('*')
+              .eq('id', currentUser.id)
+              .maybeSingle();
+            if (freshUser) {
+              currentUser = freshUser;
+              localStorage.setItem('xenamorph_user', JSON.stringify(currentUser));
+            }
+          }
+        }
+      } catch {}
+      updateAuthUI();
+      renderSessionsList(lastFetchedSessions);
+    }
+
+    function updateAuthUI() {
+      const btnLogin = document.getElementById('nav-btn-login');
+      const userBox = document.getElementById('nav-user-box');
+      const navUsername = document.getElementById('nav-username');
+      const navRole = document.getElementById('nav-user-role');
+      const lockOverlay = document.getElementById('jadibot-auth-lock');
+      const inputPhone = document.getElementById('input-phone');
+
+      if (currentUser && currentUser.username) {
+        btnLogin.classList.add('hidden');
+        userBox.classList.remove('hidden');
+        userBox.classList.add('flex');
+        navUsername.textContent = currentUser.username;
+        const roleUpper = (currentUser.role || 'free').toUpperCase();
+        navRole.textContent = roleUpper;
+        navRole.className = (roleUpper === 'VIP' || roleUpper === 'OWNER' || roleUpper === 'ADMIN')
+          ? 'text-[10px] mono uppercase px-1.5 py-0.5 rounded bg-[#D94E34] text-[#FAF5EE] border border-[#1E1815] font-bold'
+          : 'text-[10px] mono uppercase px-1.5 py-0.5 rounded bg-[#EFE4D4] text-[#1E1815] border border-[#1E1815] font-bold';
+
+        lockOverlay.classList.add('hidden');
+        if (currentUser.whatsapp_number && (inputPhone.value === '628' || !inputPhone.value)) {
+          inputPhone.value = currentUser.whatsapp_number;
+        }
+      } else {
+        btnLogin.classList.remove('hidden');
+        userBox.classList.add('hidden');
+        userBox.classList.remove('flex');
+        lockOverlay.classList.remove('hidden');
+      }
+    }
+
+    // Auth Modal Controls
+    const authModal = document.getElementById('auth-modal');
+    const authErrorMsg = document.getElementById('auth-error-msg');
+    const tabLogin = document.getElementById('tab-auth-login');
+    const tabRegister = document.getElementById('tab-auth-register');
+    const authPhoneWrap = document.getElementById('auth-phone-wrap');
+    const authModalTitle = document.getElementById('auth-modal-title');
+    const btnSubmitAuthLabel = document.getElementById('btn-submit-auth-label');
+
+    function setAuthMode(mode) {
+      authMode = mode;
+      authErrorMsg.classList.add('hidden');
+      if (mode === 'login') {
+        tabLogin.className = 'py-1.5 rounded-lg font-bold bg-[#1E1815] text-[#FAF5EE] transition';
+        tabRegister.className = 'py-1.5 rounded-lg font-bold text-[#5C4E43] hover:text-[#1E1815] transition';
+        authPhoneWrap.classList.add('hidden');
+        authModalTitle.textContent = 'Masuk ke Akun XenaMorph';
+        btnSubmitAuthLabel.textContent = 'Masuk Sekarang';
+      } else {
+        tabRegister.className = 'py-1.5 rounded-lg font-bold bg-[#1E1815] text-[#FAF5EE] transition';
+        tabLogin.className = 'py-1.5 rounded-lg font-bold text-[#5C4E43] hover:text-[#1E1815] transition';
+        authPhoneWrap.classList.remove('hidden');
+        authModalTitle.textContent = 'Daftar Akun Member Baru';
+        btnSubmitAuthLabel.textContent = 'Buat Akun Sekarang';
+      }
+    }
+
+    tabLogin.addEventListener('click', () => setAuthMode('login'));
+    tabRegister.addEventListener('click', () => setAuthMode('register'));
+
+    document.getElementById('nav-btn-login').addEventListener('click', () => {
+      setAuthMode('login');
+      authModal.classList.remove('hidden');
+    });
+
+    document.getElementById('btn-open-auth-from-lock').addEventListener('click', () => {
+      setAuthMode('login');
+      authModal.classList.remove('hidden');
+    });
+
+    document.getElementById('btn-close-auth').addEventListener('click', () => {
+      authModal.classList.add('hidden');
+    });
+
+    document.getElementById('btn-logout').addEventListener('click', () => {
+      currentUser = null;
+      localStorage.removeItem('xenamorph_user');
+      localStorage.removeItem('xenamorph_owned_numbers');
+      updateAuthUI();
+      renderSessionsList(lastFetchedSessions);
+      showToast('Berhasil keluar dari akun');
+    });
+
+    document.getElementById('form-auth').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      authErrorMsg.classList.add('hidden');
+
+      const username = document.getElementById('auth-username').value.trim().toLowerCase();
+      const password = document.getElementById('auth-password').value.trim();
+      const whatsapp = cleanDigits(document.getElementById('auth-whatsapp').value);
+
+      if (!username || !password) return;
+
+      btnSubmitAuthLabel.textContent = 'Memproses...';
+
+      try {
+        if (authMode === 'register') {
+          const { data: existing } = await supabaseClient
+            .from('users')
+            .select('id')
+            .eq('username', username)
+            .maybeSingle();
+
+          if (existing) {
+            throw new Error('Username sudah terdaftar, silakan pilih username lain.');
+          }
+
+          const { data: inserted, error: insertErr } = await supabaseClient
+            .from('users')
+            .insert([
+              {
+                username,
+                password,
+                whatsapp_number: whatsapp || null,
+                role: 'free'
+              }
+            ])
+            .select()
+            .single();
+
+          if (insertErr) {
+            throw new Error(insertErr.message || 'Gagal menyimpan ke database Supabase.');
+          }
+
+          currentUser = inserted;
+          localStorage.setItem('xenamorph_user', JSON.stringify(currentUser));
+          if (whatsapp) addMyOwnedNumber(whatsapp);
+          updateAuthUI();
+          renderSessionsList(lastFetchedSessions);
+          authModal.classList.add('hidden');
+          addLog(`Akun baru terdaftar: @${currentUser.username}`, 'success');
+          showToast(`Selamat datang, ${currentUser.username}!`);
+        } else {
+          const { data: userRow, error: loginErr } = await supabaseClient
+            .from('users')
+            .select('*')
+            .eq('username', username)
+            .eq('password', password)
+            .maybeSingle();
+
+          if (loginErr) {
+            throw new Error(loginErr.message || 'Gagal memeriksa database Supabase.');
+          }
+
+          if (!userRow) {
+            throw new Error('Username atau password salah!');
+          }
+
+          currentUser = userRow;
+          localStorage.setItem('xenamorph_user', JSON.stringify(currentUser));
+          if (currentUser.whatsapp_number) addMyOwnedNumber(currentUser.whatsapp_number);
+          updateAuthUI();
+          renderSessionsList(lastFetchedSessions);
+          authModal.classList.add('hidden');
+          addLog(`Login berhasil sebagai @${currentUser.username} (${currentUser.role})`, 'success');
+          showToast(`Berhasil masuk sebagai ${currentUser.username}`);
+        }
+      } catch (err) {
+        authErrorMsg.textContent = err.message;
+        authErrorMsg.classList.remove('hidden');
+      } finally {
+        btnSubmitAuthLabel.textContent = authMode === 'login' ? 'Masuk Sekarang' : 'Buat Akun Sekarang';
+      }
+    });
+
+    // --- MODAL ORDER VIP / SEWABOT ---
+    const orderModal = document.getElementById('order-modal');
+    const modalPlanTitle = document.getElementById('modal-plan-title');
+    const modalPlanPrice = document.getElementById('modal-plan-price');
+
+    document.querySelectorAll('.btn-order-plan').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const plan = btn.getAttribute('data-plan');
+        const price = btn.getAttribute('data-price');
+        modalPlanTitle.textContent = plan;
+        modalPlanPrice.textContent = price;
+        orderModal.classList.remove('hidden');
+      });
+    });
+
+    document.getElementById('btn-close-modal').addEventListener('click', () => {
+      orderModal.classList.add('hidden');
+    });
+
+    document.getElementById('form-order-plan').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const plan = modalPlanTitle.textContent;
+      const price = modalPlanPrice.textContent;
+      const userPhone = document.getElementById('order-phone').value.trim();
+      const groupLink = document.getElementById('order-group-link').value.trim();
+      const ownerPhone = document.getElementById('order-owner-phone').value.replace(/[^0-9]/g, '');
+
+      const text = `Halo Owner XenaMorph Bot,%0A%0ASaya ingin memesan layanan berikut:%0A- Akun Web: ${currentUser?.username || 'Guest'}%0A- Paket: ${plan}%0A- Biaya: ${price}%0A- Nomor WA: ${userPhone}${groupLink ? `%0A- Link Grup: ${groupLink}` : ''}%0A%0AMohon diproses, terima kasih.`;
+
+      window.open(`https://wa.me/${ownerPhone}?text=${text}`, '_blank');
+      orderModal.classList.add('hidden');
+      showToast('Membuka WhatsApp...');
+    });
+
+    // --- STATE & DEMO SESSIONS ---
+    let demoSessions = [
+      { number: '6281388990011', name: 'Sub-Bot #1 (VIP)', status: 'CONNECTED', connectedAt: Date.now() - 1000 * 60 * 42 },
+      { number: '6285711223344', name: 'Sub-Bot #2 (Free)', status: 'CONNECTED', connectedAt: Date.now() - 1000 * 60 * 15 }
+    ];
+    let pendingSession = null;
+    let countdownInterval = null;
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.remove('hidden');
+      setTimeout(() => t.classList.add('hidden'), 3000);
+    }
+
+    function addLog(text, type = 'info') {
+      const box = document.getElementById('console-logs');
+      const time = new Date().toLocaleTimeString('id-ID', { hour12: false });
+      const color = type === 'success' ? 'text-[#E59838]' : type === 'warn' ? 'text-[#D94E34]' : 'text-[#F4ECE1]/85';
+      const line = document.createElement('div');
+      line.className = `${color} leading-relaxed`;
+      line.innerHTML = `<span class="text-[#F4ECE1]/40">[${time}]</span> ${text}`;
+      box.appendChild(line);
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function getApiBaseUrl() {
+      const custom = document.getElementById('input-api-url').value.trim().replace(/\/$/, '');
+      if (custom) return custom;
+      return window.location.origin;
+    }
+
+    const radioInputs = document.querySelectorAll('input[name="auth_method"]');
+    const cardPairing = document.getElementById('card-method-pairing');
+    const cardQr = document.getElementById('card-method-qr');
+
+    radioInputs.forEach(r => {
+      r.addEventListener('change', () => {
+        if (r.value === 'pairing') {
+          cardPairing.className = "cursor-pointer p-3 rounded-xl border-2 border-[#1E1815] bg-[#EFE4D4] shadow-[2px_2px_0px_#1E1815] flex items-start gap-2.5 transition";
+          cardQr.className = "cursor-pointer p-3 rounded-xl border-2 border-[#1E1815]/40 bg-[#F4ECE1] flex items-start gap-2.5 transition";
+        } else {
+          cardQr.className = "cursor-pointer p-3 rounded-xl border-2 border-[#1E1815] bg-[#EFE4D4] shadow-[2px_2px_0px_#1E1815] flex items-start gap-2.5 transition";
+          cardPairing.className = "cursor-pointer p-3 rounded-xl border-2 border-[#1E1815]/40 bg-[#F4ECE1] flex items-start gap-2.5 transition";
+        }
+      });
+    });
+
+    function drawMockQR(seedText) {
+      const canvas = document.getElementById('qr-canvas');
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, 180, 180);
+      ctx.fillStyle = '#1E1815';
+
+      const cells = 21;
+      const size = Math.floor(160 / cells);
+      const offset = 10;
+
+      const drawFinder = (gx, gy) => {
+        ctx.fillRect(offset + gx * size, offset + gy * size, 7 * size, 7 * size);
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(offset + (gx + 1) * size, offset + (gy + 1) * size, 5 * size, 5 * size);
+        ctx.fillStyle = '#1E1815';
+        ctx.fillRect(offset + (gx + 2) * size, offset + (gy + 2) * size, 3 * size, 3 * size);
+      };
+
+      drawFinder(0, 0);
+      drawFinder(cells - 7, 0);
+      drawFinder(0, cells - 7);
+
+      let hash = 0;
+      for (let i = 0; i < seedText.length; i++) {
+        hash = ((hash << 5) - hash) + seedText.charCodeAt(i);
+      }
+
+      for (let y = 0; y < cells; y++) {
+        for (let x = 0; x < cells; x++) {
+          const inFinder = (x < 8 && y < 8) || (x >= cells - 8 && y < 8) || (x < 8 && y >= cells - 8);
+          if (!inFinder) {
+            const bit = Math.abs(Math.sin(x * 13 + y * 29 + hash)) > 0.48;
+            if (bit) {
+              ctx.fillRect(offset + x * size, offset + y * size, size, size);
+            }
+          }
+        }
+      }
+    }
+
+    function generateRandomPairingCode() {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      let p1 = '', p2 = '';
+      for (let i = 0; i < 4; i++) {
+        p1 += chars[Math.floor(Math.random() * chars.length)];
+        p2 += chars[Math.floor(Math.random() * chars.length)];
+      }
+      return `${p1}-${p2}`;
+    }
+
+    function renderSessionsList(sessions = []) {
+      lastFetchedSessions = sessions;
+      const container = document.getElementById('sessions-list');
+      document.getElementById('badge-count').textContent = sessions.length;
+      container.innerHTML = '';
+
+      if (sessions.length === 0) {
+        container.innerHTML = `<div class="text-center py-6 text-xs text-[#5C4E43] font-medium">Belum ada sesi sub-bot yang aktif.</div>`;
+        return;
+      }
+
+      sessions.forEach(item => {
+        const mins = Math.max(1, Math.round((Date.now() - (item.connectedAt || Date.now())) / 60000));
+        const isConn = item.status === 'CONNECTED';
+        const isOwnerOfSession = isSessionOwnedByCurrentUser(item);
+        const displayedNumber = isOwnerOfSession ? `+${item.number}` : `+${maskPhoneNumber(item.number)}`;
+
+        const actionButtonHtml = isOwnerOfSession
+          ? `<button data-stop="${item.number}" class="btn-stop-session px-2.5 py-1 rounded-lg bg-[#D94E34] hover:bg-[#B83B24] text-[#FAF5EE] border border-[#1E1815] text-[11px] font-bold transition">
+               Putuskan
+             </button>`
+          : `<span title="Hanya pemilik nomor ini yang dapat memutuskan sesi" class="px-2 py-1 rounded-lg bg-[#F4ECE1] text-[#5C4E43] border border-[#1E1815]/40 text-[10px] mono font-bold inline-flex items-center gap-1 select-none cursor-not-allowed">
+               <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+               <span>Milik User Lain</span>
+             </span>`;
+
+        const row = document.createElement('div');
+        row.className = "p-3 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] flex items-center justify-between gap-3";
+        row.innerHTML = `
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full border border-[#1E1815] ${isConn ? 'bg-[#D94E34]' : 'bg-[#E59838]'}"></span>
+            <div>
+              <div class="text-xs font-bold mono text-[#1E1815] flex items-center gap-1.5">
+                <span>${displayedNumber}</span>
+                ${isOwnerOfSession ? '<span class="text-[9px] px-1.5 py-0.2 rounded bg-[#E59838] text-[#1E1815] border border-[#1E1815] font-bold">MILIKMU</span>' : ''}
+              </div>
+              <div class="text-[11px] text-[#5C4E43] font-medium">${item.name || 'Sub-Bot'} • ${mins}m</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] mono font-bold px-2 py-0.5 rounded bg-[#FAF5EE] text-[#1E1815] border border-[#1E1815]">
+              ${item.status}
+            </span>
+            ${actionButtonHtml}
+          </div>
+        `;
+        container.appendChild(row);
+      });
+
+      container.querySelectorAll('.btn-stop-session').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const num = btn.getAttribute('data-stop');
+          await stopSession(num);
+        });
+      });
+    }
+
+    async function fetchSessions() {
+      const toggleDemo = document.getElementById('toggle-demo');
+      const statusLabel = document.getElementById('conn-status-label');
+      const baseUrl = getApiBaseUrl();
+
+      if (toggleDemo.checked) {
+        statusLabel.innerHTML = `Mode Simulasi aktif.`;
+        renderSessionsList(demoSessions);
+        return;
+      }
+
+      try {
+        const res = await fetch(`${baseUrl}/api/jadibot/list`);
+        const data = await res.json();
+        if (data.ok) {
+          statusLabel.innerHTML = `Terhubung ke server Baileys (<code class="mono font-bold text-[#1E1815]">${baseUrl}</code>).`;
+          renderSessionsList(data.sessions);
+        }
+      } catch (err) {
+        toggleDemo.checked = true;
+        statusLabel.innerHTML = `Server API belum merespon — beralih ke Mode Simulasi.`;
+        renderSessionsList(demoSessions);
+      }
+    }
+
+    async function stopSession(number) {
+      if (!currentUser || !currentUser.username) {
+        showToast('Silakan login terlebih dahulu!');
+        setAuthMode('login');
+        authModal.classList.remove('hidden');
+        return;
+      }
+
+      const targetItem = lastFetchedSessions.find(s => cleanDigits(s.number) === cleanDigits(number));
+      if (targetItem && !isSessionOwnedByCurrentUser(targetItem)) {
+        showToast('Akses ditolak: Kamu bukan pemilik sesi nomor ini!');
+        return;
+      }
+
+      const isDemo = document.getElementById('toggle-demo').checked;
+      const baseUrl = getApiBaseUrl();
+
+      if (isDemo) {
+        demoSessions = demoSessions.filter(s => s.number !== number);
+        renderSessionsList(demoSessions);
+        addLog(`Sesi +${number} milikmu berhasil dihentikan.`, 'warn');
+        showToast(`Sesi +${number} dihentikan`);
+        return;
+      }
+
+      try {
+        const res = await fetch(`${baseUrl}/api/jadibot/stop`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            number,
+            username: currentUser.username,
+            userWhatsapp: currentUser.whatsapp_number,
+            role: currentUser.role || 'free'
+          })
+        });
+        const data = await res.json();
+        if (!res.ok || data.ok === false) {
+          throw new Error(data.error || 'Akses ditolak: Kamu bukan pemilik sesi ini.');
+        }
+        addLog(`Sesi +${number} dihentikan.`, 'warn');
+        showToast(`Sesi +${number} berhasil diputuskan`);
+        fetchSessions();
+      } catch (e) {
+        showToast(e.message || 'Gagal menghentikan sesi');
+      }
+    }
+
+    document.getElementById('form-jadibot').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!currentUser) {
+        setAuthMode('login');
+        authModal.classList.remove('hidden');
+        return;
+      }
+
+      const rawPhone = document.getElementById('input-phone').value.trim();
+      const cleanNumber = cleanDigits(rawPhone);
+      const method = document.querySelector('input[name="auth_method"]:checked').value;
+      const isDemo = document.getElementById('toggle-demo').checked;
+      const baseUrl = getApiBaseUrl();
+
+      if (cleanNumber.length < 10) {
+        showToast('Nomor WhatsApp tidak valid');
+        return;
+      }
+
+      addMyOwnedNumber(cleanNumber);
+      try {
+        await supabaseClient
+          .from('users')
+          .update({ whatsapp_number: cleanNumber })
+          .eq('id', currentUser.id);
+        currentUser.whatsapp_number = cleanNumber;
+        localStorage.setItem('xenamorph_user', JSON.stringify(currentUser));
+      } catch {}
+
+      addLog(`Meminta sesi baru untuk +${cleanNumber} (${method.toUpperCase()})...`);
+
+      const resultBox = document.getElementById('result-box');
+      const pairingDisplay = document.getElementById('pairing-display');
+      const qrDisplay = document.getElementById('qr-display');
+      document.getElementById('target-phone-label').textContent = '+' + cleanNumber;
+
+      if (isDemo) {
+        resultBox.classList.remove('hidden');
+        pendingSession = cleanNumber;
+
+        if (method === 'pairing') {
+          const code = generateRandomPairingCode();
+          pairingDisplay.classList.remove('hidden');
+          qrDisplay.classList.add('hidden');
+          document.getElementById('pairing-code-text').textContent = code;
+          addLog(`Pairing code simulasi untuk +${cleanNumber}: ${code}`, 'warn');
+        } else {
+          pairingDisplay.classList.add('hidden');
+          qrDisplay.classList.remove('hidden');
+          drawMockQR(cleanNumber + Date.now());
+          addLog(`QR Code simulasi ditampilkan untuk +${cleanNumber}`, 'warn');
+        }
+
+        let sec = 60;
+        if (countdownInterval) clearInterval(countdownInterval);
+        countdownInterval = setInterval(() => {
+          sec--;
+          document.getElementById('result-timer').textContent = `${sec}d`;
+          if (sec <= 0) clearInterval(countdownInterval);
+        }, 1000);
+        return;
+      }
+
+      try {
+        const res = await fetch(`${baseUrl}/api/jadibot/start`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            number: cleanNumber,
+            method,
+            ownerUsername: currentUser.username
+          })
+        });
+        const data = await res.json();
+        if (!data.ok) throw new Error(data.error || 'Gagal memulai sesi');
+
+        resultBox.classList.remove('hidden');
+        if (data.status === 'PAIRING_CODE') {
+          pairingDisplay.classList.remove('hidden');
+          qrDisplay.classList.add('hidden');
+          document.getElementById('pairing-code-text').textContent = data.code;
+          addLog(`Pairing Code untuk +${cleanNumber}: ${data.code}`, 'success');
+        } else if (data.status === 'QR_CODE') {
+          pairingDisplay.classList.add('hidden');
+          qrDisplay.classList.remove('hidden');
+          drawMockQR(data.qr);
+          addLog(`QR Code diterima untuk +${cleanNumber}`, 'success');
+        } else {
+          showToast('Nomor sudah terhubung');
+        }
+        fetchSessions();
+      } catch (err) {
+        addLog(`Error: ${err.message}`, 'warn');
+        showToast(err.message);
+      }
+    });
+
+    document.getElementById('btn-sim-approve').addEventListener('click', () => {
+      const isDemo = document.getElementById('toggle-demo').checked;
+      if (!isDemo) {
+        fetchSessions();
+        showToast('Daftar sesi diperbarui');
+        return;
+      }
+      if (!pendingSession) return;
+      const exists = demoSessions.find(s => s.number === pendingSession);
+      if (!exists) {
+        demoSessions.unshift({
+          number: pendingSession,
+          name: `Sub-Bot (${pendingSession.slice(-4)})`,
+          status: 'CONNECTED',
+          connectedAt: Date.now(),
+          ownerUsername: currentUser?.username || null
+        });
+      }
+      renderSessionsList(demoSessions);
+      document.getElementById('result-box').classList.add('hidden');
+      addLog(`Sesi +${pendingSession} terhubung.`, 'success');
+      showToast(`Nomor +${pendingSession} terhubung`);
+      pendingSession = null;
+    });
+
+    document.getElementById('btn-copy-code').addEventListener('click', () => {
+      const code = document.getElementById('pairing-code-text').textContent.replace('-', '');
+      const temp = document.createElement('textarea');
+      temp.value = code;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+      showToast(`Kode ${code} disalin`);
+    });
+
+    document.getElementById('toggle-demo').addEventListener('change', fetchSessions);
+    document.getElementById('btn-refresh-list').addEventListener('click', fetchSessions);
+    document.getElementById('btn-clear-log').addEventListener('click', () => {
+      document.getElementById('console-logs').innerHTML = '';
+    });
+
+    function initScrollReveal() {
+      const targets = document.querySelectorAll(
+        'main section, #fitur-bot .retro-box > div, #paket-harga .grid > div, #panel-jadibot .grid > div > div'
+      );
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+          !('IntersectionObserver' in window)) {
+        targets.forEach((el) => el.classList.add('is-visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            currentObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -35px 0px'
+      });
+
+      targets.forEach((el, index) => {
+        el.classList.add('scroll-reveal');
+        if (index % 3 === 1) el.style.transitionDelay = '60ms';
+        if (index % 3 === 2) el.style.transitionDelay = '110ms';
+        observer.observe(el);
+      });
+    }
+
+    function initFaqAccordion() {
+      const items = document.querySelectorAll('#faq-list .faq-item');
+      items.forEach((item) => {
+        const button = item.querySelector('.faq-question');
+        button.addEventListener('click', () => {
+          const shouldOpen = !item.classList.contains('is-open');
+          items.forEach((other) => {
+            other.classList.remove('is-open');
+            other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          });
+          if (shouldOpen) {
+            item.classList.add('is-open');
+            button.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    }
+
+    // Theme switch: light mode remains the default original appearance.
+    (() => {
+      const root = document.documentElement;
+      const toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+
+      const moonIcon = '<path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/>';
+      const sunIcon = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>';
+
+      let savedTheme = 'light';
+      try {
+        savedTheme = localStorage.getItem('xenamorph-theme') || 'light';
+      } catch (_) {}
+
+      function applyTheme(theme) {
+        const dark = theme === 'dark';
+        if (dark) root.setAttribute('data-theme', 'dark');
+        else root.removeAttribute('data-theme');
+
+        toggle.setAttribute('aria-pressed', String(dark));
+        toggle.setAttribute('aria-label', dark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
+        toggle.title = dark ? 'Ganti ke light mode' : 'Ganti ke dark mode';
+        const icon = toggle.querySelector('.theme-icon');
+        if (icon) icon.innerHTML = dark ? sunIcon : moonIcon;
+        const label = toggle.querySelector('.theme-label');
+        if (label) label.textContent = dark ? 'Light' : 'Dark';
+        try { localStorage.setItem('xenamorph-theme', dark ? 'dark' : 'light'); } catch (_) {}
+      }
+
+      applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+      toggle.addEventListener('click', () => {
+        applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      });
+    })();
+
+    // Initial Boot
+    loadSavedUser();
+    initScrollReveal();
+    initFaqAccordion();
+    addLog('Memeriksa layanan API & Database Supabase...');
+    fetchSessions();
+  </script>
+</body>
+</html>
