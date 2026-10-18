@@ -769,6 +769,57 @@
       #hero p { font-size: 1.04rem !important; }
     }
 
+
+
+    /* Focused mobile typography fix: only the hero text and brand lockup are adjusted. */
+    #hero h1 { text-wrap: balance; overflow-wrap: normal; word-break: normal; }
+    #hero p { text-wrap: pretty; margin-inline: auto; }
+    @media (max-width: 600px) {
+      #hero > div { padding-left: clamp(20px, 5.5vw, 30px) !important; padding-right: clamp(20px, 5.5vw, 30px) !important; }
+      #hero h1 {
+        font-size: clamp(1.9rem, 7.1vw, 2.35rem) !important;
+        line-height: 1.12 !important;
+        letter-spacing: -.035em !important;
+        max-width: 590px !important;
+        text-wrap: balance;
+      }
+      #hero p {
+        font-size: clamp(.96rem, 3.8vw, 1.08rem) !important;
+        line-height: 1.68 !important;
+        max-width: 560px !important;
+        letter-spacing: -.01em;
+        text-wrap: pretty;
+      }
+      /* Brand stays on one line where possible; tagline wraps instead of being clipped. */
+      header > div > a[href="#hero"] { flex: 0 1 132px !important; min-width: 0 !important; gap: 7px !important; overflow: visible !important; }
+      header > div > a[href="#hero"] > div:last-child { min-width: 0 !important; flex: 1 1 auto !important; }
+      header > div > a[href="#hero"] .retro-display {
+        font-size: clamp(12px, 3.5vw, 15px) !important;
+        line-height: 1.12 !important;
+        white-space: nowrap !important;
+        letter-spacing: -.035em !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+      }
+      header > div > a[href="#hero"] p {
+        display: block !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        overflow-wrap: anywhere !important;
+        font-size: 9px !important;
+        line-height: 1.2 !important;
+      }
+    }
+    @media (max-width: 380px) {
+      header > div > a[href="#hero"] { flex-basis: 112px !important; gap: 5px !important; }
+      header > div > a[href="#hero"] .retro-display { font-size: 12px !important; }
+      header > div > a[href="#hero"] p { font-size: 8px !important; }
+      #hero h1 { font-size: clamp(1.78rem, 7.6vw, 2rem) !important; }
+    }
+
   </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-[#D94E34] selection:text-[#FAF5EE]">
