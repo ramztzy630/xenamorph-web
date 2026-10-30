@@ -1,8 +1,8 @@
 {
-"rewrites": [
-{
-"source": "/api/jadibot/:path*",
-"destination": "http://amaneshop.serverpublick.web.id:2470/api/jadibot/:path*"
-}
-]
+  "rewrites": [
+    {
+      "source": "/api/jadibot/:path*",
+      "destination": "http://hosting-nezumi.serverpublick.web.id:2250/api/jadibot/:path*"
+    }
+  ]
 }
