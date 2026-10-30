@@ -9,15 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-cream: #F4ECE1;
-      --bg-card: #EFE4D4;
-      --bg-paper: #FAF5EE;
-      --ink-dark: #1E1815;
-      --ink-muted: #5C4E43;
-      --retro-red: #D94E34;
-      --retro-red-dark: #B83B24;
-      --retro-mustard: #E59838;
-      --retro-border: #1E1815;
+      --bg-cream: #F7F7F7;
+      --bg-card: #EAEAEA;
+      --bg-paper: #FFFFFF;
+      --ink-dark: #0A0A0A;
+      --ink-muted: #525252;
+      --retro-red: #0A0A0A;
+      --retro-red-dark: #262626;
+      --retro-mustard: #E0E0E0;
+      --retro-border: #0A0A0A;
     }
 
     html {
@@ -29,7 +29,7 @@
       background-color: var(--bg-cream);
       color: var(--ink-dark);
       -webkit-font-smoothing: antialiased;
-      background-image: radial-gradient(rgba(30, 24, 21, 0.08) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(10, 10, 10, 0.08) 1px, transparent 1px);
       background-size: 22px 22px;
     }
 
@@ -57,7 +57,7 @@
 
     .retro-btn-primary {
       background-color: var(--retro-red);
-      color: #FAF5EE;
+      color: #FFFFFF;
       border: 2px solid var(--ink-dark);
       box-shadow: 3px 3px 0px var(--ink-dark);
       transition: transform 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
@@ -80,7 +80,7 @@
       transition: transform 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
     }
     .retro-btn-secondary:hover {
-      background-color: #E5D6C0;
+      background-color: #DCDCDC;
       transform: translate(-1px, -1px);
       box-shadow: 4px 4px 0px var(--ink-dark);
     }
@@ -136,7 +136,7 @@
       transition: background-color 220ms ease, transform 220ms ease;
     }
     .faq-item.is-open {
-      background: #FFFDF9;
+      background: #FFFFFF;
     }
     .faq-question {
       width: 100%;
@@ -177,21 +177,21 @@
       color: var(--ink-muted);
       font-size: .825rem;
       line-height: 1.75;
-      border-top: 1px dashed rgba(30, 24, 21, 0.2);
+      border-top: 1px dashed rgba(10, 10, 10, 0.2);
       padding-top: 0.75rem;
     }
 
     /* XenaMorph Neo-Vintage Tech Premium — mobile-first refinement */
     :root {
-      --bg-cream: #F3E8D7;
-      --bg-card: #EDE0CE;
-      --bg-paper: #FFF9F1;
-      --ink-dark: #211A16;
-      --ink-muted: #74665B;
-      --retro-red: #D94B36;
-      --retro-red-dark: #B63A28;
-      --retro-mustard: #E8A23A;
-      --retro-border: #211A16;
+      --bg-cream: #F7F7F7;
+      --bg-card: #EAEAEA;
+      --bg-paper: #FFFFFF;
+      --ink-dark: #0A0A0A;
+      --ink-muted: #525252;
+      --retro-red: #0A0A0A;
+      --retro-red-dark: #262626;
+      --retro-mustard: #E0E0E0;
+      --retro-border: #0A0A0A;
       --content-gutter: clamp(18px, 4.5vw, 28px);
       --shadow-hard: 3px 3px 0 var(--ink-dark);
       --shadow-hard-lg: 4px 4px 0 var(--ink-dark);
@@ -206,7 +206,7 @@
     body {
       background-color: var(--bg-cream);
       color: var(--ink-dark);
-      background-image: radial-gradient(rgba(33, 26, 22, .045) .7px, transparent .7px);
+      background-image: radial-gradient(rgba(10, 10, 10, .055) .7px, transparent .7px);
       background-size: 24px 24px;
       overflow-x: clip;
       font-size: 15px;
@@ -253,7 +253,7 @@
     }
 
     header {
-      background-color: rgba(243, 232, 215, .96) !important;
+      background-color: rgba(247, 247, 247, .96) !important;
       border-bottom-width: 2px !important;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -383,33 +383,33 @@
     /* Dark mode: opt-in only. Light mode keeps the original Neo-Vintage palette. */
     html[data-theme="dark"] {
       color-scheme: dark;
-      --bg-cream: #171513;
-      --bg-card: #211D19;
-      --bg-paper: #25211D;
-      --ink-dark: #F4EBDD;
-      --ink-muted: #C2B4A4;
-      --retro-red: #E15A43;
-      --retro-red-dark: #C84934;
-      --retro-mustard: #E7AD58;
-      --retro-border: #E5D8C8;
-      --shadow-hard: 3px 3px 0 #080706;
-      --shadow-hard-lg: 4px 4px 0 #080706;
+      --bg-cream: #0A0A0A;
+      --bg-card: #141414;
+      --bg-paper: #1A1A1A;
+      --ink-dark: #F5F5F5;
+      --ink-muted: #A3A3A3;
+      --retro-red: #F5F5F5;
+      --retro-red-dark: #D4D4D4;
+      --retro-mustard: #D4D4D4;
+      --retro-border: #F5F5F5;
+      --shadow-hard: 3px 3px 0 #000000;
+      --shadow-hard-lg: 4px 4px 0 #000000;
     }
 
     html[data-theme="dark"] body {
-      background-color: #171513;
-      color: #F4EBDD;
-      background-image: radial-gradient(rgba(244, 235, 221, .045) .7px, transparent .7px);
+      background-color: #0A0A0A;
+      color: #F5F5F5;
+      background-image: radial-gradient(rgba(255, 255, 255, .055) .7px, transparent .7px);
     }
 
     html[data-theme="dark"] header {
-      background-color: rgba(29, 25, 21, .96) !important;
-      border-color: #493D32 !important;
+      background-color: rgba(14, 14, 14, .96) !important;
+      border-color: #333333 !important;
     }
 
     html[data-theme="dark"] #hero {
-      background-color: rgba(43, 36, 29, .72) !important;
-      border-color: #493D32 !important;
+      background-color: rgba(20, 20, 20, .82) !important;
+      border-color: #333333 !important;
     }
 
     html[data-theme="dark"] footer,
@@ -418,74 +418,78 @@
     html[data-theme="dark"] .faq-item {
       background-color: var(--bg-paper) !important;
       color: var(--ink-dark);
-      border-color: #796858 !important;
+      border-color: #525252 !important;
     }
 
     html[data-theme="dark"] .retro-btn-secondary {
-      background-color: #2B2621 !important;
-      color: #F4EBDD !important;
-      border-color: #B7A590 !important;
+      background-color: #222222 !important;
+      color: #F5F5F5 !important;
+      border-color: #737373 !important;
     }
     html[data-theme="dark"] .retro-btn-secondary:hover {
-      background-color: #393027 !important;
+      background-color: #2E2E2E !important;
     }
     html[data-theme="dark"] .retro-btn-primary {
-      color: #FFF8EF !important;
-      border-color: #B7A590 !important;
+      background-color: #F5F5F5 !important;
+      color: #0A0A0A !important;
+      border-color: #F5F5F5 !important;
+    }
+    html[data-theme="dark"] .retro-btn-primary:hover {
+      background-color: #DCDCDC !important;
     }
 
-    html[data-theme="dark"] [class*="bg-[#F4ECE1]"],
-    html[data-theme="dark"] [class*="bg-[#EFE4D4]"],
-    html[data-theme="dark"] [class*="bg-[#FAF5EE]"],
-    html[data-theme="dark"] [class*="bg-[#FFF9F1]"],
-    html[data-theme="dark"] [class*="bg-[#EDE0CE]"],
-    html[data-theme="dark"] [class*="bg-[#F3E8D7]"] {
-      background-color: #25211D !important;
+    html[data-theme="dark"] [class*="bg-[#F7F7F7]"],
+    html[data-theme="dark"] [class*="bg-[#EAEAEA]"],
+    html[data-theme="dark"] [class*="bg-[#FFFFFF]"],
+    html[data-theme="dark"] [class*="bg-[#FFFFFF]"],
+    html[data-theme="dark"] [class*="bg-[#EAEAEA]"],
+    html[data-theme="dark"] [class*="bg-[#F7F7F7]"] {
+      background-color: #1A1A1A !important;
     }
-    html[data-theme="dark"] [class*="text-[#1E1815]"],
-    html[data-theme="dark"] [class*="text-[#211A16]"],
-    html[data-theme="dark"] [class*="text-[#5C4E43]"],
-    html[data-theme="dark"] [class*="text-[#74665B]"] {
-      color: #E9DDCE !important;
+    html[data-theme="dark"] [class*="text-[#0A0A0A]"],
+    html[data-theme="dark"] [class*="text-[#0A0A0A]"],
+    html[data-theme="dark"] [class*="text-[#525252]"],
+    html[data-theme="dark"] [class*="text-[#525252]"] {
+      color: #EDEDED !important;
     }
-    html[data-theme="dark"] [class*="border-[#1E1815]"],
-    html[data-theme="dark"] [class*="border-[#211A16]"] {
-      border-color: #796858 !important;
+    html[data-theme="dark"] [class*="border-[#0A0A0A]"],
+    html[data-theme="dark"] [class*="border-[#0A0A0A]"] {
+      border-color: #525252 !important;
     }
-    html[data-theme="dark"] [class*="shadow-[2px_2px_0px_#1E1815]"],
-    html[data-theme="dark"] [class*="shadow-[3px_3px_0px_#1E1815]"],
-    html[data-theme="dark"] [class*="shadow-[4px_4px_0px_#1E1815]"] {
-      box-shadow: 3px 3px 0 #080706 !important;
+    html[data-theme="dark"] [class*="shadow-[2px_2px_0px_#0A0A0A]"],
+    html[data-theme="dark"] [class*="shadow-[3px_3px_0px_#0A0A0A]"],
+    html[data-theme="dark"] [class*="shadow-[4px_4px_0px_#0A0A0A]"] {
+      box-shadow: 3px 3px 0 #000000 !important;
     }
     html[data-theme="dark"] input,
     html[data-theme="dark"] textarea,
     html[data-theme="dark"] select {
-      background-color: #211D19 !important;
-      color: #F4EBDD !important;
-      border-color: #796858 !important;
+      background-color: #141414 !important;
+      color: #F5F5F5 !important;
+      border-color: #525252 !important;
     }
     html[data-theme="dark"] input::placeholder,
     html[data-theme="dark"] textarea::placeholder {
-      color: #A99A89 !important;
+      color: #8A8A8A !important;
       opacity: 1;
     }
     html[data-theme="dark"] .bg-white,
     html[data-theme="dark"] [class~="bg-white"] {
-      background-color: #25211D !important;
+      background-color: #1A1A1A !important;
     }
     html[data-theme="dark"] .text-gray-500,
     html[data-theme="dark"] .text-gray-600,
     html[data-theme="dark"] .text-slate-500,
     html[data-theme="dark"] .text-slate-600 {
-      color: #B9AA99 !important;
+      color: #A3A3A3 !important;
     }
     html[data-theme="dark"] .border-gray-200,
     html[data-theme="dark"] .border-gray-300,
     html[data-theme="dark"] .border-slate-200 {
-      border-color: #51463B !important;
+      border-color: #3D3D3D !important;
     }
-    html[data-theme="dark"] ::-webkit-scrollbar-track { background: #171513; }
-    html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #796858; }
+    html[data-theme="dark"] ::-webkit-scrollbar-track { background: #0A0A0A; }
+    html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #525252; }
 
     #theme-toggle {
       min-width: 42px;
@@ -686,49 +690,168 @@
       }
     }
 
+
+    /* ===================================================================== */
+    /* MONOCHROME KINETIC TYPOGRAPHY & MOVING FONT ANIMATIONS                */
+    /* ===================================================================== */
+    @keyframes marqueeScrollLeft {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+    @keyframes marqueeScrollRight {
+      0% { transform: translate3d(-50%, 0, 0); }
+      100% { transform: translate3d(0, 0, 0); }
+    }
+    @keyframes kineticWave {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(-1.5deg); }
+    }
+    @keyframes cursorBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes heroWordPop {
+      0% { opacity: 0; transform: translateY(16px) scale(0.96); filter: blur(3px); }
+      100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    }
+    @keyframes monoPulseBorder {
+      0%, 100% { box-shadow: 3px 3px 0px var(--ink-dark); }
+      50% { box-shadow: 5px 5px 0px var(--ink-dark); }
+    }
+
+    .kinetic-marquee-wrap {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      display: flex;
+      position: relative;
+    }
+    .kinetic-marquee-track {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      will-change: transform;
+      animation: marqueeScrollLeft 26s linear infinite;
+    }
+    .kinetic-marquee-track.reverse {
+      animation: marqueeScrollRight 30s linear infinite;
+    }
+    .kinetic-marquee-wrap:hover .kinetic-marquee-track {
+      animation-play-state: paused;
+    }
+
+    /* Floating Wave Letters in Hero */
+    .kinetic-wave-title {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2px;
+    }
+    .kinetic-char {
+      display: inline-block;
+      animation: kineticWave 2.8s ease-in-out infinite;
+      will-change: transform;
+    }
+    .kinetic-char.outline-char {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--ink-dark);
+    }
+    html[data-theme="dark"] .kinetic-char.outline-char {
+      -webkit-text-stroke: 1.5px #F5F5F5;
+    }
+
+    /* Animated Typewriter Box in Hero Headline */
+    .kinetic-typewriter-box {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.08em 0.38em;
+      margin: 0 0.1em;
+      background-color: var(--ink-dark);
+      color: var(--bg-paper);
+      border: 2px solid var(--ink-dark);
+      border-radius: 0.45rem;
+      box-shadow: 3px 3px 0px rgba(10, 10, 10, 0.28);
+      vertical-align: baseline;
+      transition: width 150ms ease;
+    }
+    html[data-theme="dark"] .kinetic-typewriter-box {
+      background-color: #F5F5F5;
+      color: #0A0A0A;
+      border-color: #F5F5F5;
+      box-shadow: 3px 3px 0px rgba(255, 255, 255, 0.22);
+    }
+    .kinetic-cursor {
+      display: inline-block;
+      margin-left: 4px;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      animation: cursorBlink 0.9s infinite;
+    }
+
+    /* Outlined stroke text for bottom Hero ribbon */
+    .mono-stroke-text {
+      color: transparent;
+      -webkit-text-stroke: 1.2px var(--ink-dark);
+    }
+    html[data-theme="dark"] .mono-stroke-text {
+      -webkit-text-stroke: 1.2px #F5F5F5;
+    }
+
+    /* Hero initial word entrance */
+    .hero-word-anim {
+      display: inline-block;
+      opacity: 0;
+      animation: heroWordPop 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
   </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-[#D94E34] selection:text-[#FAF5EE]">
+<body class="min-h-screen flex flex-col selection:bg-[#0A0A0A] selection:text-[#FFFFFF]">
 
-  <!-- Vintage Top Marquee Strip -->
-  <div class="bg-[#1E1815] text-[#F4ECE1] text-[11px] mono py-1.5 px-4 border-b-2 border-[#1E1815] text-center tracking-wider uppercase">
-    EST. 2026 • XENAMORPH MULTI-DEVICE AUTOMATION • VINTAGE EDITION • ONLINE 24/7
+  <!-- Monochrome Kinetic Top Marquee Strip -->
+  <div class="bg-[#0A0A0A] text-[#FFFFFF] text-[11px] mono py-1.5 border-b-2 border-[#0A0A0A] tracking-wider uppercase kinetic-marquee-wrap select-none">
+    <div class="kinetic-marquee-track">
+      <span class="px-4">EST. 2026 • XENAMORPH MULTI-DEVICE AUTOMATION • MONOCHROME EDITION • ONLINE 24/7 • RESPON KILAT ~0.2 DETIK • TANPA SEWA VPS</span>
+      <span class="px-4">EST. 2026 • XENAMORPH MULTI-DEVICE AUTOMATION • MONOCHROME EDITION • ONLINE 24/7 • RESPON KILAT ~0.2 DETIK • TANPA SEWA VPS</span>
+      <span class="px-4">EST. 2026 • XENAMORPH MULTI-DEVICE AUTOMATION • MONOCHROME EDITION • ONLINE 24/7 • RESPON KILAT ~0.2 DETIK • TANPA SEWA VPS</span>
+      <span class="px-4">EST. 2026 • XENAMORPH MULTI-DEVICE AUTOMATION • MONOCHROME EDITION • ONLINE 24/7 • RESPON KILAT ~0.2 DETIK • TANPA SEWA VPS</span>
+    </div>
   </div>
 
   <!-- Top Navigation -->
-  <header class="border-b-2 border-[#1E1815] bg-[#F4ECE1]/95 backdrop-blur-md sticky top-0 z-40">
+  <header class="border-b-2 border-[#0A0A0A] bg-[#F7F7F7]/95 backdrop-blur-md sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between gap-4">
       <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-[#D94E34] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center justify-center text-[#FAF5EE] group-hover:bg-[#B83B24] transition">
+        <div class="w-10 h-10 rounded-xl bg-[#0A0A0A] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] flex items-center justify-center text-[#FFFFFF] group-hover:bg-[#262626] transition">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <span class="retro-display font-black text-base tracking-tight text-[#1E1815]">XenaMorph</span>
-            <span class="text-[10px] mono font-bold px-1.5 py-0.5 rounded bg-[#E59838] text-[#1E1815] border border-[#1E1815]">v2.5</span>
+            <span class="retro-display font-black text-base tracking-tight text-[#0A0A0A]">XenaMorph</span>
+            <span class="text-[10px] mono font-bold px-1.5 py-0.5 rounded bg-[#E0E0E0] text-[#0A0A0A] border border-[#0A0A0A]">v2.5</span>
           </div>
-          <p class="text-[11px] text-[#5C4E43] font-medium">WhatsApp Multi-Device Infrastructure</p>
+          <p class="text-[11px] text-[#525252] font-medium">WhatsApp Multi-Device Infrastructure</p>
         </div>
       </a>
 
       <!-- Quick Menu Links -->
-      <nav class="hidden md:flex items-center gap-6 text-xs font-bold text-[#1E1815]">
-        <a href="index.html" class="hover:text-[#D94E34] transition flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      <nav class="hidden md:flex items-center gap-6 text-xs font-bold text-[#0A0A0A]">
+        <a href="index.html" class="hover:text-[#0A0A0A] transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-[#0A0A0A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
           <span>Beranda</span>
         </a>
-        <a href="#fitur-bot" class="hover:text-[#D94E34] transition flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg>
+        <a href="#fitur-bot" class="hover:text-[#0A0A0A] transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-[#0A0A0A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg>
           <span>Fitur Bot</span>
         </a>
-        <a href="#panel-jadibot" class="hover:text-[#D94E34] transition flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <a href="#panel-jadibot" class="hover:text-[#0A0A0A] transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-[#0A0A0A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
           <span>Panel Jadibot</span>
         </a>
-        <a href="#paket-harga" class="hover:text-[#D94E34] transition flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <a href="#paket-harga" class="hover:text-[#0A0A0A] transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-[#0A0A0A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span>Paket &amp; SewaBot</span>
         </a>
       </nav>
@@ -745,13 +868,13 @@
         </button>
 
         <div id="nav-user-box" class="hidden items-center gap-2">
-          <div class="px-2.5 py-1 rounded-lg bg-[#FAF5EE] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center gap-2">
-            <img id="nav-user-avatar" src="" alt="" class="hidden w-4 h-4 rounded-full border border-[#1E1815] object-cover" />
-            <span id="nav-user-dot" class="w-2 h-2 rounded-full bg-[#D94E34]"></span>
-            <span id="nav-username" class="text-xs font-bold text-[#1E1815] mono">user</span>
-            <span id="nav-user-role" class="text-[10px] mono uppercase px-1.5 py-0.5 rounded bg-[#EFE4D4] text-[#1E1815] border border-[#1E1815] font-bold">FREE</span>
+          <div class="px-2.5 py-1 rounded-lg bg-[#FFFFFF] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] flex items-center gap-2">
+            <img id="nav-user-avatar" src="" alt="" class="hidden w-4 h-4 rounded-full border border-[#0A0A0A] object-cover" />
+            <span id="nav-user-dot" class="w-2 h-2 rounded-full bg-[#0A0A0A]"></span>
+            <span id="nav-username" class="text-xs font-bold text-[#0A0A0A] mono">user</span>
+            <span id="nav-user-role" class="text-[10px] mono uppercase px-1.5 py-0.5 rounded bg-[#EAEAEA] text-[#0A0A0A] border border-[#0A0A0A] font-bold">FREE</span>
           </div>
-          <button id="btn-logout" type="button" title="Keluar Akun" class="p-1.5 rounded-lg bg-[#FAF5EE] hover:bg-[#D94E34] text-[#1E1815] hover:text-[#FAF5EE] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] transition">
+          <button id="btn-logout" type="button" title="Keluar Akun" class="p-1.5 rounded-lg bg-[#FFFFFF] hover:bg-[#0A0A0A] text-[#0A0A0A] hover:text-[#FFFFFF] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] transition">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
           </button>
         </div>
@@ -770,23 +893,49 @@
   <main id="view-dashboard" class="flex-1 w-full">
 
     <!-- HERO SECTION (GAYA POSTER RETRO) -->
-    <section id="hero" class="relative border-b-2 border-[#1E1815] bg-[#EFE4D4]/60">
+    <section id="hero" class="relative border-b-2 border-[#0A0A0A] bg-[#EAEAEA]/60">
       <div class="max-w-4xl mx-auto px-4 pt-12 pb-14 text-center space-y-6">
         
         <!-- Top Status Pill -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FAF5EE] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] text-[#1E1815] text-xs font-bold">
-          <span class="w-2 h-2 rounded-full bg-[#D94E34]"></span>
-          <span>Sistem Aktif 24 Jam • Terintegrasi Cloud Database</span>
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFFFFF] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] text-[#0A0A0A] text-xs font-bold">
+          <span class="w-2 h-2 rounded-full bg-[#0A0A0A] animate-ping"></span>
+          <span class="w-2 h-2 rounded-full bg-[#0A0A0A] -ml-3"></span>
+          <span>Sistem Aktif 24 Jam • Monochrome Edition</span>
         </div>
 
-        <!-- Headline -->
-        <h1 class="retro-display text-3xl sm:text-5xl font-black tracking-tight text-[#1E1815] leading-[1.12] max-w-2xl mx-auto">
-          Jadikan Nomor WhatsApp Kamu <span class="text-[#D94E34] underline decoration-2 underline-offset-4">Bot Otomatis</span> Serba Bisa
+        <!-- Kinetic Floating Wave Display Word -->
+        <div class="pt-1 select-none" aria-hidden="true">
+          <div class="kinetic-wave-title retro-display text-xs sm:text-sm font-black tracking-[0.28em] uppercase">
+            <span class="kinetic-char" style="animation-delay: 0ms;">X</span>
+            <span class="kinetic-char outline-char" style="animation-delay: 90ms;">E</span>
+            <span class="kinetic-char" style="animation-delay: 180ms;">N</span>
+            <span class="kinetic-char outline-char" style="animation-delay: 270ms;">A</span>
+            <span class="kinetic-char" style="animation-delay: 360ms;">M</span>
+            <span class="kinetic-char outline-char" style="animation-delay: 450ms;">O</span>
+            <span class="kinetic-char" style="animation-delay: 540ms;">R</span>
+            <span class="kinetic-char outline-char" style="animation-delay: 630ms;">P</span>
+            <span class="kinetic-char" style="animation-delay: 720ms;">H</span>
+            <span class="mx-1.5 text-[#525252]">—</span>
+            <span class="kinetic-char mono text-[11px] sm:text-xs px-1.5 py-0.5 rounded bg-[#0A0A0A] text-[#FFFFFF]" style="animation-delay: 810ms;">MD v2.5</span>
+          </div>
+        </div>
+
+        <!-- Headline with Animated Moving Font / Typewriter Morph -->
+        <h1 class="retro-display text-3xl sm:text-5xl font-black tracking-tight text-[#0A0A0A] leading-[1.16] max-w-2xl mx-auto">
+          <span class="hero-word-anim" style="animation-delay: 60ms;">Jadikan</span>
+          <span class="hero-word-anim" style="animation-delay: 130ms;">Nomor</span>
+          <span class="hero-word-anim" style="animation-delay: 200ms;">WhatsApp</span>
+          <span class="hero-word-anim" style="animation-delay: 270ms;">Kamu</span>
+          <span class="kinetic-typewriter-box hero-word-anim" style="animation-delay: 350ms;">
+            <span id="kinetic-typed-text">Bot Otomatis</span><span class="kinetic-cursor">_</span>
+          </span>
+          <span class="hero-word-anim" style="animation-delay: 430ms;">Serba</span>
+          <span class="hero-word-anim" style="animation-delay: 500ms;">Bisa</span>
         </h1>
 
         <!-- Description -->
-        <p class="text-xs sm:text-sm text-[#5C4E43] max-w-2xl mx-auto leading-relaxed font-medium">
-          Selamat datang di portal resmi <strong class="text-[#1E1815] font-bold">XenaMorph Jadibot</strong>. Tautkan nomor WhatsApp pribadi kamu menjadi sub-bot mandiri tanpa perlu sewa VPS atau koding. Dilengkapi puluhan fitur siap pakai mulai dari putar musik Spotify &amp; YouTube, unduh video TikTok &amp; Instagram tanpa watermark, pembuatan stiker instan, hingga asisten AI dan penjaga grup otomatis.
+        <p class="text-xs sm:text-sm text-[#525252] max-w-2xl mx-auto leading-relaxed font-medium">
+          Selamat datang di portal resmi <strong class="text-[#0A0A0A] font-bold">XenaMorph Jadibot</strong>. Tautkan nomor WhatsApp pribadi kamu menjadi sub-bot mandiri tanpa perlu sewa VPS atau koding. Dilengkapi puluhan fitur siap pakai mulai dari putar musik Spotify &amp; YouTube, unduh video TikTok &amp; Instagram tanpa watermark, pembuatan stiker instan, hingga asisten AI dan penjaga grup otomatis.
         </p>
 
         <!-- Stacked Action Buttons -->
@@ -799,7 +948,7 @@
           </a>
 
           <a href="#paket-harga" class="retro-btn-secondary w-full py-2.5 px-5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
-            <svg class="w-4 h-4 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-[#0A0A0A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
             </svg>
             <span>Lihat Paket Premium &amp; SewaBot</span>
@@ -809,46 +958,76 @@
         <!-- Quick Metrics -->
         <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3.5 max-w-3xl mx-auto text-left">
           <div class="p-3.5 rounded-xl retro-box-sm flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-[#E59838] border border-[#1E1815] flex items-center justify-center text-[#1E1815]">
+            <div class="w-8 h-8 rounded-lg bg-[#E0E0E0] border border-[#0A0A0A] flex items-center justify-center text-[#0A0A0A]">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
             <div>
-              <div class="text-xs font-bold text-[#1E1815] mono">~0.2 Detik</div>
-              <div class="text-[11px] text-[#5C4E43] font-medium">Respon Perintah</div>
+              <div class="text-xs font-bold text-[#0A0A0A] mono">~0.2 Detik</div>
+              <div class="text-[11px] text-[#525252] font-medium">Respon Perintah</div>
             </div>
           </div>
 
           <div class="p-3.5 rounded-xl retro-box-sm flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-[#D94E34] border border-[#1E1815] flex items-center justify-center text-[#FAF5EE]">
+            <div class="w-8 h-8 rounded-lg bg-[#0A0A0A] border border-[#0A0A0A] flex items-center justify-center text-[#FFFFFF]">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
             </div>
             <div>
-              <div class="text-xs font-bold text-[#1E1815] mono">35+ Command</div>
-              <div class="text-[11px] text-[#5C4E43] font-medium">Fitur Aktif</div>
+              <div class="text-xs font-bold text-[#0A0A0A] mono">35+ Command</div>
+              <div class="text-[11px] text-[#525252] font-medium">Fitur Aktif</div>
             </div>
           </div>
 
           <div class="p-3.5 rounded-xl retro-box-sm flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-[#E59838] border border-[#1E1815] flex items-center justify-center text-[#1E1815]">
+            <div class="w-8 h-8 rounded-lg bg-[#E0E0E0] border border-[#0A0A0A] flex items-center justify-center text-[#0A0A0A]">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
             </div>
             <div>
-              <div class="text-xs font-bold text-[#1E1815] mono">Rp 5.000</div>
-              <div class="text-[11px] text-[#5C4E43] font-medium">VIP Tanpa Limit</div>
+              <div class="text-xs font-bold text-[#0A0A0A] mono">Rp 5.000</div>
+              <div class="text-[11px] text-[#525252] font-medium">VIP Tanpa Limit</div>
             </div>
           </div>
 
           <div class="p-3.5 rounded-xl retro-box-sm flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-[#D94E34] border border-[#1E1815] flex items-center justify-center text-[#FAF5EE]">
+            <div class="w-8 h-8 rounded-lg bg-[#0A0A0A] border border-[#0A0A0A] flex items-center justify-center text-[#FFFFFF]">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
             <div>
-              <div class="text-xs font-bold text-[#1E1815] mono">Trial 2 Hari</div>
-              <div class="text-[11px] text-[#5C4E43] font-medium">SewaBot Grup Baru</div>
+              <div class="text-xs font-bold text-[#0A0A0A] mono">Trial 2 Hari</div>
+              <div class="text-[11px] text-[#525252] font-medium">SewaBot Grup Baru</div>
             </div>
           </div>
         </div>
 
+      </div>
+
+      <!-- Kinetic Moving Font Ribbon at Bottom of Hero -->
+      <div class="border-t-2 border-[#0A0A0A] bg-[#FFFFFF] py-2.5 kinetic-marquee-wrap select-none">
+        <div class="kinetic-marquee-track reverse retro-display text-sm sm:text-base font-black tracking-wider uppercase">
+          <span class="mx-4">JADIBOT MULTI-DEVICE</span>
+          <span class="mx-2">✦</span>
+          <span class="mx-4 mono-stroke-text">CANVAS .IQC .QWIN .TTQC</span>
+          <span class="mx-2">✦</span>
+          <span class="mx-4">PLAY SPOTIFY &amp; YOUTUBE</span>
+          <span class="mx-2">✦</span>
+          <span class="mx-4 mono-stroke-text">DOWNLOADER TANPA WATERMARK</span>
+          <span class="mx-2">✦</span>
+          <span class="mx-4">PROTEKSI GRUP 24 JAM</span>
+          <span class="mx-2">✦</span>
+          <span class="mx-4 mono-stroke-text">STIKER INSTAN .S .SGIF .BRAT</span>
+          <span class="mx-2">✦</span>
+          <span class="mx-4">JADIBOT MULTI-DEVICE</span>
+          <span class="mx-2">✦</span>
+          <span class="mx-4 mono-stroke-text">CANVAS .IQC .QWIN .TTQC</span>
+          <span class="mx-2">✦</span>
+          <span class="mx-4">PLAY SPOTIFY &amp; YOUTUBE</span>
+          <span class="mx-2">✦</span>
+          <span class="mx-4 mono-stroke-text">DOWNLOADER TANPA WATERMARK</span>
+          <span class="mx-2">✦</span>
+          <span class="mx-4">PROTEKSI GRUP 24 JAM</span>
+          <span class="mx-2">✦</span>
+          <span class="mx-4 mono-stroke-text">STIKER INSTAN .S .SGIF .BRAT</span>
+          <span class="mx-2">✦</span>
+        </div>
       </div>
     </section>
 
@@ -857,38 +1036,38 @@
       <!-- SECTION 1: FITUR BOT (MINIMALIS GAYA REFERENSI + SENTUHAN RETRO) -->
       <section id="fitur-bot" class="max-w-3xl mx-auto space-y-6">
         <div class="space-y-3">
-          <div class="inline-block px-2.5 py-0.5 rounded bg-[#D94E34] text-[#FAF5EE] border border-[#1E1815] text-[11px] font-bold uppercase tracking-widest mono">FITUR BOT</div>
-          <h2 class="retro-display text-2xl sm:text-4xl font-black text-[#1E1815] tracking-tight leading-tight">
+          <div class="inline-block px-2.5 py-0.5 rounded bg-[#0A0A0A] text-[#FFFFFF] border border-[#0A0A0A] text-[11px] font-bold uppercase tracking-widest mono">FITUR BOT</div>
+          <h2 class="retro-display text-2xl sm:text-4xl font-black text-[#0A0A0A] tracking-tight leading-tight">
             Satu bot untuk<br class="sm:hidden" /> semua kebutuhan
           </h2>
-          <p class="text-xs sm:text-sm text-[#5C4E43] font-medium leading-relaxed">
+          <p class="text-xs sm:text-sm text-[#525252] font-medium leading-relaxed">
             Semua modul aktif otomatis begitu bot terhubung di WhatsApp.
           </p>
 
           <!-- Category Pills -->
           <div class="flex flex-wrap gap-2 pt-2">
-            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FAF5EE] text-[#1E1815] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815]">Chat</span>
-            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FAF5EE] text-[#1E1815] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815]">Grup</span>
-            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FAF5EE] text-[#1E1815] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815]">Sticker</span>
-            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FAF5EE] text-[#1E1815] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815]">Musik</span>
-            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FAF5EE] text-[#1E1815] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815]">Game</span>
-            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FAF5EE] text-[#1E1815] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815]">Downloader</span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FFFFFF] text-[#0A0A0A] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]">Chat</span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FFFFFF] text-[#0A0A0A] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]">Grup</span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FFFFFF] text-[#0A0A0A] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]">Sticker</span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FFFFFF] text-[#0A0A0A] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]">Musik</span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FFFFFF] text-[#0A0A0A] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]">Game</span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FFFFFF] text-[#0A0A0A] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A]">Downloader</span>
           </div>
         </div>
 
         <!-- Clean Vertical Feature List with Retro Borders -->
-        <div class="retro-box rounded-2xl px-5 divide-y-2 divide-[#1E1815]/15">
+        <div class="retro-box rounded-2xl px-5 divide-y-2 divide-[#0A0A0A]/15">
 
           <!-- Item 1: Multi downloader -->
           <div class="py-5 flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[#D94E34] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center justify-center text-[#FAF5EE] shrink-0 mt-0.5">
+            <div class="w-10 h-10 rounded-xl bg-[#0A0A0A] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] flex items-center justify-center text-[#FFFFFF] shrink-0 mt-0.5">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
               </svg>
             </div>
             <div class="space-y-1">
-              <h3 class="retro-display text-base sm:text-lg font-bold text-[#1E1815]">Multi downloader</h3>
-              <p class="text-xs sm:text-sm text-[#5C4E43] leading-relaxed">
+              <h3 class="retro-display text-base sm:text-lg font-bold text-[#0A0A0A]">Multi downloader</h3>
+              <p class="text-xs sm:text-sm text-[#525252] leading-relaxed">
                 TikTok, Instagram, YouTube, dan Spotify dengan kualitas asli, tanpa watermark.
               </p>
             </div>
@@ -896,15 +1075,15 @@
 
           <!-- Item 2: Minigames & hiburan -->
           <div class="py-5 flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[#E59838] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center justify-center text-[#1E1815] shrink-0 mt-0.5">
+            <div class="w-10 h-10 rounded-xl bg-[#E0E0E0] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] flex items-center justify-center text-[#0A0A0A] shrink-0 mt-0.5">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div class="space-y-1">
-              <h3 class="retro-display text-base sm:text-lg font-bold text-[#1E1815]">Minigames &amp; hiburan interaktif</h3>
-              <p class="text-xs sm:text-sm text-[#5C4E43] leading-relaxed">
+              <h3 class="retro-display text-base sm:text-lg font-bold text-[#0A0A0A]">Minigames &amp; hiburan interaktif</h3>
+              <p class="text-xs sm:text-sm text-[#525252] leading-relaxed">
                 Tebak karakter Akinator, kuis asah otak Cak Lontong, dan asisten AI pintar di ruang chat.
               </p>
             </div>
@@ -912,29 +1091,29 @@
 
           <!-- Item 3: Pembuat Stiker & Canvas -->
           <div class="py-5 flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[#D94E34] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center justify-center text-[#FAF5EE] shrink-0 mt-0.5">
+            <div class="w-10 h-10 rounded-xl bg-[#0A0A0A] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] flex items-center justify-center text-[#FFFFFF] shrink-0 mt-0.5">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
             </div>
             <div class="space-y-1">
-              <h3 class="retro-display text-base sm:text-lg font-bold text-[#1E1815]">Stiker instan &amp; generator canvas</h3>
-              <p class="text-xs sm:text-sm text-[#5C4E43] leading-relaxed">
-                Konversi foto, video/GIF (.sgif), teks Brat, serta generator gambar chat iPhone gelap (<code class="mono font-bold text-[#1E1815]">.iqc</code>), meme Quotes Windows Media Player (<code class="mono font-bold text-[#1E1815]">.qwin</code>), dan fake chat TikTok (<code class="mono font-bold text-[#1E1815]">.ttqc</code>) secara otomatis.
+              <h3 class="retro-display text-base sm:text-lg font-bold text-[#0A0A0A]">Stiker instan &amp; generator canvas</h3>
+              <p class="text-xs sm:text-sm text-[#525252] leading-relaxed">
+                Konversi foto, video/GIF (.sgif), teks Brat, serta generator gambar chat iPhone gelap (<code class="mono font-bold text-[#0A0A0A]">.iqc</code>), meme Quotes Windows Media Player (<code class="mono font-bold text-[#0A0A0A]">.qwin</code>), dan fake chat TikTok (<code class="mono font-bold text-[#0A0A0A]">.ttqc</code>) secara otomatis.
               </p>
             </div>
           </div>
 
           <!-- Item 4: Manajemen grup -->
           <div class="py-5 flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[#E59838] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center justify-center text-[#1E1815] shrink-0 mt-0.5">
+            <div class="w-10 h-10 rounded-xl bg-[#E0E0E0] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] flex items-center justify-center text-[#0A0A0A] shrink-0 mt-0.5">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
             <div class="space-y-1">
-              <h3 class="retro-display text-base sm:text-lg font-bold text-[#1E1815]">Manajemen grup</h3>
-              <p class="text-xs sm:text-sm text-[#5C4E43] leading-relaxed">
+              <h3 class="retro-display text-base sm:text-lg font-bold text-[#0A0A0A]">Manajemen grup</h3>
+              <p class="text-xs sm:text-sm text-[#525252] leading-relaxed">
                 Hidetag seluruh anggota, proteksi antilink otomatis, dan pembuka media sekali lihat secara instan.
               </p>
             </div>
@@ -946,9 +1125,9 @@
       <!-- SECTION 2: PAKET MEMBER (FREE vs VIP) & SEWABOT GRUP -->
       <section id="paket-harga" class="space-y-6">
         <div class="max-w-xl space-y-1">
-          <div class="inline-block px-2.5 py-0.5 rounded bg-[#E59838] text-[#1E1815] border border-[#1E1815] text-[11px] font-bold uppercase tracking-wider mono">Paket &amp; Langganan</div>
-          <h2 class="retro-display text-2xl sm:text-3xl font-black text-[#1E1815]">Pilih Paket Sesuai Kebutuhan</h2>
-          <p class="text-xs sm:text-sm text-[#5C4E43] font-medium">
+          <div class="inline-block px-2.5 py-0.5 rounded bg-[#E0E0E0] text-[#0A0A0A] border border-[#0A0A0A] text-[11px] font-bold uppercase tracking-wider mono">Paket &amp; Langganan</div>
+          <h2 class="retro-display text-2xl sm:text-3xl font-black text-[#0A0A0A]">Pilih Paket Sesuai Kebutuhan</h2>
+          <p class="text-xs sm:text-sm text-[#525252] font-medium">
             Mulai dari akses gratis harian, upgrade ke VIP tanpa batas kuota, atau undang bot ke grup WhatsApp kamu.
           </p>
         </div>
@@ -960,45 +1139,45 @@
           <div class="retro-box rounded-2xl p-5 flex flex-col justify-between space-y-5">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
-                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-[#EFE4D4] text-[#1E1815] border border-[#1E1815]">Member Free</span>
-                <span class="text-[11px] mono font-bold text-[#5C4E43]">Starter</span>
+                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-[#EAEAEA] text-[#0A0A0A] border border-[#0A0A0A]">Member Free</span>
+                <span class="text-[11px] mono font-bold text-[#525252]">Starter</span>
               </div>
               <div>
-                <h3 class="retro-display text-lg font-bold text-[#1E1815]">Paket Free</h3>
-                <p class="text-xs text-[#5C4E43] mt-1">Bebas pakai pemutar musik, downloader, dan stiker, serta kuota harian generator canvas.</p>
+                <h3 class="retro-display text-lg font-bold text-[#0A0A0A]">Paket Free</h3>
+                <p class="text-xs text-[#525252] mt-1">Bebas pakai pemutar musik, downloader, dan stiker, serta kuota harian generator canvas.</p>
               </div>
-              <div class="pt-3 border-t-2 border-dashed border-[#1E1815]/20 flex items-baseline gap-1.5">
-                <span class="retro-display text-3xl font-black text-[#1E1815]">Rp 0</span>
-                <span class="text-xs text-[#5C4E43] font-semibold">/ Selamanya</span>
+              <div class="pt-3 border-t-2 border-dashed border-[#0A0A0A]/20 flex items-baseline gap-1.5">
+                <span class="retro-display text-3xl font-black text-[#0A0A0A]">Rp 0</span>
+                <span class="text-xs text-[#525252] font-semibold">/ Selamanya</span>
               </div>
 
-              <div class="p-3 rounded-xl bg-[#EFE4D4] border border-[#1E1815] space-y-1.5">
+              <div class="p-3 rounded-xl bg-[#EAEAEA] border border-[#0A0A0A] space-y-1.5">
                 <div class="flex items-center justify-between text-xs font-bold">
-                  <span class="text-[#5C4E43]">Kuota Canvas (.iqc, .qwin, .ttqc)</span>
-                  <span class="mono text-[#1E1815]">10x / Hari</span>
+                  <span class="text-[#525252]">Kuota Canvas (.iqc, .qwin, .ttqc)</span>
+                  <span class="mono text-[#0A0A0A]">10x / Hari</span>
                 </div>
-                <div class="w-full h-1.5 bg-[#FAF5EE] border border-[#1E1815] rounded-full overflow-hidden">
-                  <div class="w-1/3 h-full bg-[#1E1815]"></div>
+                <div class="w-full h-1.5 bg-[#FFFFFF] border border-[#0A0A0A] rounded-full overflow-hidden">
+                  <div class="w-1/3 h-full bg-[#0A0A0A]"></div>
                 </div>
-                <p class="text-[11px] text-[#5C4E43]">Reset otomatis setiap pukul 00:00 WIB.</p>
+                <p class="text-[11px] text-[#525252]">Reset otomatis setiap pukul 00:00 WIB.</p>
               </div>
 
-              <ul class="space-y-2.5 text-xs text-[#5C4E43] pt-1 font-medium">
+              <ul class="space-y-2.5 text-xs text-[#525252] pt-1 font-medium">
                 <li class="flex items-start gap-2.5">
-                  <svg class="w-4 h-4 text-[#D94E34] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                  <span>Akses penuh koneksi <strong class="text-[#1E1815] font-bold">Jadibot Web</strong> (Pairing &amp; QR) serta bebas pakai <strong class="text-[#1E1815] font-bold">Play Spotify, YouTube &amp; Downloader TikTok/IG</strong></span>
+                  <svg class="w-4 h-4 text-[#0A0A0A] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Akses penuh koneksi <strong class="text-[#0A0A0A] font-bold">Jadibot Web</strong> (Pairing &amp; QR) serta bebas pakai <strong class="text-[#0A0A0A] font-bold">Play Spotify, YouTube &amp; Downloader TikTok/IG</strong></span>
                 </li>
                 <li class="flex items-start gap-2.5">
-                  <svg class="w-4 h-4 text-[#D94E34] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                  <span>Bebas pakai pembuat stiker instan (<code class="mono font-bold text-[#1E1815]">.s</code>, <code class="mono font-bold text-[#1E1815]">.sgif</code>, <code class="mono font-bold text-[#1E1815]">.brat</code>, <code class="mono font-bold text-[#1E1815]">.qc</code>, <code class="mono font-bold text-[#1E1815]">.smeme</code>)</span>
+                  <svg class="w-4 h-4 text-[#0A0A0A] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Bebas pakai pembuat stiker instan (<code class="mono font-bold text-[#0A0A0A]">.s</code>, <code class="mono font-bold text-[#0A0A0A]">.sgif</code>, <code class="mono font-bold text-[#0A0A0A]">.brat</code>, <code class="mono font-bold text-[#0A0A0A]">.qc</code>, <code class="mono font-bold text-[#0A0A0A]">.smeme</code>)</span>
                 </li>
                 <li class="flex items-start gap-2.5">
-                  <svg class="w-4 h-4 text-[#5C4E43] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                  <span>Fitur <strong class="text-[#1E1815] font-bold">Chat iPhone Gelap (<code class="mono">.iqc</code>)</strong> &amp; <strong class="text-[#1E1815] font-bold">Fake Chat TikTok (<code class="mono">.ttqc</code>)</strong> dibatasi <strong class="text-[#1E1815] font-bold">10x sehari</strong></span>
+                  <svg class="w-4 h-4 text-[#525252] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                  <span>Fitur <strong class="text-[#0A0A0A] font-bold">Chat iPhone Gelap (<code class="mono">.iqc</code>)</strong> &amp; <strong class="text-[#0A0A0A] font-bold">Fake Chat TikTok (<code class="mono">.ttqc</code>)</strong> dibatasi <strong class="text-[#0A0A0A] font-bold">10x sehari</strong></span>
                 </li>
                 <li class="flex items-start gap-2.5">
-                  <svg class="w-4 h-4 text-[#5C4E43] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                  <span>Fitur meme <strong class="text-[#1E1815] font-bold">Quotes Windows Media Player (<code class="mono">.quoteswindows</code> / <code class="mono">.qwin</code>)</strong> dibatasi <strong class="text-[#1E1815] font-bold">10x sehari</strong></span>
+                  <svg class="w-4 h-4 text-[#525252] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                  <span>Fitur meme <strong class="text-[#0A0A0A] font-bold">Quotes Windows Media Player (<code class="mono">.quoteswindows</code> / <code class="mono">.qwin</code>)</strong> dibatasi <strong class="text-[#0A0A0A] font-bold">10x sehari</strong></span>
                 </li>
               </ul>
             </div>
@@ -1009,46 +1188,46 @@
           </div>
 
           <!-- CARD 2: PAKET VIP (RP 5.000 / BULAN - RETRO RED POSTER) -->
-          <div class="bg-[#D94E34] text-[#FAF5EE] border-2 border-[#1E1815] shadow-[5px_5px_0px_#1E1815] rounded-2xl p-5 flex flex-col justify-between space-y-5">
+          <div class="bg-[#0A0A0A] text-[#FFFFFF] border-2 border-[#0A0A0A] shadow-[5px_5px_0px_#0A0A0A] rounded-2xl p-5 flex flex-col justify-between space-y-5">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
-                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-[#FAF5EE] text-[#1E1815] border border-[#1E1815]">VIP Member</span>
-                <span class="text-[11px] mono font-bold text-[#FAF5EE]">30 Hari Aktif</span>
+                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-[#FFFFFF] text-[#0A0A0A] border border-[#0A0A0A]">VIP Member</span>
+                <span class="text-[11px] mono font-bold text-[#FFFFFF]">30 Hari Aktif</span>
               </div>
               <div>
-                <h3 class="retro-display text-lg font-black text-[#FAF5EE]">Paket VIP Unlimited</h3>
-                <p class="text-xs text-[#FAF5EE]/90 mt-1">Akses tanpa batas untuk seluruh generator gambar canvas eksklusif (<code class="mono">.iqc</code>, <code class="mono">.qwin</code>, <code class="mono">.ttqc</code>) &amp; kustomisasi Jadibot.</p>
+                <h3 class="retro-display text-lg font-black text-[#FFFFFF]">Paket VIP Unlimited</h3>
+                <p class="text-xs text-[#FFFFFF]/90 mt-1">Akses tanpa batas untuk seluruh generator gambar canvas eksklusif (<code class="mono">.iqc</code>, <code class="mono">.qwin</code>, <code class="mono">.ttqc</code>) &amp; kustomisasi Jadibot.</p>
               </div>
-              <div class="pt-3 border-t-2 border-dashed border-[#FAF5EE]/30 flex items-baseline gap-1.5">
-                <span class="retro-display text-3xl font-black text-[#FAF5EE]">Rp 5.000</span>
-                <span class="text-xs text-[#FAF5EE]/90 font-semibold">/ Bulan</span>
+              <div class="pt-3 border-t-2 border-dashed border-[#FFFFFF]/30 flex items-baseline gap-1.5">
+                <span class="retro-display text-3xl font-black text-[#FFFFFF]">Rp 5.000</span>
+                <span class="text-xs text-[#FFFFFF]/90 font-semibold">/ Bulan</span>
               </div>
 
-              <div class="p-3 rounded-xl bg-[#1E1815] text-[#FAF5EE] border border-[#1E1815] space-y-1">
+              <div class="p-3 rounded-xl bg-[#1F1F1F] text-[#FFFFFF] border border-[#FFFFFF]/30 space-y-1">
                 <div class="flex items-center justify-between text-xs">
-                  <span class="text-[#FAF5EE]/80 font-medium">Kuota Canvas (.iqc, .qwin, .ttqc)</span>
-                  <span class="mono font-bold text-[#E59838]">UNLIMITED</span>
+                  <span class="text-[#FFFFFF]/80 font-medium">Kuota Canvas (.iqc, .qwin, .ttqc)</span>
+                  <span class="mono font-bold text-[#E0E0E0]">UNLIMITED</span>
                 </div>
-                <p class="text-[11px] text-[#FAF5EE]/70">Bebas buat gambar fake chat &amp; meme Windows Media Player 24 jam penuh.</p>
+                <p class="text-[11px] text-[#FFFFFF]/70">Bebas buat gambar fake chat &amp; meme Windows Media Player 24 jam penuh.</p>
               </div>
 
-              <ul class="space-y-2.5 text-xs text-[#FAF5EE] pt-1 font-medium">
+              <ul class="space-y-2.5 text-xs text-[#FFFFFF] pt-1 font-medium">
                 <li class="flex items-start gap-2.5">
-                  <svg class="w-4 h-4 text-[#FAF5EE] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
                   <span><strong class="font-bold">Tanpa Limit</strong> buat gambar chat iPhone mode gelap (<strong class="font-bold mono">.iqc</strong>) &amp; fake chat TikTok foto profil kustom (<strong class="font-bold mono">.ttqc</strong>)</span>
                 </li>
                 <li class="flex items-start gap-2.5">
-                  <svg class="w-4 h-4 text-[#FAF5EE] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
                   <span><strong class="font-bold">Tanpa Limit</strong> buat meme <strong class="font-bold">Quotes Windows Media Player</strong> (<strong class="font-bold mono">.quoteswindows</strong> / <strong class="font-bold mono">.qwin</strong>)</span>
                 </li>
                 <li class="flex items-start gap-2.5">
-                  <svg class="w-4 h-4 text-[#FAF5EE] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <svg class="w-4 h-4 text-[#FFFFFF] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
                   <span><strong class="font-bold">Akses Settings Jadibot (⋮):</strong> Bebas atur Nama Bot, Nama/Nomor Owner &amp; Checklist Kategori Menu</span>
                 </li>
               </ul>
             </div>
 
-            <button data-plan="VIP Unlimited (Rp 5.000 / Bulan)" data-price="Rp 5.000" class="btn-order-plan w-full py-2.5 px-4 rounded-xl bg-[#FAF5EE] hover:bg-[#EFE4D4] text-[#1E1815] border-2 border-[#1E1815] shadow-[3px_3px_0px_#1E1815] font-bold text-xs transition flex items-center justify-center gap-2">
+            <button data-plan="VIP Unlimited (Rp 5.000 / Bulan)" data-price="Rp 5.000" class="btn-order-plan w-full py-2.5 px-4 rounded-xl bg-[#FFFFFF] hover:bg-[#EAEAEA] text-[#0A0A0A] border-2 border-[#0A0A0A] shadow-[3px_3px_0px_#0A0A0A] font-bold text-xs transition flex items-center justify-center gap-2">
               <span>Upgrade ke VIP (Rp 5.000)</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
             </button>
@@ -1058,49 +1237,49 @@
           <div class="retro-box rounded-2xl p-5 flex flex-col justify-between space-y-5">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
-                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-[#E59838] text-[#1E1815] border border-[#1E1815]">Khusus Grup WA</span>
-                <span class="text-[11px] mono font-bold text-[#D94E34]">Free Trial 2 Hari</span>
+                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-[#E0E0E0] text-[#0A0A0A] border border-[#0A0A0A]">Khusus Grup WA</span>
+                <span class="text-[11px] mono font-bold text-[#0A0A0A]">Free Trial 2 Hari</span>
               </div>
               <div>
-                <h3 class="retro-display text-lg font-bold text-[#1E1815]">Paket SewaBot Grup</h3>
-                <p class="text-xs text-[#5C4E43] mt-1 leading-relaxed">
+                <h3 class="retro-display text-lg font-bold text-[#0A0A0A]">Paket SewaBot Grup</h3>
+                <p class="text-xs text-[#525252] mt-1 leading-relaxed">
                   Bikin grup tongkrongan, komunitas, atau mabar kamu selalu hidup, rapi dari spam link, dan punya asisten hiburan 24 jam.
                 </p>
               </div>
 
-              <div class="pt-3 border-t-2 border-dashed border-[#1E1815]/20 space-y-2">
-                <div class="flex items-center justify-between p-2.5 rounded-xl bg-[#EFE4D4] border border-[#1E1815]">
+              <div class="pt-3 border-t-2 border-dashed border-[#0A0A0A]/20 space-y-2">
+                <div class="flex items-center justify-between p-2.5 rounded-xl bg-[#EAEAEA] border border-[#0A0A0A]">
                   <div>
-                    <div class="text-xs font-bold text-[#1E1815]">Pengguna Baru Pertama Kali</div>
-                    <div class="text-[11px] text-[#5C4E43]">Uji coba langsung di grup kamu</div>
+                    <div class="text-xs font-bold text-[#0A0A0A]">Pengguna Baru Pertama Kali</div>
+                    <div class="text-[11px] text-[#525252]">Uji coba langsung di grup kamu</div>
                   </div>
-                  <span class="px-2 py-0.5 rounded bg-[#D94E34] text-[#FAF5EE] border border-[#1E1815] font-bold text-[10px] mono">GRATIS 2 HARI</span>
+                  <span class="px-2 py-0.5 rounded bg-[#0A0A0A] text-[#FFFFFF] border border-[#0A0A0A] font-bold text-[10px] mono">GRATIS 2 HARI</span>
                 </div>
                 <div class="flex items-baseline justify-between px-1 pt-1">
-                  <span class="text-xs text-[#5C4E43] font-semibold">Biaya Langganan:</span>
+                  <span class="text-xs text-[#525252] font-semibold">Biaya Langganan:</span>
                   <div>
-                    <span class="retro-display text-2xl font-black text-[#1E1815]">Rp 2.000</span>
-                    <span class="text-xs text-[#5C4E43] font-semibold">/ Minggu (2 Hari 2rb)</span>
+                    <span class="retro-display text-2xl font-black text-[#0A0A0A]">Rp 2.000</span>
+                    <span class="text-xs text-[#525252] font-semibold">/ Minggu (2 Hari 2rb)</span>
                   </div>
                 </div>
               </div>
 
-              <ul class="space-y-2.5 text-xs text-[#5C4E43] pt-1 font-medium">
+              <ul class="space-y-2.5 text-xs text-[#525252] pt-1 font-medium">
                 <li class="flex items-start gap-2.5">
-                  <svg class="w-4 h-4 text-[#D94E34] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                  <span><strong class="text-[#1E1815] font-bold">Gratis Trial 2 Hari:</strong> Buktikan langsung manfaat dan keseruannya bersama anggota grup tanpa biaya awal.</span>
+                  <svg class="w-4 h-4 text-[#0A0A0A] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong class="text-[#0A0A0A] font-bold">Gratis Trial 2 Hari:</strong> Buktikan langsung manfaat dan keseruannya bersama anggota grup tanpa biaya awal.</span>
                 </li>
                 <li class="flex items-start gap-2.5">
-                  <svg class="w-4 h-4 text-[#D94E34] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                  <span><strong class="text-[#1E1815] font-bold">Keamanan Grup Otomatis:</strong> Fitur <code class="mono font-bold text-[#1E1815]">.antilink</code> langsung menghapus tautan promosi/spam yang mengganggu kenyamanan grup.</span>
+                  <svg class="w-4 h-4 text-[#0A0A0A] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong class="text-[#0A0A0A] font-bold">Keamanan Grup Otomatis:</strong> Fitur <code class="mono font-bold text-[#0A0A0A]">.antilink</code> langsung menghapus tautan promosi/spam yang mengganggu kenyamanan grup.</span>
                 </li>
                 <li class="flex items-start gap-2.5">
-                  <svg class="w-4 h-4 text-[#D94E34] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                  <span><strong class="text-[#1E1815] font-bold">Panggilan Massal Admin:</strong> Mention seluruh member grup dengan satu perintah <code class="mono font-bold text-[#1E1815]">.hidetag</code> untuk info penting.</span>
+                  <svg class="w-4 h-4 text-[#0A0A0A] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong class="text-[#0A0A0A] font-bold">Panggilan Massal Admin:</strong> Mention seluruh member grup dengan satu perintah <code class="mono font-bold text-[#0A0A0A]">.hidetag</code> untuk info penting.</span>
                 </li>
                 <li class="flex items-start gap-2.5">
-                  <svg class="w-4 h-4 text-[#D94E34] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                  <span><strong class="text-[#1E1815] font-bold">Hiburan Satu Grup:</strong> Semua anggota grup bisa memutar musik, membuat stiker meme, dan bermain Akinator &amp; Cak Lontong bersama.</span>
+                  <svg class="w-4 h-4 text-[#0A0A0A] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong class="text-[#0A0A0A] font-bold">Hiburan Satu Grup:</strong> Semua anggota grup bisa memutar musik, membuat stiker meme, dan bermain Akinator &amp; Cak Lontong bersama.</span>
                 </li>
               </ul>
             </div>
@@ -1122,17 +1301,17 @@
       <section id="panel-jadibot" class="space-y-5 pt-2">
         <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 retro-box rounded-2xl p-4">
           <div class="flex items-center gap-3">
-            <span id="conn-dot" class="w-3 h-3 rounded-full bg-[#D94E34] border border-[#1E1815]"></span>
+            <span id="conn-dot" class="w-3 h-3 rounded-full bg-[#0A0A0A] border border-[#0A0A0A]"></span>
             <div>
-              <div class="retro-display text-sm font-bold text-[#1E1815]">Panel Koneksi Jadibot</div>
-              <div id="conn-status-label" class="text-[11px] text-[#5C4E43] font-medium mt-0.5">Memeriksa status layanan backend...</div>
+              <div class="retro-display text-sm font-bold text-[#0A0A0A]">Panel Koneksi Jadibot</div>
+              <div id="conn-status-label" class="text-[11px] text-[#525252] font-medium mt-0.5">Memeriksa status layanan backend...</div>
             </div>
           </div>
           <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
-            <input id="input-api-url" type="text" value="" placeholder="URL Server Opsional" class="px-3 py-1.5 rounded-lg bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono text-[#1E1815] placeholder-[#5C4E43]/60 w-full sm:w-52 focus:outline-none" />
-            <label class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#EFE4D4] border-2 border-[#1E1815] text-xs font-bold cursor-pointer select-none">
-              <input id="toggle-demo" type="checkbox" class="accent-[#D94E34] rounded" />
-              <span class="text-[#1E1815]">Mode Simulasi</span>
+            <input id="input-api-url" type="text" value="" placeholder="URL Server Opsional" class="px-3 py-1.5 rounded-lg bg-[#F7F7F7] border-2 border-[#0A0A0A] text-xs mono text-[#0A0A0A] placeholder-[#525252]/60 w-full sm:w-52 focus:outline-none" />
+            <label class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#EAEAEA] border-2 border-[#0A0A0A] text-xs font-bold cursor-pointer select-none">
+              <input id="toggle-demo" type="checkbox" class="accent-[#0A0A0A] rounded" />
+              <span class="text-[#0A0A0A]">Mode Simulasi</span>
             </label>
           </div>
         </div>
@@ -1145,21 +1324,21 @@
             <div class="retro-box rounded-2xl p-5 space-y-5 relative overflow-hidden">
 
               <!-- LOCK OVERLAY IF NOT LOGGED IN -->
-              <div id="jadibot-auth-lock" class="absolute inset-0 z-20 bg-[#F4ECE1]/95 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center space-y-3">
-                <div class="w-12 h-12 rounded-xl bg-[#D94E34] border-2 border-[#1E1815] shadow-[3px_3px_0px_#1E1815] flex items-center justify-center text-[#FAF5EE]">
+              <div id="jadibot-auth-lock" class="absolute inset-0 z-20 bg-[#F7F7F7]/95 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center space-y-3">
+                <div class="w-12 h-12 rounded-xl bg-[#0A0A0A] border-2 border-[#0A0A0A] shadow-[3px_3px_0px_#0A0A0A] flex items-center justify-center text-[#FFFFFF]">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                   </svg>
                 </div>
                 <div class="max-w-xs space-y-1">
-                  <h4 class="retro-display text-base font-black text-[#1E1815]">Login Diperlukan</h4>
-                  <p class="text-xs text-[#5C4E43] font-medium leading-relaxed">
+                  <h4 class="retro-display text-base font-black text-[#0A0A0A]">Login Diperlukan</h4>
+                  <p class="text-xs text-[#525252] font-medium leading-relaxed">
                     Silakan masuk dengan Google atau akun XenaMorph terlebih dahulu untuk menautkan nomor WhatsApp kamu menjadi Jadibot.
                   </p>
                 </div>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-2.5 w-full max-w-xs pt-1">
-                  <button type="button" onclick="window.loginWithGoogle()" class="retro-btn-secondary w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#FAF5EE]">
-                    <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                  <button type="button" onclick="window.loginWithGoogle()" class="retro-btn-secondary w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#FFFFFF]">
+                    <svg class="w-4 h-4 shrink-0 grayscale contrast-125" viewBox="0 0 24 24">
                       <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.7l3.1-3.1C17.3 1.8 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.8C6.2 7.2 8.9 5 12 5z"/>
                       <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.6l3.7 2.9c2.2-2 3.7-5 3.7-8.7z"/>
                       <path fill="#FBBC05" d="M5.3 14.8c-.2-.8-.4-1.6-.4-2.5s.2-1.7.4-2.5L1.6 7C.6 9 0 11.2 0 13.5s.6 4.5 1.6 6.5l3.7-2.9z"/>
@@ -1174,40 +1353,40 @@
                 </div>
               </div>
 
-              <div class="flex items-center justify-between border-b-2 border-[#1E1815]/15 pb-3.5">
+              <div class="flex items-center justify-between border-b-2 border-[#0A0A0A]/15 pb-3.5">
                 <div>
-                  <h3 class="retro-display text-base font-bold text-[#1E1815]">Tautkan Nomor WhatsApp (.jadibot)</h3>
-                  <p class="text-xs text-[#5C4E43] mt-0.5">Masukkan nomor WhatsApp aktif untuk mendapatkan kode tautan perangkat.</p>
+                  <h3 class="retro-display text-base font-bold text-[#0A0A0A]">Tautkan Nomor WhatsApp (.jadibot)</h3>
+                  <p class="text-xs text-[#525252] mt-0.5">Masukkan nomor WhatsApp aktif untuk mendapatkan kode tautan perangkat.</p>
                 </div>
-                <span class="text-[11px] mono font-bold px-2 py-0.5 rounded bg-[#E59838] border border-[#1E1815] text-[#1E1815]">Baileys MD</span>
+                <span class="text-[11px] mono font-bold px-2 py-0.5 rounded bg-[#E0E0E0] border border-[#0A0A0A] text-[#0A0A0A]">Baileys MD</span>
               </div>
 
               <!-- Form Input -->
               <form id="form-jadibot" class="space-y-4">
                 <div>
-                  <label class="block text-xs font-bold text-[#1E1815] mb-1.5">Nomor WhatsApp (Awali 628xxx)</label>
+                  <label class="block text-xs font-bold text-[#0A0A0A] mb-1.5">Nomor WhatsApp (Awali 628xxx)</label>
                   <div class="relative">
-                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-[#5C4E43] mono font-bold text-xs">+</span>
-                    <input id="input-phone" type="tel" required placeholder="6281234567890" value="628" class="w-full pl-7 pr-4 py-2.5 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-sm mono font-bold text-[#1E1815] placeholder-[#5C4E43]/50 focus:outline-none transition" />
+                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-[#525252] mono font-bold text-xs">+</span>
+                    <input id="input-phone" type="tel" required placeholder="6281234567890" value="628" class="w-full pl-7 pr-4 py-2.5 rounded-xl bg-[#F7F7F7] border-2 border-[#0A0A0A] text-sm mono font-bold text-[#0A0A0A] placeholder-[#525252]/50 focus:outline-none transition" />
                   </div>
                 </div>
 
                 <!-- Metode Tautan -->
                 <div>
-                  <label class="block text-xs font-bold text-[#1E1815] mb-1.5">Metode Penautan</label>
+                  <label class="block text-xs font-bold text-[#0A0A0A] mb-1.5">Metode Penautan</label>
                   <div class="grid grid-cols-2 gap-3">
-                    <label id="card-method-pairing" class="cursor-pointer p-3 rounded-xl border-2 border-[#1E1815] bg-[#EFE4D4] shadow-[2px_2px_0px_#1E1815] flex items-start gap-2.5 transition">
-                      <input type="radio" name="auth_method" value="pairing" checked class="mt-0.5 accent-[#D94E34]" />
+                    <label id="card-method-pairing" class="cursor-pointer p-3 rounded-xl border-2 border-[#0A0A0A] bg-[#EAEAEA] shadow-[2px_2px_0px_#0A0A0A] flex items-start gap-2.5 transition">
+                      <input type="radio" name="auth_method" value="pairing" checked class="mt-0.5 accent-[#0A0A0A]" />
                       <div>
-                        <div class="text-xs font-bold text-[#1E1815]">Pairing Code (8 Digit)</div>
-                        <div class="text-[11px] text-[#5C4E43] mt-0.5">Masukkan kode 8 karakter langsung di notifikasi WA</div>
+                        <div class="text-xs font-bold text-[#0A0A0A]">Pairing Code (8 Digit)</div>
+                        <div class="text-[11px] text-[#525252] mt-0.5">Masukkan kode 8 karakter langsung di notifikasi WA</div>
                       </div>
                     </label>
-                    <label id="card-method-qr" class="cursor-pointer p-3 rounded-xl border-2 border-[#1E1815]/40 bg-[#F4ECE1] flex items-start gap-2.5 transition">
-                      <input type="radio" name="auth_method" value="qr" class="mt-0.5 accent-[#D94E34]" />
+                    <label id="card-method-qr" class="cursor-pointer p-3 rounded-xl border-2 border-[#0A0A0A]/40 bg-[#F7F7F7] flex items-start gap-2.5 transition">
+                      <input type="radio" name="auth_method" value="qr" class="mt-0.5 accent-[#0A0A0A]" />
                       <div>
-                        <div class="text-xs font-bold text-[#1E1815]">Scan QR Code</div>
-                        <div class="text-[11px] text-[#5C4E43] mt-0.5">Pindai kode QR menggunakan kamera perangkat kedua</div>
+                        <div class="text-xs font-bold text-[#0A0A0A]">Scan QR Code</div>
+                        <div class="text-[11px] text-[#525252] mt-0.5">Pindai kode QR menggunakan kamera perangkat kedua</div>
                       </div>
                     </label>
                   </div>
@@ -1220,32 +1399,32 @@
               </form>
 
               <!-- Output Box: Pairing Code / QR Display -->
-              <div id="result-box" class="hidden border-2 border-[#1E1815] bg-[#EFE4D4] rounded-xl p-4 space-y-4">
+              <div id="result-box" class="hidden border-2 border-[#0A0A0A] bg-[#EAEAEA] rounded-xl p-4 space-y-4">
                 <div class="flex items-center justify-between">
-                  <span id="result-badge" class="text-[10px] mono font-bold uppercase px-2 py-0.5 rounded bg-[#E59838] text-[#1E1815] border border-[#1E1815]">Menunggu Tautan</span>
-                  <span id="result-timer" class="text-xs mono font-bold text-[#1E1815]">60d</span>
+                  <span id="result-badge" class="text-[10px] mono font-bold uppercase px-2 py-0.5 rounded bg-[#E0E0E0] text-[#0A0A0A] border border-[#0A0A0A]">Menunggu Tautan</span>
+                  <span id="result-timer" class="text-xs mono font-bold text-[#0A0A0A]">60d</span>
                 </div>
 
                 <div id="pairing-display" class="text-center py-2 space-y-2">
-                  <div class="text-xs text-[#5C4E43] font-medium">Masukkan kode berikut pada nomor <strong id="target-phone-label" class="text-[#1E1815] mono font-bold">...</strong>:</div>
-                  <div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-[#FAF5EE] border-2 border-[#1E1815] shadow-[3px_3px_0px_#1E1815]">
-                    <span id="pairing-code-text" class="text-xl sm:text-2xl font-bold mono tracking-[0.18em] text-[#D94E34]">••••••••</span>
-                    <button id="btn-copy-code" type="button" class="px-2.5 py-1 rounded-lg bg-[#EFE4D4] hover:bg-[#E59838] text-xs font-bold text-[#1E1815] border border-[#1E1815] transition">
+                  <div class="text-xs text-[#525252] font-medium">Masukkan kode berikut pada nomor <strong id="target-phone-label" class="text-[#0A0A0A] mono font-bold">...</strong>:</div>
+                  <div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-[#FFFFFF] border-2 border-[#0A0A0A] shadow-[3px_3px_0px_#0A0A0A]">
+                    <span id="pairing-code-text" class="text-xl sm:text-2xl font-bold mono tracking-[0.18em] text-[#0A0A0A]">••••••••</span>
+                    <button id="btn-copy-code" type="button" class="px-2.5 py-1 rounded-lg bg-[#EAEAEA] hover:bg-[#E0E0E0] text-xs font-bold text-[#0A0A0A] border border-[#0A0A0A] transition">
                       Salin
                     </button>
                   </div>
                 </div>
 
                 <div id="qr-display" class="hidden text-center py-2 space-y-2">
-                  <div class="text-xs text-[#5C4E43] font-medium">Pindai kode QR melalui menu <strong>Perangkat Tertaut</strong>:</div>
-                  <div class="inline-block p-2.5 rounded-xl bg-white border-2 border-[#1E1815]">
+                  <div class="text-xs text-[#525252] font-medium">Pindai kode QR melalui menu <strong>Perangkat Tertaut</strong>:</div>
+                  <div class="inline-block p-2.5 rounded-xl bg-white border-2 border-[#0A0A0A]">
                     <canvas id="qr-canvas" width="180" height="180" class="w-40 h-40"></canvas>
                   </div>
                 </div>
 
-                <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-[#1E1815]/20 text-[11px] text-[#5C4E43] font-medium">
+                <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-[#0A0A0A]/20 text-[11px] text-[#525252] font-medium">
                   <span>WhatsApp &rarr; Perangkat Tertaut &rarr; Tautkan dengan Nomor Telepon</span>
-                  <button id="btn-sim-approve" type="button" class="px-2.5 py-1 rounded-lg bg-[#FAF5EE] hover:bg-[#E59838] text-[#1E1815] border border-[#1E1815] font-bold text-xs transition">
+                  <button id="btn-sim-approve" type="button" class="px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#E0E0E0] text-[#0A0A0A] border border-[#0A0A0A] font-bold text-xs transition">
                     Perbarui Status
                   </button>
                 </div>
@@ -1258,13 +1437,13 @@
             <div class="retro-box rounded-2xl p-5 space-y-4">
               <div class="flex items-center justify-between">
                 <div>
-                  <h3 class="retro-display text-sm font-bold text-[#1E1815] flex items-center gap-2">
+                  <h3 class="retro-display text-sm font-bold text-[#0A0A0A] flex items-center gap-2">
                     <span>Sesi Jadibot Aktif</span>
-                    <span id="badge-count" class="px-2 py-0.5 text-[11px] mono font-bold rounded bg-[#D94E34] text-[#FAF5EE] border border-[#1E1815]">0</span>
+                    <span id="badge-count" class="px-2 py-0.5 text-[11px] mono font-bold rounded bg-[#0A0A0A] text-[#FFFFFF] border border-[#0A0A0A]">0</span>
                   </h3>
-                  <p class="text-[11px] text-[#5C4E43] mt-0.5">Hanya pemilik sesi yang dapat memutuskan perangkatnya</p>
+                  <p class="text-[11px] text-[#525252] mt-0.5">Hanya pemilik sesi yang dapat memutuskan perangkatnya</p>
                 </div>
-                <button id="btn-refresh-list" class="px-2.5 py-1 rounded-lg bg-[#EFE4D4] hover:bg-[#E59838] border border-[#1E1815] text-xs font-bold text-[#1E1815] transition">
+                <button id="btn-refresh-list" class="px-2.5 py-1 rounded-lg bg-[#EAEAEA] hover:bg-[#E0E0E0] border border-[#0A0A0A] text-xs font-bold text-[#0A0A0A] transition">
                   Refresh
                 </button>
               </div>
@@ -1272,14 +1451,14 @@
               <div id="sessions-list" class="space-y-2.5 max-h-52 overflow-y-auto pr-1"></div>
             </div>
 
-            <div class="bg-[#1E1815] text-[#F4ECE1] border-2 border-[#1E1815] shadow-[4px_4px_0px_#D94E34] rounded-2xl p-4 flex flex-col h-52">
-              <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-[#F4ECE1]/15">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-[#E59838] mono flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-[#D94E34]"></span> Log Aktivitas
+            <div class="bg-[#0A0A0A] text-[#F7F7F7] border-2 border-[#0A0A0A] shadow-[4px_4px_0px_#0A0A0A] rounded-2xl p-4 flex flex-col h-52">
+              <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-[#F7F7F7]/15">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-[#E0E0E0] mono flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#0A0A0A]"></span> Log Aktivitas
                 </span>
-                <button id="btn-clear-log" class="text-[11px] text-[#F4ECE1]/60 hover:text-[#F4ECE1]">Bersihkan</button>
+                <button id="btn-clear-log" class="text-[11px] text-[#F7F7F7]/60 hover:text-[#F7F7F7]">Bersihkan</button>
               </div>
-              <div id="console-logs" class="flex-1 overflow-y-auto text-[11px] mono space-y-1.5 text-[#F4ECE1]/85 pr-1"></div>
+              <div id="console-logs" class="flex-1 overflow-y-auto text-[11px] mono space-y-1.5 text-[#F7F7F7]/85 pr-1"></div>
             </div>
           </div>
 
@@ -1290,21 +1469,21 @@
   </main>
 
   <!-- MODAL LOGIN & REGISTER SUPABASE (DENGAN GOOGLE OAUTH) -->
-  <div id="auth-modal" class="hidden fixed inset-0 z-50 bg-[#1E1815]/70 backdrop-blur-sm flex items-center justify-center p-4">
+  <div id="auth-modal" class="hidden fixed inset-0 z-50 bg-[#0A0A0A]/70 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="retro-box rounded-2xl max-w-sm w-full p-5 space-y-4">
-      <div class="flex items-center justify-between border-b-2 border-[#1E1815]/15 pb-3">
+      <div class="flex items-center justify-between border-b-2 border-[#0A0A0A]/15 pb-3">
         <div>
-          <span class="text-[10px] mono font-bold uppercase text-[#D94E34]">Cloud Database Auth</span>
-          <h3 id="auth-modal-title" class="retro-display text-base font-bold text-[#1E1815] mt-0.5">Masuk ke Akun XenaMorph</h3>
+          <span class="text-[10px] mono font-bold uppercase text-[#0A0A0A]">Cloud Database Auth</span>
+          <h3 id="auth-modal-title" class="retro-display text-base font-bold text-[#0A0A0A] mt-0.5">Masuk ke Akun XenaMorph</h3>
         </div>
-        <button id="btn-close-auth" type="button" class="w-7 h-7 rounded-lg bg-[#EFE4D4] hover:bg-[#D94E34] hover:text-[#FAF5EE] border border-[#1E1815] flex items-center justify-center text-[#1E1815] transition">
+        <button id="btn-close-auth" type="button" class="w-7 h-7 rounded-lg bg-[#EAEAEA] hover:bg-[#0A0A0A] hover:text-[#FFFFFF] border border-[#0A0A0A] flex items-center justify-center text-[#0A0A0A] transition">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
 
       <!-- TOMBOL LOGIN GOOGLE (OAUTH SUPABASE) -->
-      <button id="btn-google-login" type="button" onclick="window.loginWithGoogle()" class="retro-btn-secondary w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2.5 bg-[#FAF5EE]">
-        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+      <button id="btn-google-login" type="button" onclick="window.loginWithGoogle()" class="retro-btn-secondary w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2.5 bg-[#FFFFFF]">
+        <svg class="w-4 h-4 shrink-0 grayscale contrast-125" viewBox="0 0 24 24" aria-hidden="true">
           <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.7l3.1-3.1C17.3 1.8 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.8C6.2 7.2 8.9 5 12 5z"/>
           <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.6l3.7 2.9c2.2-2 3.7-5 3.7-8.7z"/>
           <path fill="#FBBC05" d="M5.3 14.8c-.2-.8-.4-1.6-.4-2.5s.2-1.7.4-2.5L1.6 7C.6 9 0 11.2 0 13.5s.6 4.5 1.6 6.5l3.7-2.9z"/>
@@ -1315,37 +1494,37 @@
 
       <!-- Divider -->
       <div class="relative flex py-1 items-center">
-        <div class="flex-grow border-t border-dashed border-[#1E1815]/30"></div>
-        <span class="flex-shrink mx-2.5 text-[10px] mono uppercase font-bold text-[#5C4E43]">atau username</span>
-        <div class="flex-grow border-t border-dashed border-[#1E1815]/30"></div>
+        <div class="flex-grow border-t border-dashed border-[#0A0A0A]/30"></div>
+        <span class="flex-shrink mx-2.5 text-[10px] mono uppercase font-bold text-[#525252]">atau username</span>
+        <div class="flex-grow border-t border-dashed border-[#0A0A0A]/30"></div>
       </div>
 
-      <div class="grid grid-cols-2 gap-1.5 p-1 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] text-xs">
-        <button id="tab-auth-login" type="button" class="py-1.5 rounded-lg font-bold bg-[#1E1815] text-[#FAF5EE] transition">
+      <div class="grid grid-cols-2 gap-1.5 p-1 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] text-xs">
+        <button id="tab-auth-login" type="button" class="py-1.5 rounded-lg font-bold bg-[#0A0A0A] text-[#FFFFFF] transition">
           Login
         </button>
-        <button id="tab-auth-register" type="button" class="py-1.5 rounded-lg font-bold text-[#5C4E43] hover:text-[#1E1815] transition">
+        <button id="tab-auth-register" type="button" class="py-1.5 rounded-lg font-bold text-[#525252] hover:text-[#0A0A0A] transition">
           Daftar Baru
         </button>
       </div>
 
       <form id="form-auth" class="space-y-3.5">
         <div>
-          <label class="block text-xs font-bold text-[#1E1815] mb-1">Username</label>
-          <input id="auth-username" type="text" required minlength="3" placeholder="contoh: ramzz" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono font-bold text-[#1E1815] focus:outline-none" />
+          <label class="block text-xs font-bold text-[#0A0A0A] mb-1">Username</label>
+          <input id="auth-username" type="text" required minlength="3" placeholder="contoh: ramzz" class="w-full px-3 py-2 rounded-xl bg-[#F7F7F7] border-2 border-[#0A0A0A] text-xs mono font-bold text-[#0A0A0A] focus:outline-none" />
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-[#1E1815] mb-1">Password</label>
-          <input id="auth-password" type="password" required minlength="4" placeholder="••••••••" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono font-bold text-[#1E1815] focus:outline-none" />
+          <label class="block text-xs font-bold text-[#0A0A0A] mb-1">Password</label>
+          <input id="auth-password" type="password" required minlength="4" placeholder="••••••••" class="w-full px-3 py-2 rounded-xl bg-[#F7F7F7] border-2 border-[#0A0A0A] text-xs mono font-bold text-[#0A0A0A] focus:outline-none" />
         </div>
 
         <div id="auth-phone-wrap" class="hidden">
-          <label class="block text-xs font-bold text-[#1E1815] mb-1">Nomor WhatsApp (628xxx)</label>
-          <input id="auth-whatsapp" type="tel" placeholder="6281234567890" value="628" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono font-bold text-[#1E1815] focus:outline-none" />
+          <label class="block text-xs font-bold text-[#0A0A0A] mb-1">Nomor WhatsApp (628xxx)</label>
+          <input id="auth-whatsapp" type="tel" placeholder="6281234567890" value="628" class="w-full px-3 py-2 rounded-xl bg-[#F7F7F7] border-2 border-[#0A0A0A] text-xs mono font-bold text-[#0A0A0A] focus:outline-none" />
         </div>
 
-        <div id="auth-error-msg" class="hidden p-2.5 rounded-xl bg-[#D94E34]/15 border border-[#D94E34] text-[11px] font-semibold text-[#B83B24]"></div>
+        <div id="auth-error-msg" class="hidden p-2.5 rounded-xl bg-[#0A0A0A]/15 border border-[#0A0A0A] text-[11px] font-semibold text-[#262626]"></div>
 
         <button id="btn-submit-auth" type="submit" class="retro-btn-primary w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
           <span id="btn-submit-auth-label">Masuk Sekarang</span>
@@ -1355,37 +1534,37 @@
   </div>
 
   <!-- MODAL CHECKOUT VIP / SEWABOT / TRIAL -->
-  <div id="order-modal" class="hidden fixed inset-0 z-50 bg-[#1E1815]/70 backdrop-blur-sm flex items-center justify-center p-4">
+  <div id="order-modal" class="hidden fixed inset-0 z-50 bg-[#0A0A0A]/70 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="retro-box rounded-2xl max-w-md w-full p-5 space-y-4">
-      <div class="flex items-center justify-between border-b-2 border-[#1E1815]/15 pb-3">
+      <div class="flex items-center justify-between border-b-2 border-[#0A0A0A]/15 pb-3">
         <div>
-          <span class="text-[10px] mono font-bold uppercase text-[#D94E34]">Form Pemesanan</span>
-          <h3 id="modal-plan-title" class="retro-display text-base font-bold text-[#1E1815] mt-0.5">Paket VIP Unlimited</h3>
+          <span class="text-[10px] mono font-bold uppercase text-[#0A0A0A]">Form Pemesanan</span>
+          <h3 id="modal-plan-title" class="retro-display text-base font-bold text-[#0A0A0A] mt-0.5">Paket VIP Unlimited</h3>
         </div>
-        <button id="btn-close-modal" class="w-7 h-7 rounded-lg bg-[#EFE4D4] hover:bg-[#D94E34] hover:text-[#FAF5EE] border border-[#1E1815] flex items-center justify-center text-[#1E1815]">
+        <button id="btn-close-modal" class="w-7 h-7 rounded-lg bg-[#EAEAEA] hover:bg-[#0A0A0A] hover:text-[#FFFFFF] border border-[#0A0A0A] flex items-center justify-center text-[#0A0A0A]">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
 
       <form id="form-order-plan" class="space-y-3.5">
-        <div class="p-3 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] flex items-center justify-between">
-          <span class="text-xs font-bold text-[#5C4E43]">Biaya Paket</span>
-          <span id="modal-plan-price" class="text-sm font-bold text-[#D94E34] mono">Rp 5.000</span>
+        <div class="p-3 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] flex items-center justify-between">
+          <span class="text-xs font-bold text-[#525252]">Biaya Paket</span>
+          <span id="modal-plan-price" class="text-sm font-bold text-[#0A0A0A] mono">Rp 5.000</span>
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-[#1E1815] mb-1">Nomor WhatsApp Kamu</label>
-          <input id="order-phone" type="tel" required placeholder="6281234567890" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono font-bold text-[#1E1815] focus:outline-none" />
+          <label class="block text-xs font-bold text-[#0A0A0A] mb-1">Nomor WhatsApp Kamu</label>
+          <input id="order-phone" type="tel" required placeholder="6281234567890" class="w-full px-3 py-2 rounded-xl bg-[#F7F7F7] border-2 border-[#0A0A0A] text-xs mono font-bold text-[#0A0A0A] focus:outline-none" />
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-[#1E1815] mb-1">Tautan Grup WA (Khusus SewaBot / Trial)</label>
-          <input id="order-group-link" type="text" placeholder="https://chat.whatsapp.com/... (Opsional untuk VIP)" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono text-[#1E1815] focus:outline-none" />
+          <label class="block text-xs font-bold text-[#0A0A0A] mb-1">Tautan Grup WA (Khusus SewaBot / Trial)</label>
+          <input id="order-group-link" type="text" placeholder="https://chat.whatsapp.com/... (Opsional untuk VIP)" class="w-full px-3 py-2 rounded-xl bg-[#F7F7F7] border-2 border-[#0A0A0A] text-xs mono text-[#0A0A0A] focus:outline-none" />
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-[#1E1815] mb-1">Nomor WhatsApp Owner</label>
-          <input id="order-owner-phone" type="tel" value="6281234567890" class="w-full px-3 py-2 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] text-xs mono text-[#5C4E43] focus:outline-none" />
+          <label class="block text-xs font-bold text-[#0A0A0A] mb-1">Nomor WhatsApp Owner</label>
+          <input id="order-owner-phone" type="tel" value="6281234567890" class="w-full px-3 py-2 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] text-xs mono text-[#525252] focus:outline-none" />
         </div>
 
         <button type="submit" class="retro-btn-primary w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
@@ -1399,9 +1578,9 @@
   <!-- FAQ: PERTANYAAN UMUM -->
   <section id="faq" class="max-w-4xl mx-auto w-full px-4 pt-2 pb-14">
     <div class="text-center max-w-2xl mx-auto mb-6">
-      <div class="inline-block px-2.5 py-0.5 rounded bg-[#E59838] text-[#1E1815] border border-[#1E1815] text-[11px] font-bold uppercase tracking-wider mono">Pusat Bantuan</div>
-      <h2 class="retro-display text-2xl sm:text-3xl font-black text-[#1E1815] mt-2">Pertanyaan yang Sering Ditanyakan</h2>
-      <p class="text-xs sm:text-sm text-[#5C4E43] font-medium mt-1.5">Masih bingung soal XenaMorph? Cek jawaban singkat di bawah ini.</p>
+      <div class="inline-block px-2.5 py-0.5 rounded bg-[#E0E0E0] text-[#0A0A0A] border border-[#0A0A0A] text-[11px] font-bold uppercase tracking-wider mono">Pusat Bantuan</div>
+      <h2 class="retro-display text-2xl sm:text-3xl font-black text-[#0A0A0A] mt-2">Pertanyaan yang Sering Ditanyakan</h2>
+      <p class="text-xs sm:text-sm text-[#525252] font-medium mt-1.5">Masih bingung soal XenaMorph? Cek jawaban singkat di bawah ini.</p>
     </div>
 
     <div id="faq-list" class="space-y-3.5">
@@ -1448,15 +1627,15 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t-2 border-[#1E1815] bg-[#EFE4D4] py-6 px-4 mt-12">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#5C4E43] font-semibold">
-      <div>&copy; 2026 <span class="text-[#1E1815] font-bold">XenaMorph Bot</span>. All rights reserved.</div>
+  <footer class="border-t-2 border-[#0A0A0A] bg-[#EAEAEA] py-6 px-4 mt-12">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#525252] font-semibold">
+      <div>&copy; 2026 <span class="text-[#0A0A0A] font-bold">XenaMorph Bot</span>. All rights reserved.</div>
       <div class="flex items-center gap-5">
-        <a href="index.html" class="hover:text-[#D94E34] transition">Beranda</a>
-        <a href="#fitur-bot" class="hover:text-[#D94E34] transition">Fitur</a>
-        <a href="#paket-harga" class="hover:text-[#D94E34] transition">Paket</a>
-        <a href="#panel-jadibot" class="hover:text-[#D94E34] transition">Panel Jadibot</a>
-        <a href="#faq" class="hover:text-[#D94E34] transition">FAQ</a>
+        <a href="index.html" class="hover:text-[#0A0A0A] transition">Beranda</a>
+        <a href="#fitur-bot" class="hover:text-[#0A0A0A] transition">Fitur</a>
+        <a href="#paket-harga" class="hover:text-[#0A0A0A] transition">Paket</a>
+        <a href="#panel-jadibot" class="hover:text-[#0A0A0A] transition">Panel Jadibot</a>
+        <a href="#faq" class="hover:text-[#0A0A0A] transition">FAQ</a>
       </div>
     </div>
   </footer>
@@ -1465,50 +1644,50 @@
   <!-- ========================================================================= -->
   <!-- SIDEBAR DRAWER KANAN (GAYA GITHUB MOBILE + RETRO VINTAGE)                 -->
   <!-- ========================================================================= -->
-  <div id="sidebar-backdrop" class="fixed inset-0 z-50 bg-[#1E1815]/65 backdrop-blur-xs"></div>
+  <div id="sidebar-backdrop" class="fixed inset-0 z-50 bg-[#0A0A0A]/65 backdrop-blur-xs"></div>
 
-  <aside id="sidebar-drawer" aria-label="Menu Samping XenaMorph" class="fixed top-0 right-0 bottom-0 z-50 w-[86vw] max-w-[340px] bg-[#FAF5EE] border-l-2 border-[#1E1815] shadow-[-6px_0px_0px_#1E1815] flex flex-col justify-between overflow-y-auto">
+  <aside id="sidebar-drawer" aria-label="Menu Samping XenaMorph" class="fixed top-0 right-0 bottom-0 z-50 w-[86vw] max-w-[340px] bg-[#FFFFFF] border-l-2 border-[#0A0A0A] shadow-[-6px_0px_0px_#0A0A0A] flex flex-col justify-between overflow-y-auto">
     <!-- Top Drawer Header & User Card -->
     <div class="p-4 space-y-4">
-      <div class="flex items-center justify-between pb-3 border-b-2 border-[#1E1815]/15">
+      <div class="flex items-center justify-between pb-3 border-b-2 border-[#0A0A0A]/15">
         <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg bg-[#D94E34] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center justify-center text-[#FAF5EE]">
+          <div class="w-8 h-8 rounded-lg bg-[#0A0A0A] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] flex items-center justify-center text-[#FFFFFF]">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
           <div>
-            <div class="retro-display font-black text-sm text-[#1E1815] leading-none">Menu &amp; Konfigurasi</div>
-            <div class="text-[10px] mono font-bold text-[#5C4E43] mt-0.5">XenaMorph v2.5</div>
+            <div class="retro-display font-black text-sm text-[#0A0A0A] leading-none">Menu &amp; Konfigurasi</div>
+            <div class="text-[10px] mono font-bold text-[#525252] mt-0.5">XenaMorph v2.5</div>
           </div>
         </div>
-        <button id="btn-close-drawer" type="button" class="w-8 h-8 rounded-lg bg-[#EFE4D4] hover:bg-[#D94E34] hover:text-[#FAF5EE] border-2 border-[#1E1815] shadow-[2px_2px_0px_#1E1815] flex items-center justify-center text-[#1E1815] transition" aria-label="Tutup Sidebar">
+        <button id="btn-close-drawer" type="button" class="w-8 h-8 rounded-lg bg-[#EAEAEA] hover:bg-[#0A0A0A] hover:text-[#FFFFFF] border-2 border-[#0A0A0A] shadow-[2px_2px_0px_#0A0A0A] flex items-center justify-center text-[#0A0A0A] transition" aria-label="Tutup Sidebar">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
 
       <!-- Status Akun di Drawer -->
-      <div class="p-3.5 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] shadow-[3px_3px_0px_#1E1815] space-y-2.5">
+      <div class="p-3.5 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] shadow-[3px_3px_0px_#0A0A0A] space-y-2.5">
         <div class="flex items-center justify-between">
-          <span class="text-[10px] mono font-bold uppercase tracking-wider text-[#5C4E43]">Status Akun</span>
-          <span id="drawer-user-role" class="text-[10px] mono uppercase px-2 py-0.5 rounded bg-[#FAF5EE] text-[#1E1815] border border-[#1E1815] font-bold">GUEST</span>
+          <span class="text-[10px] mono font-bold uppercase tracking-wider text-[#525252]">Status Akun</span>
+          <span id="drawer-user-role" class="text-[10px] mono uppercase px-2 py-0.5 rounded bg-[#FFFFFF] text-[#0A0A0A] border border-[#0A0A0A] font-bold">GUEST</span>
         </div>
         <div class="flex items-center gap-2.5">
-          <div class="w-9 h-9 rounded-full bg-[#FAF5EE] border-2 border-[#1E1815] flex items-center justify-center text-[#1E1815] font-bold mono text-xs shrink-0" id="drawer-avatar-box">
+          <div class="w-9 h-9 rounded-full bg-[#FFFFFF] border-2 border-[#0A0A0A] flex items-center justify-center text-[#0A0A0A] font-bold mono text-xs shrink-0" id="drawer-avatar-box">
             XM
           </div>
           <div class="min-w-0 flex-1">
-            <div id="drawer-username" class="text-xs font-bold text-[#1E1815] mono truncate">Belum Login</div>
-            <div id="drawer-whatsapp" class="text-[11px] text-[#5C4E43] font-medium truncate">Silakan login terlebih dahulu</div>
+            <div id="drawer-username" class="text-xs font-bold text-[#0A0A0A] mono truncate">Belum Login</div>
+            <div id="drawer-whatsapp" class="text-[11px] text-[#525252] font-medium truncate">Silakan login terlebih dahulu</div>
           </div>
         </div>
       </div>
 
       <!-- Highlight Button: Settings Jadibot (VIP) -->
       <div class="space-y-1.5">
-        <div class="px-1 text-[10px] mono font-bold uppercase tracking-wider text-[#5C4E43]">Kustomisasi Bot</div>
-        <button id="btn-open-vip-settings" type="button" class="w-full p-3 rounded-xl bg-[#FAF5EE] hover:bg-[#EFE4D4] border-2 border-[#1E1815] shadow-[3px_3px_0px_#1E1815] text-left transition flex items-start gap-3 group">
-          <div class="w-9 h-9 rounded-lg bg-[#D94E34] border border-[#1E1815] flex items-center justify-center text-[#FAF5EE] shrink-0 mt-0.5">
+        <div class="px-1 text-[10px] mono font-bold uppercase tracking-wider text-[#525252]">Kustomisasi Bot</div>
+        <button id="btn-open-vip-settings" type="button" class="w-full p-3 rounded-xl bg-[#FFFFFF] hover:bg-[#EAEAEA] border-2 border-[#0A0A0A] shadow-[3px_3px_0px_#0A0A0A] text-left transition flex items-start gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-[#0A0A0A] border border-[#0A0A0A] flex items-center justify-center text-[#FFFFFF] shrink-0 mt-0.5">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -1516,10 +1695,10 @@
           </div>
           <div class="flex-1 min-w-0">
             <div class="flex items-center justify-between gap-1">
-              <span class="retro-display text-xs font-bold text-[#1E1815]">Settings Jadibot</span>
-              <span class="px-1.5 py-0.5 rounded bg-[#E59838] text-[#1E1815] border border-[#1E1815] text-[9px] mono font-bold">VIP</span>
+              <span class="retro-display text-xs font-bold text-[#0A0A0A]">Settings Jadibot</span>
+              <span class="px-1.5 py-0.5 rounded bg-[#E0E0E0] text-[#0A0A0A] border border-[#0A0A0A] text-[9px] mono font-bold">VIP</span>
             </div>
-            <p class="text-[11px] text-[#5C4E43] leading-snug mt-0.5">
+            <p class="text-[11px] text-[#525252] leading-snug mt-0.5">
               Atur Nama Bot, Nama/Nomor Owner &amp; Checklist Kategori Menu
             </p>
           </div>
@@ -1528,47 +1707,47 @@
 
       <!-- Navigasi Utama seperti GitHub Drawer -->
       <div class="space-y-1 pt-1">
-        <div class="px-1 text-[10px] mono font-bold uppercase tracking-wider text-[#5C4E43]">Navigasi Portal</div>
+        <div class="px-1 text-[10px] mono font-bold uppercase tracking-wider text-[#525252]">Navigasi Portal</div>
         <a href="index.html" class="drawer-nav-item">
           <span class="flex items-center gap-2.5">
-            <svg class="w-4 h-4 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            <svg class="w-4 h-4 text-[#0A0A0A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
             <span>Beranda (Landing Page)</span>
           </span>
-          <span class="text-[10px] mono text-[#5C4E43]">&rarr;</span>
+          <span class="text-[10px] mono text-[#525252]">&rarr;</span>
         </a>
         <a href="#panel-jadibot" class="drawer-nav-item" data-close-drawer>
           <span class="flex items-center gap-2.5">
-            <svg class="w-4 h-4 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <svg class="w-4 h-4 text-[#0A0A0A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
             <span>Panel Koneksi Jadibot</span>
           </span>
-          <span class="text-[10px] mono text-[#5C4E43]">&rarr;</span>
+          <span class="text-[10px] mono text-[#525252]">&rarr;</span>
         </a>
         <a href="#fitur-bot" class="drawer-nav-item" data-close-drawer>
           <span class="flex items-center gap-2.5">
-            <svg class="w-4 h-4 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg>
+            <svg class="w-4 h-4 text-[#0A0A0A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg>
             <span>Daftar Fitur Bot</span>
           </span>
-          <span class="text-[10px] mono text-[#5C4E43]">&rarr;</span>
+          <span class="text-[10px] mono text-[#525252]">&rarr;</span>
         </a>
         <a href="#paket-harga" class="drawer-nav-item" data-close-drawer>
           <span class="flex items-center gap-2.5">
-            <svg class="w-4 h-4 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <svg class="w-4 h-4 text-[#0A0A0A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             <span>Paket VIP &amp; SewaBot</span>
           </span>
-          <span class="text-[10px] mono text-[#5C4E43]">&rarr;</span>
+          <span class="text-[10px] mono text-[#525252]">&rarr;</span>
         </a>
         <a href="#faq" class="drawer-nav-item" data-close-drawer>
           <span class="flex items-center gap-2.5">
-            <svg class="w-4 h-4 text-[#D94E34]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <svg class="w-4 h-4 text-[#0A0A0A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             <span>Pusat Bantuan (FAQ)</span>
           </span>
-          <span class="text-[10px] mono text-[#5C4E43]">&rarr;</span>
+          <span class="text-[10px] mono text-[#525252]">&rarr;</span>
         </a>
       </div>
     </div>
 
     <!-- Bottom Drawer Actions -->
-    <div class="p-4 border-t-2 border-[#1E1815]/15 bg-[#EFE4D4]/60 space-y-2.5">
+    <div class="p-4 border-t-2 border-[#0A0A0A]/15 bg-[#EAEAEA]/60 space-y-2.5">
       <button id="drawer-btn-upgrade" type="button" data-plan="VIP Unlimited (Rp 5.000 / Bulan)" data-price="Rp 5.000" class="btn-order-plan retro-btn-primary w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
         <span>Upgrade VIP Unlimited (Rp 5.000)</span>
@@ -1582,31 +1761,31 @@
   <!-- ========================================================================= -->
   <!-- MODAL SETTINGS JADIBOT KUSTOM (KHUSUS VIP / OWNER)                        -->
   <!-- ========================================================================= -->
-  <div id="vip-settings-modal" class="hidden fixed inset-0 z-50 bg-[#1E1815]/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+  <div id="vip-settings-modal" class="hidden fixed inset-0 z-50 bg-[#0A0A0A]/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
     <div class="retro-box rounded-2xl max-w-lg w-full p-5 space-y-4 relative overflow-hidden my-8">
-      <div class="flex items-center justify-between border-b-2 border-[#1E1815]/15 pb-3">
+      <div class="flex items-center justify-between border-b-2 border-[#0A0A0A]/15 pb-3">
         <div>
           <div class="flex items-center gap-2">
-            <span class="text-[10px] mono font-bold uppercase px-2 py-0.5 rounded bg-[#E59838] text-[#1E1815] border border-[#1E1815]">Fitur Eksklusif VIP</span>
+            <span class="text-[10px] mono font-bold uppercase px-2 py-0.5 rounded bg-[#E0E0E0] text-[#0A0A0A] border border-[#0A0A0A]">Fitur Eksklusif VIP</span>
           </div>
-          <h3 class="retro-display text-lg font-black text-[#1E1815] mt-1">Pengaturan Kustom Jadibot</h3>
+          <h3 class="retro-display text-lg font-black text-[#0A0A0A] mt-1">Pengaturan Kustom Jadibot</h3>
         </div>
-        <button id="btn-close-vip-settings" type="button" class="w-8 h-8 rounded-lg bg-[#EFE4D4] hover:bg-[#D94E34] hover:text-[#FAF5EE] border-2 border-[#1E1815] flex items-center justify-center text-[#1E1815] transition">
+        <button id="btn-close-vip-settings" type="button" class="w-8 h-8 rounded-lg bg-[#EAEAEA] hover:bg-[#0A0A0A] hover:text-[#FFFFFF] border-2 border-[#0A0A0A] flex items-center justify-center text-[#0A0A0A] transition">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
 
       <!-- OVERLAY GEMBOK JIKA BELUM VIP / OWNER -->
-      <div id="vip-settings-lock" class="hidden absolute inset-0 z-20 bg-[#F4ECE1]/95 backdrop-blur-xs flex flex-col items-center justify-center p-6 text-center space-y-3.5">
-        <div class="w-12 h-12 rounded-xl bg-[#E59838] border-2 border-[#1E1815] shadow-[3px_3px_0px_#1E1815] flex items-center justify-center text-[#1E1815]">
+      <div id="vip-settings-lock" class="hidden absolute inset-0 z-20 bg-[#F7F7F7]/95 backdrop-blur-xs flex flex-col items-center justify-center p-6 text-center space-y-3.5">
+        <div class="w-12 h-12 rounded-xl bg-[#E0E0E0] border-2 border-[#0A0A0A] shadow-[3px_3px_0px_#0A0A0A] flex items-center justify-center text-[#0A0A0A]">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
           </svg>
         </div>
         <div class="max-w-xs space-y-1">
-          <span class="px-2 py-0.5 rounded bg-[#D94E34] text-[#FAF5EE] border border-[#1E1815] text-[10px] mono font-bold uppercase">Khusus Member Premium</span>
-          <h4 class="retro-display text-base font-black text-[#1E1815] pt-1">Buka Kustomisasi Penuh Jadibot</h4>
-          <p class="text-xs text-[#5C4E43] font-medium leading-relaxed">
+          <span class="px-2 py-0.5 rounded bg-[#0A0A0A] text-[#FFFFFF] border border-[#0A0A0A] text-[10px] mono font-bold uppercase">Khusus Member Premium</span>
+          <h4 class="retro-display text-base font-black text-[#0A0A0A] pt-1">Buka Kustomisasi Penuh Jadibot</h4>
+          <p class="text-xs text-[#525252] font-medium leading-relaxed">
             Fitur mengubah <strong>Nama Bot</strong>, <strong>Nama &amp; Nomor Owner</strong>, serta memilih <strong>Checklist Kategori Menu</strong> hanya tersedia untuk Member <strong>VIP</strong>.
           </p>
         </div>
@@ -1624,79 +1803,79 @@
       <form id="form-vip-settings" class="space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-bold text-[#1E1815] mb-1">Nomor Jadibot Kamu</label>
-            <input id="vip-target-number" type="tel" required placeholder="6281234567890" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono font-bold text-[#1E1815] focus:outline-none" />
+            <label class="block text-xs font-bold text-[#0A0A0A] mb-1">Nomor Jadibot Kamu</label>
+            <input id="vip-target-number" type="tel" required placeholder="6281234567890" class="w-full px-3 py-2 rounded-xl bg-[#F7F7F7] border-2 border-[#0A0A0A] text-xs mono font-bold text-[#0A0A0A] focus:outline-none" />
           </div>
           <div>
-            <label class="block text-xs font-bold text-[#1E1815] mb-1">Nama Bot Kustom</label>
-            <input id="vip-bot-name" type="text" required placeholder="Contoh: RamzzBot MD" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs font-bold text-[#1E1815] focus:outline-none" />
+            <label class="block text-xs font-bold text-[#0A0A0A] mb-1">Nama Bot Kustom</label>
+            <input id="vip-bot-name" type="text" required placeholder="Contoh: RamzzBot MD" class="w-full px-3 py-2 rounded-xl bg-[#F7F7F7] border-2 border-[#0A0A0A] text-xs font-bold text-[#0A0A0A] focus:outline-none" />
           </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-bold text-[#1E1815] mb-1">Nama Owner di Menu</label>
-            <input id="vip-owner-name" type="text" required placeholder="Contoh: Ramzz" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs font-bold text-[#1E1815] focus:outline-none" />
+            <label class="block text-xs font-bold text-[#0A0A0A] mb-1">Nama Owner di Menu</label>
+            <input id="vip-owner-name" type="text" required placeholder="Contoh: Ramzz" class="w-full px-3 py-2 rounded-xl bg-[#F7F7F7] border-2 border-[#0A0A0A] text-xs font-bold text-[#0A0A0A] focus:outline-none" />
           </div>
           <div>
-            <label class="block text-xs font-bold text-[#1E1815] mb-1">Nomor Owner (628xxx)</label>
-            <input id="vip-owner-number" type="tel" required placeholder="6281234567890" class="w-full px-3 py-2 rounded-xl bg-[#F4ECE1] border-2 border-[#1E1815] text-xs mono font-bold text-[#1E1815] focus:outline-none" />
+            <label class="block text-xs font-bold text-[#0A0A0A] mb-1">Nomor Owner (628xxx)</label>
+            <input id="vip-owner-number" type="tel" required placeholder="6281234567890" class="w-full px-3 py-2 rounded-xl bg-[#F7F7F7] border-2 border-[#0A0A0A] text-xs mono font-bold text-[#0A0A0A] focus:outline-none" />
           </div>
         </div>
 
         <!-- Checklist Kategori Menu -->
         <div class="space-y-2 pt-1">
           <div class="flex items-center justify-between">
-            <label class="block text-xs font-bold text-[#1E1815]">Checklist Kategori Menu Aktif</label>
+            <label class="block text-xs font-bold text-[#0A0A0A]">Checklist Kategori Menu Aktif</label>
             <div class="flex items-center gap-2 text-[11px] font-bold">
-              <button type="button" id="btn-check-all-cats" class="text-[#D94E34] hover:underline">Pilih Semua</button>
-              <span class="text-[#5C4E43]">•</span>
-              <button type="button" id="btn-uncheck-all-cats" class="text-[#5C4E43] hover:underline">Reset</button>
+              <button type="button" id="btn-check-all-cats" class="text-[#0A0A0A] hover:underline">Pilih Semua</button>
+              <span class="text-[#525252]">•</span>
+              <button type="button" id="btn-uncheck-all-cats" class="text-[#525252] hover:underline">Reset</button>
             </div>
           </div>
-          <p class="text-[11px] text-[#5C4E43]">Centang kategori fitur yang ingin diaktifkan dan ditampilkan saat pengguna mengetik <code class="mono font-bold text-[#1E1815]">.menu</code> di Jadibot kamu:</p>
+          <p class="text-[11px] text-[#525252]">Centang kategori fitur yang ingin diaktifkan dan ditampilkan saat pengguna mengetik <code class="mono font-bold text-[#0A0A0A]">.menu</code> di Jadibot kamu:</p>
 
           <div id="vip-categories-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1">
-            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] cursor-pointer text-xs font-bold text-[#1E1815]">
-              <input type="checkbox" name="vip_cat" value="main" checked class="accent-[#D94E34]" />
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] cursor-pointer text-xs font-bold text-[#0A0A0A]">
+              <input type="checkbox" name="vip_cat" value="main" checked class="accent-[#0A0A0A]" />
               <span>Main (Utama)</span>
             </label>
-            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] cursor-pointer text-xs font-bold text-[#1E1815]">
-              <input type="checkbox" name="vip_cat" value="download" checked class="accent-[#D94E34]" />
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] cursor-pointer text-xs font-bold text-[#0A0A0A]">
+              <input type="checkbox" name="vip_cat" value="download" checked class="accent-[#0A0A0A]" />
               <span>Downloader</span>
             </label>
-            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] cursor-pointer text-xs font-bold text-[#1E1815]">
-              <input type="checkbox" name="vip_cat" value="sticker" checked class="accent-[#D94E34]" />
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] cursor-pointer text-xs font-bold text-[#0A0A0A]">
+              <input type="checkbox" name="vip_cat" value="sticker" checked class="accent-[#0A0A0A]" />
               <span>Sticker</span>
             </label>
-            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] cursor-pointer text-xs font-bold text-[#1E1815]">
-              <input type="checkbox" name="vip_cat" value="tools" checked class="accent-[#D94E34]" />
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] cursor-pointer text-xs font-bold text-[#0A0A0A]">
+              <input type="checkbox" name="vip_cat" value="tools" checked class="accent-[#0A0A0A]" />
               <span>Tools &amp; Canvas</span>
             </label>
-            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] cursor-pointer text-xs font-bold text-[#1E1815]">
-              <input type="checkbox" name="vip_cat" value="group" checked class="accent-[#D94E34]" />
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] cursor-pointer text-xs font-bold text-[#0A0A0A]">
+              <input type="checkbox" name="vip_cat" value="group" checked class="accent-[#0A0A0A]" />
               <span>Group Admin</span>
             </label>
-            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] cursor-pointer text-xs font-bold text-[#1E1815]">
-              <input type="checkbox" name="vip_cat" value="game" checked class="accent-[#D94E34]" />
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] cursor-pointer text-xs font-bold text-[#0A0A0A]">
+              <input type="checkbox" name="vip_cat" value="game" checked class="accent-[#0A0A0A]" />
               <span>Minigames</span>
             </label>
-            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] cursor-pointer text-xs font-bold text-[#1E1815]">
-              <input type="checkbox" name="vip_cat" value="rpg" checked class="accent-[#D94E34]" />
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] cursor-pointer text-xs font-bold text-[#0A0A0A]">
+              <input type="checkbox" name="vip_cat" value="rpg" checked class="accent-[#0A0A0A]" />
               <span>RPG Adventure</span>
             </label>
-            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] cursor-pointer text-xs font-bold text-[#1E1815]">
-              <input type="checkbox" name="vip_cat" value="search" checked class="accent-[#D94E34]" />
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] cursor-pointer text-xs font-bold text-[#0A0A0A]">
+              <input type="checkbox" name="vip_cat" value="search" checked class="accent-[#0A0A0A]" />
               <span>Search</span>
             </label>
-            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] cursor-pointer text-xs font-bold text-[#1E1815]">
-              <input type="checkbox" name="vip_cat" value="ai" checked class="accent-[#D94E34]" />
+            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] cursor-pointer text-xs font-bold text-[#0A0A0A]">
+              <input type="checkbox" name="vip_cat" value="ai" checked class="accent-[#0A0A0A]" />
               <span>AI Assistant</span>
             </label>
           </div>
         </div>
 
-        <div class="pt-2 flex items-center justify-end gap-2 border-t-2 border-[#1E1815]/15">
+        <div class="pt-2 flex items-center justify-end gap-2 border-t-2 border-[#0A0A0A]/15">
           <button type="button" id="btn-load-vip-settings" class="retro-btn-secondary px-3.5 py-2 rounded-xl font-bold text-xs">
             Muat Data
           </button>
@@ -1710,7 +1889,7 @@
   </div>
 
   <!-- Toast Notification -->
-  <div id="toast" class="hidden fixed bottom-5 right-5 z-50 px-4 py-2.5 rounded-xl bg-[#1E1815] border-2 border-[#FAF5EE] text-[#FAF5EE] text-xs font-bold shadow-[4px_4px_0px_#D94E34]">
+  <div id="toast" class="hidden fixed bottom-5 right-5 z-50 px-4 py-2.5 rounded-xl bg-[#0A0A0A] border-2 border-[#FFFFFF] text-[#FFFFFF] text-xs font-bold shadow-[4px_4px_0px_#0A0A0A]">
     Berhasil
   </div>
 
@@ -1973,8 +2152,8 @@
         const roleUpper = (currentUser.role || 'free').toUpperCase();
         navRole.textContent = roleUpper;
         navRole.className = (roleUpper === 'VIP' || roleUpper === 'OWNER' || roleUpper === 'ADMIN')
-          ? 'text-[10px] mono uppercase px-1.5 py-0.5 rounded bg-[#D94E34] text-[#FAF5EE] border border-[#1E1815] font-bold'
-          : 'text-[10px] mono uppercase px-1.5 py-0.5 rounded bg-[#EFE4D4] text-[#1E1815] border border-[#1E1815] font-bold';
+          ? 'text-[10px] mono uppercase px-1.5 py-0.5 rounded bg-[#0A0A0A] text-[#FFFFFF] border border-[#0A0A0A] font-bold'
+          : 'text-[10px] mono uppercase px-1.5 py-0.5 rounded bg-[#EAEAEA] text-[#0A0A0A] border border-[#0A0A0A] font-bold';
 
         lockOverlay.classList.add('hidden');
         if (currentUser.whatsapp_number && (inputPhone.value === '628' || !inputPhone.value)) {
@@ -2001,14 +2180,14 @@
       authMode = mode;
       authErrorMsg.classList.add('hidden');
       if (mode === 'login') {
-        tabLogin.className = 'py-1.5 rounded-lg font-bold bg-[#1E1815] text-[#FAF5EE] transition';
-        tabRegister.className = 'py-1.5 rounded-lg font-bold text-[#5C4E43] hover:text-[#1E1815] transition';
+        tabLogin.className = 'py-1.5 rounded-lg font-bold bg-[#0A0A0A] text-[#FFFFFF] transition';
+        tabRegister.className = 'py-1.5 rounded-lg font-bold text-[#525252] hover:text-[#0A0A0A] transition';
         authPhoneWrap.classList.add('hidden');
         authModalTitle.textContent = 'Masuk ke Akun XenaMorph';
         btnSubmitAuthLabel.textContent = 'Masuk Sekarang';
       } else {
-        tabRegister.className = 'py-1.5 rounded-lg font-bold bg-[#1E1815] text-[#FAF5EE] transition';
-        tabLogin.className = 'py-1.5 rounded-lg font-bold text-[#5C4E43] hover:text-[#1E1815] transition';
+        tabRegister.className = 'py-1.5 rounded-lg font-bold bg-[#0A0A0A] text-[#FFFFFF] transition';
+        tabLogin.className = 'py-1.5 rounded-lg font-bold text-[#525252] hover:text-[#0A0A0A] transition';
         authPhoneWrap.classList.remove('hidden');
         authModalTitle.textContent = 'Daftar Akun Member Baru';
         btnSubmitAuthLabel.textContent = 'Buat Akun Sekarang';
@@ -2170,10 +2349,10 @@
     function addLog(text, type = 'info') {
       const box = document.getElementById('console-logs');
       const time = new Date().toLocaleTimeString('id-ID', { hour12: false });
-      const color = type === 'success' ? 'text-[#E59838]' : type === 'warn' ? 'text-[#D94E34]' : 'text-[#F4ECE1]/85';
+      const color = type === 'success' ? 'text-[#FFFFFF] font-bold' : type === 'warn' ? 'text-[#A3A3A3] underline' : 'text-[#F7F7F7]/85';
       const line = document.createElement('div');
       line.className = `${color} leading-relaxed`;
-      line.innerHTML = `<span class="text-[#F4ECE1]/40">[${time}]</span> ${text}`;
+      line.innerHTML = `<span class="text-[#F7F7F7]/40">[${time}]</span> ${text}`;
       box.appendChild(line);
       box.scrollTop = box.scrollHeight;
     }
@@ -2191,11 +2370,11 @@
     radioInputs.forEach(r => {
       r.addEventListener('change', () => {
         if (r.value === 'pairing') {
-          cardPairing.className = "cursor-pointer p-3 rounded-xl border-2 border-[#1E1815] bg-[#EFE4D4] shadow-[2px_2px_0px_#1E1815] flex items-start gap-2.5 transition";
-          cardQr.className = "cursor-pointer p-3 rounded-xl border-2 border-[#1E1815]/40 bg-[#F4ECE1] flex items-start gap-2.5 transition";
+          cardPairing.className = "cursor-pointer p-3 rounded-xl border-2 border-[#0A0A0A] bg-[#EAEAEA] shadow-[2px_2px_0px_#0A0A0A] flex items-start gap-2.5 transition";
+          cardQr.className = "cursor-pointer p-3 rounded-xl border-2 border-[#0A0A0A]/40 bg-[#F7F7F7] flex items-start gap-2.5 transition";
         } else {
-          cardQr.className = "cursor-pointer p-3 rounded-xl border-2 border-[#1E1815] bg-[#EFE4D4] shadow-[2px_2px_0px_#1E1815] flex items-start gap-2.5 transition";
-          cardPairing.className = "cursor-pointer p-3 rounded-xl border-2 border-[#1E1815]/40 bg-[#F4ECE1] flex items-start gap-2.5 transition";
+          cardQr.className = "cursor-pointer p-3 rounded-xl border-2 border-[#0A0A0A] bg-[#EAEAEA] shadow-[2px_2px_0px_#0A0A0A] flex items-start gap-2.5 transition";
+          cardPairing.className = "cursor-pointer p-3 rounded-xl border-2 border-[#0A0A0A]/40 bg-[#F7F7F7] flex items-start gap-2.5 transition";
         }
       });
     });
@@ -2205,7 +2384,7 @@
       const ctx = canvas.getContext('2d');
       ctx.fillStyle = '#ffffff';
       ctx.fillRect(0, 0, 180, 180);
-      ctx.fillStyle = '#1E1815';
+      ctx.fillStyle = '#0A0A0A';
 
       const cells = 21;
       const size = Math.floor(160 / cells);
@@ -2215,7 +2394,7 @@
         ctx.fillRect(offset + gx * size, offset + gy * size, 7 * size, 7 * size);
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(offset + (gx + 1) * size, offset + (gy + 1) * size, 5 * size, 5 * size);
-        ctx.fillStyle = '#1E1815';
+        ctx.fillStyle = '#0A0A0A';
         ctx.fillRect(offset + (gx + 2) * size, offset + (gy + 2) * size, 3 * size, 3 * size);
       };
 
@@ -2258,7 +2437,7 @@
       container.innerHTML = '';
 
       if (sessions.length === 0) {
-        container.innerHTML = `<div class="text-center py-6 text-xs text-[#5C4E43] font-medium">Belum ada sesi sub-bot yang aktif.</div>`;
+        container.innerHTML = `<div class="text-center py-6 text-xs text-[#525252] font-medium">Belum ada sesi sub-bot yang aktif.</div>`;
         return;
       }
 
@@ -2269,29 +2448,29 @@
         const displayedNumber = isOwnerOfSession ? `+${item.number}` : `+${maskPhoneNumber(item.number)}`;
 
         const actionButtonHtml = isOwnerOfSession
-          ? `<button data-stop="${item.number}" class="btn-stop-session px-2.5 py-1 rounded-lg bg-[#D94E34] hover:bg-[#B83B24] text-[#FAF5EE] border border-[#1E1815] text-[11px] font-bold transition">
+          ? `<button data-stop="${item.number}" class="btn-stop-session px-2.5 py-1 rounded-lg bg-[#0A0A0A] hover:bg-[#262626] text-[#FFFFFF] border border-[#0A0A0A] text-[11px] font-bold transition">
                Putuskan
              </button>`
-          : `<span title="Hanya pemilik nomor ini yang dapat memutuskan sesi" class="px-2 py-1 rounded-lg bg-[#F4ECE1] text-[#5C4E43] border border-[#1E1815]/40 text-[10px] mono font-bold inline-flex items-center gap-1 select-none cursor-not-allowed">
+          : `<span title="Hanya pemilik nomor ini yang dapat memutuskan sesi" class="px-2 py-1 rounded-lg bg-[#F7F7F7] text-[#525252] border border-[#0A0A0A]/40 text-[10px] mono font-bold inline-flex items-center gap-1 select-none cursor-not-allowed">
                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                <span>Milik User Lain</span>
              </span>`;
 
         const row = document.createElement('div');
-        row.className = "p-3 rounded-xl bg-[#EFE4D4] border-2 border-[#1E1815] flex items-center justify-between gap-3";
+        row.className = "p-3 rounded-xl bg-[#EAEAEA] border-2 border-[#0A0A0A] flex items-center justify-between gap-3";
         row.innerHTML = `
           <div class="flex items-center gap-2.5">
-            <span class="w-2.5 h-2.5 rounded-full border border-[#1E1815] ${isConn ? 'bg-[#D94E34]' : 'bg-[#E59838]'}"></span>
+            <span class="w-2.5 h-2.5 rounded-full border border-[#0A0A0A] ${isConn ? 'bg-[#0A0A0A]' : 'bg-[#E0E0E0]'}"></span>
             <div>
-              <div class="text-xs font-bold mono text-[#1E1815] flex items-center gap-1.5">
+              <div class="text-xs font-bold mono text-[#0A0A0A] flex items-center gap-1.5">
                 <span>${displayedNumber}</span>
-                ${isOwnerOfSession ? '<span class="text-[9px] px-1.5 py-0.2 rounded bg-[#E59838] text-[#1E1815] border border-[#1E1815] font-bold">MILIKMU</span>' : ''}
+                ${isOwnerOfSession ? '<span class="text-[9px] px-1.5 py-0.2 rounded bg-[#E0E0E0] text-[#0A0A0A] border border-[#0A0A0A] font-bold">MILIKMU</span>' : ''}
               </div>
-              <div class="text-[11px] text-[#5C4E43] font-medium">${item.name || 'Sub-Bot'} • ${mins}m</div>
+              <div class="text-[11px] text-[#525252] font-medium">${item.name || 'Sub-Bot'} • ${mins}m</div>
             </div>
           </div>
           <div class="flex items-center gap-2">
-            <span class="text-[10px] mono font-bold px-2 py-0.5 rounded bg-[#FAF5EE] text-[#1E1815] border border-[#1E1815]">
+            <span class="text-[10px] mono font-bold px-2 py-0.5 rounded bg-[#FFFFFF] text-[#0A0A0A] border border-[#0A0A0A]">
               ${item.status}
             </span>
             ${actionButtonHtml}
@@ -2323,7 +2502,7 @@
         const res = await fetch(`${baseUrl}/api/jadibot/list`, { cache: 'no-store' });
         const data = await res.json();
         if (data.ok) {
-          statusLabel.innerHTML = `Terhubung ke server Baileys (<code class="mono font-bold text-[#1E1815]">${baseUrl}</code>).`;
+          statusLabel.innerHTML = `Terhubung ke server Baileys (<code class="mono font-bold text-[#0A0A0A]">${baseUrl}</code>).`;
           renderSessionsList(data.sessions || []);
         } else {
           statusLabel.innerHTML = `Server merespon tetapi status belum siap.`;
@@ -2331,7 +2510,7 @@
         }
       } catch (err) {
         // JANGAN nyalakan Mode Simulasi otomatis supaya user tidak dapat kode palsu!
-        statusLabel.innerHTML = `Gagal menghubungi server API (<code class="mono font-bold text-[#D94E34]">${baseUrl}</code>). Pastikan bot di Pterodactyl menyala & port vercel.json sesuai.`;
+        statusLabel.innerHTML = `Gagal menghubungi server API (<code class="mono font-bold text-[#0A0A0A]">${baseUrl}</code>). Pastikan bot di Pterodactyl menyala & port vercel.json sesuai.`;
         renderSessionsList([]);
       }
     }
@@ -2670,15 +2849,15 @@
         const roleUpper = (currentUser.role || 'free').toUpperCase();
         roleBadge.textContent = roleUpper;
         roleBadge.className = isUserPremiumVip()
-          ? 'text-[10px] mono uppercase px-2 py-0.5 rounded bg-[#D94E34] text-[#FAF5EE] border border-[#1E1815] font-bold'
-          : 'text-[10px] mono uppercase px-2 py-0.5 rounded bg-[#FAF5EE] text-[#1E1815] border border-[#1E1815] font-bold';
+          ? 'text-[10px] mono uppercase px-2 py-0.5 rounded bg-[#0A0A0A] text-[#FFFFFF] border border-[#0A0A0A] font-bold'
+          : 'text-[10px] mono uppercase px-2 py-0.5 rounded bg-[#FFFFFF] text-[#0A0A0A] border border-[#0A0A0A] font-bold';
         unameEl.textContent = '@' + currentUser.username;
         waEl.textContent = currentUser.whatsapp_number ? ('+' + cleanDigits(currentUser.whatsapp_number)) : 'Nomor WA belum ditautkan';
         avatarBox.textContent = currentUser.username.slice(0, 2).toUpperCase();
         authBtnLabel.textContent = 'Keluar Akun (Logout)';
       } else {
         roleBadge.textContent = 'GUEST';
-        roleBadge.className = 'text-[10px] mono uppercase px-2 py-0.5 rounded bg-[#FAF5EE] text-[#1E1815] border border-[#1E1815] font-bold';
+        roleBadge.className = 'text-[10px] mono uppercase px-2 py-0.5 rounded bg-[#FFFFFF] text-[#0A0A0A] border border-[#0A0A0A] font-bold';
         unameEl.textContent = 'Belum Login';
         waEl.textContent = 'Silakan masuk untuk akses penuh';
         avatarBox.textContent = 'XM';
@@ -2885,6 +3064,55 @@
         vipSettingsModal.classList.add('hidden');
       }
     });
+
+
+    // ============================================================================
+    // ANIMASI FONT BERGERAK (KINETIC TYPEWRITER HERO)
+    // ============================================================================
+    (() => {
+      const typedEl = document.getElementById('kinetic-typed-text');
+      if (!typedEl) return;
+
+      const phrases = [
+        'Bot Otomatis',
+        'Sub-Bot Mandiri',
+        'Generator Canvas',
+        'Asisten AI 24/7',
+        'Penjaga Grup WA'
+      ];
+
+      let phraseIndex = 0;
+      let charIndex = phrases[0].length;
+      let isDeleting = true;
+
+      function tickTypewriter() {
+        const currentPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+          charIndex--;
+          typedEl.textContent = currentPhrase.substring(0, Math.max(1, charIndex));
+          if (charIndex <= 1) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            setTimeout(tickTypewriter, 180);
+            return;
+          }
+          setTimeout(tickTypewriter, 45);
+        } else {
+          const nextPhrase = phrases[phraseIndex];
+          charIndex++;
+          typedEl.textContent = nextPhrase.substring(0, charIndex);
+          if (charIndex >= nextPhrase.length) {
+            isDeleting = true;
+            setTimeout(tickTypewriter, 2100);
+            return;
+          }
+          setTimeout(tickTypewriter, 75);
+        }
+      }
+
+      setTimeout(tickTypewriter, 2200);
+    })();
 
     // Initial Boot
     function openAuthFromHash() {
